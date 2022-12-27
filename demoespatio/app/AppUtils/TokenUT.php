@@ -25,7 +25,7 @@ public function __construct(){}
 
 //----------------------------------------------------------
 // BEAUTIFUL AND MINIMAL TOKEN GENERATION FUNCTION
-// TOKEN GENERATOR - MIN 20 - MAX 500 characters
+// TOKEN GENERATOR - MIN 20 - MAX 500 characters.
 //----------------------------------------------------------
 
 public function generatorTokenUT($width=null)
