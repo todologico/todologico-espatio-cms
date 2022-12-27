@@ -8,6 +8,7 @@ use Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
+
 //----------------------------------------------------------
 // TOKEN GENERATOR
 //----------------------------------------------------------
@@ -21,43 +22,43 @@ class TokenUT extends Controller
 
 public function __construct(){}
 
+
 //----------------------------------------------------------
-// TOKEN GENERATOR
+// BEAUTIFUL AND MINIMAL TOKEN GENERATION FUNCTION
+// TOKEN GENERATOR - MIN 20 - MAX 500 characters
 //----------------------------------------------------------
 
-public function generatorTokenUT($width)
+public function generatorTokenUT($width=null)
 {
 
     $mytoken= null;
 
-    if(isset($width) and is_numeric($width)){
+    if(isset($width) and is_numeric($width) and $width>=20 and $width<=500){        
 
-        if($width>0){
-    
-            $chain1=Str::random($width); $chain2=Str::random(35); $chain3=Str::random(30); 
+       // working with 5 arrays        
+        for ($i = 1; $i <= 5; $i++) {
 
-            $hash1= password_hash($chain1, PASSWORD_DEFAULT);
-            $hash2= password_hash($chain2, PASSWORD_DEFAULT);
-            $hash3= password_hash($chain3, PASSWORD_DEFAULT);
+            $my_bytes = random_bytes(100); 
 
-            //hashing token with bcrypt
-            $mytoken=substr($hash1.$hash2.Hash::make($hash3),0,$width);    
+            $source_random_string= bin2hex($my_bytes);
+
+            $subtoken = Str::of($source_random_string)->swap(['/' => 's','=' => '_','?' => 'K','+' => 'd','$' => 'X','.' => 'U','c' => '_','6' => '_']);
+
+            $letter = Str::of($source_random_string)->substr(0,5).date('H').Str::random(1).date('i').Str::random(2).date('s');
             
-            //deleting strange characters unsuported by url browser system
-            $mytoken=str_replace("/","_",$mytoken); //urls are broken by /
-            $mytoken=str_replace("$","2n",$mytoken); // urls are broken by $
-            $mytoken=str_replace(".","7k",$mytoken); // urls are broken by $
+            $array_token[] = date('H').$letter.date('i').$letter.date('s').$subtoken;
+            
+        }   
 
-            //add time and user id
-            $mytoken=$mytoken.date('Y').date('m').date('d').date('H').date('i').date('s').'_'.Auth::id(); 
+        //random order to the array elements
+       shuffle($array_token);      
 
-            $width=$width-1;
-            $from=($width*-1);
-            $mytoken=substr($mytoken,$from,$width);  
+        //array to string
+       $mytoken=$letter.'_'.implode($array_token);  
 
-            $mytoken='A'.$mytoken;
-
-        }    
+      //subtring size
+      $mytoken = Str::of($mytoken)->substr(0,$width);        
+          
     }    
 
     return $mytoken;
