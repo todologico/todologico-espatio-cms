@@ -87,11 +87,8 @@ public function UploadArrayImageUT($onearray,$xxx_zzz_image,$imagename)
     if(isset($xxx_zzz_image)) {
 
         // store on disk: upload files - $imaxxx_zzz_imagege is array with images
-        $filenames= $this->UploadFileUT($xxx_zzz_image);
-
-      
-
-
+        $filenames= $this->UploadFileUT($xxx_zzz_image);     
+        
         if(isset($filenames)){
 
             foreach ($filenames as $key => $filename) {
