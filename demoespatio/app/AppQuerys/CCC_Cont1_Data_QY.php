@@ -22,7 +22,7 @@ use App\Models\ccc_cont1;
 
 class CCC_Cont1_Data_QY {
 
-public function __construct()
+protected function __construct()
 {
 
 }
@@ -38,7 +38,7 @@ public function __construct()
 // @return: object(Illuminate\Support\Collection
 //----------------------------------------------------------
 
-public function get_CCC_Cont1_QY($where=null,$orwhere=null,$orderby=null,$paginate=null,$limit=null)
+protected function get_CCC_Cont1_QY($where=null,$orwhere=null,$orderby=null,$paginate=null,$limit=null)
 {
 
     $records = DB::table('ccc_cont1')->select('ccc_cont1_id','ccc_cont1_name','ccc_cont1_surname','ccc_cont1_phone','ccc_cont1_cellphone','ccc_cont1_email','ccc_cont1_company','ccc_cont1_auxiliary1','ccc_cont1_auxiliary2','ccc_cont1_auxiliary3','ccc_cont1_auxiliary4','ccc_cont1_auxiliary5','ccc_cont1_text1','ccc_cont1_created_at','ccc_cont1_updated_at','ccc_cont1_token')
@@ -130,7 +130,7 @@ public function get_CCC_Cont1_QY($where=null,$orwhere=null,$orderby=null,$pagina
 // @return: int $delete
 //----------------------------------------------------------
 
-public function delete_CCC_Cont1_QY($ccc_cont1_id=null,$ccc_cont1_token=null)
+protected function delete_CCC_Cont1_QY($ccc_cont1_id=null,$ccc_cont1_token=null)
 {   
 
     $delete = false;

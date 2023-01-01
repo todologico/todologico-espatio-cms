@@ -22,7 +22,7 @@ use App\Models\bbp_prod1;
 
 class BBP_Prod1_Data_QY {
 
-public function __construct()
+protected function __construct()
 {
 
 }
@@ -40,7 +40,7 @@ public function __construct()
 
 
 
-public function get_BBP_Prod1_QY($where=null,$orwhere=null,$orderby=null,$paginate=null,$limit=null)
+protected function get_BBP_Prod1_QY($where=null,$orwhere=null,$orderby=null,$paginate=null,$limit=null)
 {
 
     $records = DB::table('bbp_prod1')->select('bbp_prod1_id','bbp_prod1_product','bbp_prod1_code','bbp_prod1_price1','bbp_prod1_title1','bbp_prod1_title2','bbp_prod1_title3','bbp_prod1_title4','bbp_prod1_title5','bbp_prod1_title6','bbp_prod1_text1','bbp_prod1_text2','bbp_prod1_text3','bbp_prod1_image1','bbp_prod1_image2','bbp_prod1_image3','bbp_prod1_image4','bbp_prod1_image5','bbp_prod1_image6','bbp_prod1_image7','bbp_prod1_image8','bbp_prod1_image9','bbp_prod1_image10','bbp_prod1_doc1','bbp_prod1_doc2','bbp_prod1_doc3','bbp_prod1_video1','bbp_prod1_video2','bbp_prod1_order','bbp_prod1_enable','bbp_prod1_created_at','bbp_prod1_updated_at','bbp_prod1_token')
@@ -133,7 +133,7 @@ public function get_BBP_Prod1_QY($where=null,$orwhere=null,$orderby=null,$pagina
 // @return: boolean false
 //----------------------------------------------------------
 
-public function insert_BBP_Prod1_QY($onearray=null)
+protected function insert_BBP_Prod1_QY($onearray=null)
 {
     $bbp_prod1_id=null;
 
@@ -152,7 +152,7 @@ public function insert_BBP_Prod1_QY($onearray=null)
 // @return: boolean
 //----------------------------------------------------------
 
-public function update_BBP_Prod1_QY($onearray=null,$bbp_prod1_id=null,$bbp_prod1_token=null)
+protected function update_BBP_Prod1_QY($onearray=null,$bbp_prod1_id=null,$bbp_prod1_token=null)
 {
    $update=null;
 
@@ -180,7 +180,7 @@ public function update_BBP_Prod1_QY($onearray=null,$bbp_prod1_id=null,$bbp_prod1
 // @return: int $delete
 //----------------------------------------------------------
 
-public function delete_BBP_Prod1_QY($bbp_prod1_id=null,$bbp_prod1_token=null)
+protected function delete_BBP_Prod1_QY($bbp_prod1_id=null,$bbp_prod1_token=null)
 {   
 
     $delete = false;

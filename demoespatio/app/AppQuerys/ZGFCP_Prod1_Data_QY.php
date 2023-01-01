@@ -22,7 +22,7 @@ use App\Models\zgfcp_prod1;
 
 class ZGFCP_Prod1_Data_QY {
 
-public function __construct()
+protected function __construct()
 {
 
 }
@@ -38,7 +38,7 @@ public function __construct()
 // @return: object(Illuminate\Support\Collection
 //----------------------------------------------------------
 
-public function get_ZGFCP_Prod1_QY($where=null,$orwhere=null,$orderby=null,$paginate=null,$limit=null)
+protected function get_ZGFCP_Prod1_QY($where=null,$orwhere=null,$orderby=null,$paginate=null,$limit=null)
 {
 
     $records = DB::table('zgfcp_prod1')
@@ -134,7 +134,7 @@ public function get_ZGFCP_Prod1_QY($where=null,$orwhere=null,$orderby=null,$pagi
 // @return: boolean false
 //----------------------------------------------------------
 
-public function insert_ZGFCP_Prod1_QY($onearray=null)
+protected function insert_ZGFCP_Prod1_QY($onearray=null)
 {
     $zgfcp_prod1_id=null;
 
@@ -153,7 +153,7 @@ public function insert_ZGFCP_Prod1_QY($onearray=null)
 // @return: boolean
 //----------------------------------------------------------
 
-public function update_ZGFCP_Prod1_QY($onearray=null,$zgfcp_prod1_id=null,$zgfcp_prod1_token=null)
+protected function update_ZGFCP_Prod1_QY($onearray=null,$zgfcp_prod1_id=null,$zgfcp_prod1_token=null)
 {
    $update=null;
 
@@ -181,7 +181,7 @@ public function update_ZGFCP_Prod1_QY($onearray=null,$zgfcp_prod1_id=null,$zgfcp
 // @return: int $delete
 //----------------------------------------------------------
 
-public function delete_ZGFCP_Prod1_QY($zgfcp_prod1_id=null,$zgfcp_prod1_token=null)
+protected function delete_ZGFCP_Prod1_QY($zgfcp_prod1_id=null,$zgfcp_prod1_token=null)
 {   
 
     $delete = false;
@@ -207,7 +207,7 @@ public function delete_ZGFCP_Prod1_QY($zgfcp_prod1_id=null,$zgfcp_prod1_token=nu
 // @return: int $totalcount
 //----------------------------------------------------------
 
-public function countCategory_ZGFCP_Prod1_QY($zgfcp_cate1_id=null,$zgfcp_cate1_token=null)
+protected function countCategory_ZGFCP_Prod1_QY($zgfcp_cate1_id=null,$zgfcp_cate1_token=null)
 {   
 
     $totalcount = 0;

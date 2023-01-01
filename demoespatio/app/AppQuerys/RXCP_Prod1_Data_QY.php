@@ -23,7 +23,7 @@ use App\Models\rxcp_prod1;
 
 class RXCP_Prod1_Data_QY {
 
-public function __construct()
+protected function __construct()
 {
 
 }
@@ -39,7 +39,7 @@ public function __construct()
 // @return: object(Illuminate\Support\Collection
 //----------------------------------------------------------
 
-public function get_RXCP_Prod1_QY($where=null,$orwhere=null,$orderby=null,$paginate=null,$limit=null)
+protected function get_RXCP_Prod1_QY($where=null,$orwhere=null,$orderby=null,$paginate=null,$limit=null)
 {
 
     $records = DB::table('rxcp_prod1')
@@ -134,7 +134,7 @@ public function get_RXCP_Prod1_QY($where=null,$orwhere=null,$orderby=null,$pagin
 // @return: boolean false
 //----------------------------------------------------------
 
-public function insert_RXCP_Prod1_QY($onearray=null)
+protected function insert_RXCP_Prod1_QY($onearray=null)
 {
     $rxcp_prod1_id=null;
 
@@ -153,7 +153,7 @@ public function insert_RXCP_Prod1_QY($onearray=null)
 // @return: boolean
 //----------------------------------------------------------
 
-public function update_RXCP_Prod1_QY($onearray=null,$rxcp_prod1_id=null,$rxcp_prod1_token=null)
+protected function update_RXCP_Prod1_QY($onearray=null,$rxcp_prod1_id=null,$rxcp_prod1_token=null)
 {
    $update=null;
 
@@ -181,7 +181,7 @@ public function update_RXCP_Prod1_QY($onearray=null,$rxcp_prod1_id=null,$rxcp_pr
 // @return: int $delete
 //----------------------------------------------------------
 
-public function delete_RXCP_Prod1_QY($rxcp_prod1_id=null,$rxcp_prod1_token=null)
+protected function delete_RXCP_Prod1_QY($rxcp_prod1_id=null,$rxcp_prod1_token=null)
 {   
 
     $delete = false;
@@ -207,7 +207,7 @@ public function delete_RXCP_Prod1_QY($rxcp_prod1_id=null,$rxcp_prod1_token=null)
 // @return: int $totalcount
 //----------------------------------------------------------
 
-public function countCategory_RXCP_Prod1_QY($rxcp_cate1_id=null,$rxcp_cate1_token=null)
+protected function countCategory_RXCP_Prod1_QY($rxcp_cate1_id=null,$rxcp_cate1_token=null)
 {   
 
     $totalcount = 0;

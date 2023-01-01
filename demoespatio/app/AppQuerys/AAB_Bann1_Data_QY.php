@@ -22,7 +22,7 @@ use App\Models\aab_bann1;
 
 class AAB_Bann1_Data_QY {
 
-public function __construct()
+protected function __construct()
 {
 
 }
@@ -38,7 +38,7 @@ public function __construct()
 // @return: object(Illuminate\Support\Collection
 //----------------------------------------------------------
 
-public function get_AAB_Bann1_QY($where=null,$orwhere=null,$orderby=null,$paginate=null,$limit=null)
+protected function get_AAB_Bann1_QY($where=null,$orwhere=null,$orderby=null,$paginate=null,$limit=null)
 {
 
     $records = DB::table('aab_bann1')->select('aab_bann1_id','aab_bann1_banner','aab_bann1_title1','aab_bann1_title2','aab_bann1_title3','aab_bann1_image1','aab_bann1_image2','aab_bann1_order','aab_bann1_enable','aab_bann1_created_at','aab_bann1_updated_at','aab_bann1_token')
@@ -131,7 +131,7 @@ public function get_AAB_Bann1_QY($where=null,$orwhere=null,$orderby=null,$pagina
 // @return: boolean false
 //----------------------------------------------------------
 
-public function insert_AAB_Bann1_QY($onearray=null)
+protected function insert_AAB_Bann1_QY($onearray=null)
 {
     $aab_bann1_id=null;
 
@@ -150,7 +150,7 @@ public function insert_AAB_Bann1_QY($onearray=null)
 // @return: boolean
 //----------------------------------------------------------
 
-public function update_AAB_Bann1_QY($onearray=null,$aab_bann1_id=null,$aab_bann1_token=null)
+protected function update_AAB_Bann1_QY($onearray=null,$aab_bann1_id=null,$aab_bann1_token=null)
 {
    $update=null;
 
@@ -178,7 +178,7 @@ public function update_AAB_Bann1_QY($onearray=null,$aab_bann1_id=null,$aab_bann1
 // @return: int $delete
 //----------------------------------------------------------
 
-public function delete_AAB_Bann1_QY($aab_bann1_id=null,$aab_bann1_token=null)
+protected function delete_AAB_Bann1_QY($aab_bann1_id=null,$aab_bann1_token=null)
 {   
 
     $delete = false;

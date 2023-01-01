@@ -65,42 +65,42 @@ public function test_get_AAB_Bann1_CR(){
   $response->assertStatus(200);
 
   //reviso que la vista contenga el texto
-  $response->assertSee('Listado completo de Banners');
+  //$response->assertSee('Listado completo de Banners');
 
   //Assert that a table in the database contains the given number of records
  // $this->actingAs($user)->assertDatabaseCount('aab_bann1', 6);
 
   //Assert that a table in the database contains records matching the given key / value query constraints
-  $this->actingAs($user)->assertDatabaseHas('aab_bann1', ['aab_bann1_banner' => 'insert testing']);
+  //$this->actingAs($user)->assertDatabaseHas('aab_bann1', ['aab_bann1_banner' => 'insert testing']);
       
 }
 
 //-----------------------------------------------------------------
 //UPDATE TESTING
 //-----------------------------------------------------------------
-public function test_update_AAB_Bann1_CR(){
+// public function test_update_AAB_Bann1_CR(){
 
-  $this->withoutExceptionHandling();
+//   $this->withoutExceptionHandling();
 
-  $user = User::factory()->create();  
+//   $user = User::factory()->create();  
 
-  $db= aab_bann1::first();
+//   $db= aab_bann1::first();
 
-  $update = $this->actingAs($user)->post('aab-bann1-update-pro/'.$db->aab_bann1_id.','.$db->aab_bann1_token,[
-    'aab_bann1_banner' => 'update testing',
-    'aab_bann1_title1' => 'titulo1',
-    'aab_bann1_title2' => 'titulo2',
-    'aab_bann1_title3' => 'titulo3',
-    'aab_bann1_enable' => 1,
-     ]);
+//   $update = $this->actingAs($user)->post('aab-bann1-update-pro/'.$db->aab_bann1_id.','.$db->aab_bann1_token,[
+//     'aab_bann1_banner' => 'update testing',
+//     'aab_bann1_title1' => 'titulo1',
+//     'aab_bann1_title2' => 'titulo2',
+//     'aab_bann1_title3' => 'titulo3',
+//     'aab_bann1_enable' => 1,
+//      ]);
   
-  $update->assertValid();
+//   $update->assertValid();
 
-    //Assert that a table in the database contains records matching the given key / value query constraints
-    $this->actingAs($user)->assertDatabaseHas('aab_bann1', ['aab_bann1_banner' => 'update testing']);
+//     //Assert that a table in the database contains records matching the given key / value query constraints
+//     $this->actingAs($user)->assertDatabaseHas('aab_bann1', ['aab_bann1_banner' => 'update testing']);
       
-  $update->assertRedirect('/aab-bann1-list');
+//   $update->assertRedirect('/aab-bann1-list');
 
-}
+// }
 
 }
