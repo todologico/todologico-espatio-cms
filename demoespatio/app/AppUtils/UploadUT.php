@@ -35,7 +35,7 @@ class UploadUT
         }
 */  
 
-public function UploadFileUT($myfiles = null)
+private function UploadFileUT($myfiles = null)
 {
     
     //----------------------------------------------------------
