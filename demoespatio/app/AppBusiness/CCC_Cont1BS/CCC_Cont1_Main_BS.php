@@ -22,10 +22,6 @@ use App\AppQuerys\CCC_Cont1_Data_QY;
 class CCC_Cont1_Main_BS extends CCC_Cont1_Data_QY
 {
 
-//----------------------------------------------------------
-// CONSTRUCTOR
-//----------------------------------------------------------
-
 public function __construct(Request $request)
 {
    $this->request=$request; 

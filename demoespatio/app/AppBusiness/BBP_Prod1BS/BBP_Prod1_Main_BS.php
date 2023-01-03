@@ -36,10 +36,6 @@ use App\AppUtils\TokenUT;
 class BBP_Prod1_Main_BS extends BBP_Prod1_Data_QY
 {
 
-//----------------------------------------------------------
-// CONSTRUCTOR
-//----------------------------------------------------------
-
 public function __construct(Request $request, UploadUT $uploadut, TokenUT $tokenut, BBP_Prod1_Validation_BS $validatebs)
 {
    $this->request=$request; 

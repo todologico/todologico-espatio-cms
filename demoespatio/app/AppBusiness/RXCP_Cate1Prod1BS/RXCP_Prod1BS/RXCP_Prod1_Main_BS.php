@@ -40,9 +40,6 @@ use App\AppUtils\TokenUT;
 class RXCP_Prod1_Main_BS extends RXCP_Prod1_Data_QY
 {
 
-//----------------------------------------------------------
-// CONSTRUCTOR
-//----------------------------------------------------------
 
 public function __construct(Request $request, UploadUT $uploadut, TokenUT $tokenut, RXCP_Prod1_Validation_BS $validatebs,RXCP_Cate1_Data_QY $rxcp_cate1qy)
 {

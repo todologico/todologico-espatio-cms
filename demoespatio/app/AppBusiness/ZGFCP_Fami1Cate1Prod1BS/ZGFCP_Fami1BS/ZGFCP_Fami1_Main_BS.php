@@ -35,10 +35,6 @@ use App\AppUtils\TokenUT;
 class ZGFCP_Fami1_Main_BS extends ZGFCP_Fami1_Data_QY
 {
 
-//----------------------------------------------------------
-// CONSTRUCTOR
-//----------------------------------------------------------
-
 public function __construct(Request $request, UploadUT $uploadut, TokenUT $tokenut, ZGFCP_Fami1_Validation_BS $validatebs)
 {
    $this->request=$request; 

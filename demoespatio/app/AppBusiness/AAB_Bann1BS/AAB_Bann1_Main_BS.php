@@ -36,10 +36,6 @@ use App\AppUtils\UploadUT;
 class AAB_Bann1_Main_BS extends AAB_Bann1_Data_QY
 {
 
-//----------------------------------------------------------
-// CONSTRUCTOR
-//----------------------------------------------------------
-
 public function __construct(Request $request, UploadUT $uploadut, TokenUT $tokenut, AAB_Bann1_Validation_BS $validatebs)
 {
    $this->request=$request; 

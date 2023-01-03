@@ -24,10 +24,6 @@ use Illuminate\Support\Facades\Storage;
 class RXCP_Prod1_Validation_BS
 {
 
-//----------------------------------------------------------
-// CONSTRUCTOR
-//----------------------------------------------------------
-
 public function __construct()
 {
 

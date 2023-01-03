@@ -25,15 +25,6 @@ class ZGFCP_Prod1_Validation_BS
 {
 
 //----------------------------------------------------------
-// CONSTRUCTOR
-//----------------------------------------------------------
-
-public function __construct()
-{
-
-}
-
-//----------------------------------------------------------
 // VALIDATE DATA
 // @param : 
 // @return: object(Illuminate\Pagination\LengthAwarePaginator) 
