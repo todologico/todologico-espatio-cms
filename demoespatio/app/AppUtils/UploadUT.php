@@ -66,8 +66,7 @@ private function UploadFileUT($myfiles = null)
                 
         } //foreach 
         
-    }   
-    
+    }  
 
     return $filenames;   
   
@@ -95,8 +94,6 @@ public function UploadArrayImageUT($onearray,$xxx_zzz_image,$imagename)
 
                 if(isset($filename)){
 
-                    //var_dump($key); exit;
-
                     //return images names
                     $mykey=$key+1;
                     $onearray[$imagename.$mykey] = $filename;
@@ -107,7 +104,7 @@ public function UploadArrayImageUT($onearray,$xxx_zzz_image,$imagename)
     } 
 
     return $onearray;
-    
+
 }
 
 
