@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
+use Exception;
 
 use App\AppBusiness\RXCP_Cate1Prod1BS\RXCP_Prod1BS\RXCP_Prod1_Main_BS;
 
@@ -52,23 +53,27 @@ public function __construct(RXCP_Prod1_Main_BS $rxcp_prod1bs)
 public function get_RXCP_Prod1_CR()
 {	
 
-	$backarray= $this->rxcp_prod1bs->get_RXCP_Prod1_BS();
+	try {
 
-	if($backarray['products']->isNotEmpty()){
+		$backarray= $this->rxcp_prod1bs->get_RXCP_Prod1_BS();
 
-		$categories=$backarray['categories'];
+		if($backarray['products']->isNotEmpty()){
+
+			$categories=$backarray['categories'];
+			
+			$products=$backarray['products'];
 		
-		$products=$backarray['products'];
-	
-		return view('rxcp_prod1.rxcp_prod1_list',compact('categories','products'));
+			return view('rxcp_prod1.rxcp_prod1_list',compact('categories','products'));
 
-	} 
+		} 
 
-	//--------------------------------------------------------------------------
-	//error message
-	$flash='No hay productos, aqui puedes agregar los que necesitas';			
-	return redirect()->route('rxcp-prod1-insert')->with('mal', $flash);
-	//--------------------------------------------------------------------------
+	throw new Exception();			
+
+	} catch (Exception $e) {
+
+		$flash='No hay productos, aqui puedes agregar los que necesitas';			
+		return redirect()->route('rxcp-prod1-insert')->with('mal', $flash);
+	}
 
 }
 
@@ -77,24 +82,28 @@ public function get_RXCP_Prod1_CR()
 //----------------------------------------------------------
 public function getSearch_RXCP_Prod1_CR()
 {	
+	try {
 
-	$backarray= $this->rxcp_prod1bs->getSearch_RXCP_Prod1_BS();
+		$backarray= $this->rxcp_prod1bs->getSearch_RXCP_Prod1_BS();
 
-	if($backarray['products']->isNotEmpty()){
+		if($backarray['products']->isNotEmpty()){
 
-		$categories=$backarray['categories'];
+			$categories=$backarray['categories'];
+			
+			$products=$backarray['products'];
 		
-		$products=$backarray['products'];
-	
-		return view('rxcp_prod1.rxcp_prod1_list',compact('categories','products'));
+			return view('rxcp_prod1.rxcp_prod1_list',compact('categories','products'));
 
-	} 
+		} 
 
-	//--------------------------------------------------------------------------
-	//error message
-	$flash='No hay resultados en la búsqueda';			
-	return redirect()->route('rxcp-prod1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------
+		throw new Exception();			
+
+	} catch (Exception $e) {
+
+		$flash='No hay resultados en la búsqueda';			
+		return redirect()->route('rxcp-prod1-list')->with('mal', $flash);
+
+	}
 
 }
 
@@ -103,30 +112,33 @@ public function getSearch_RXCP_Prod1_CR()
 //----------------------------------------------------------
 public function getSearchLink_RXCP_Prod1_CR($rxcp_cate1_id=null,$rxcp_cate1_token=null)
 {	
+	try {
 
-	if(isset($rxcp_cate1_id) and is_numeric($rxcp_cate1_id)){
+		if(isset($rxcp_cate1_id) and is_numeric($rxcp_cate1_id)){
 
-      if(isset($rxcp_cate1_token) and is_string($rxcp_cate1_token)){
+			if(isset($rxcp_cate1_token) and is_string($rxcp_cate1_token)){
 
-			$backarray= $this->rxcp_prod1bs->getSearchLink_RXCP_Prod1_BS($rxcp_cate1_id,$rxcp_cate1_token);
+				$backarray= $this->rxcp_prod1bs->getSearchLink_RXCP_Prod1_BS($rxcp_cate1_id,$rxcp_cate1_token);
 
-			if($backarray['products']->isNotEmpty()){
+				if($backarray['products']->isNotEmpty()){
 
-				$categories=$backarray['categories'];
+					$categories=$backarray['categories'];
+						
+					$products=$backarray['products'];
 					
-				$products=$backarray['products'];
-				
-				return view('rxcp_prod1.rxcp_prod1_list',compact('categories','products'));
-
+					return view('rxcp_prod1.rxcp_prod1_list',compact('categories','products'));
+				} 
 			} 
 		} 
-	} 
 
-	//--------------------------------------------------------------------------
-	//error message
-	$flash='No hay resultados en la búsqueda';			
-	return redirect()->route('rxcp-prod1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------
+		throw new Exception();			
+
+	} catch (Exception $e) {
+
+		$flash='No hay resultados en la búsqueda';			
+		return redirect()->route('rxcp-prod1-list')->with('mal', $flash);
+
+	}
 
 }
 
@@ -149,20 +161,24 @@ public function insert_RXCP_Prod1_CR()
 public function insertPro_RXCP_Prod1_CR()
 {	
 
-	//insert pro
-	$rxcp_prod1_id= $this->rxcp_prod1bs->insertPro_RXCP_Prod1_BS();	
+	try {
 
-	if(isset($rxcp_prod1_id) and is_numeric($rxcp_prod1_id)){
+		$rxcp_prod1_id= $this->rxcp_prod1bs->insertPro_RXCP_Prod1_BS();	
+
+		if(isset($rxcp_prod1_id) and is_numeric($rxcp_prod1_id)){
+			
+			return redirect()->route('rxcp-prod1-list');
 		
-   	return redirect()->route('rxcp-prod1-list');
-	
-	}
+		}
 
-	//--------------------------------------------------------------------------
-	//error message
+		throw new Exception();			
+
+	} catch (Exception $e) {
+
 	$flash='El producto no se pudo insertar.';			
-	return redirect()->route('rxcp-prod1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------
+	return redirect()->route('rxcp-prod1-list')->with('mal', $flash);	
+
+	}
 
 }
 
@@ -172,33 +188,34 @@ public function insertPro_RXCP_Prod1_CR()
 
 public function update_RXCP_Prod1_CR($rxcp_prod1_id=null,$rxcp_prod1_token=null)
 {	
-	$products=null;
+	try {
 
-	if(isset($rxcp_prod1_id) and is_numeric($rxcp_prod1_id)){
+		if(isset($rxcp_prod1_id) and is_numeric($rxcp_prod1_id)){
 
-      if(isset($rxcp_prod1_token) and is_string($rxcp_prod1_token)){
+			if(isset($rxcp_prod1_token) and is_string($rxcp_prod1_token)){
 
-			//update form
-			$backarray = $this->rxcp_prod1bs->update_RXCP_Prod1_BS($rxcp_prod1_id,$rxcp_prod1_token);
+				$backarray = $this->rxcp_prod1bs->update_RXCP_Prod1_BS($rxcp_prod1_id,$rxcp_prod1_token);
 
-			if($backarray['products']->isNotEmpty()){
+				if($backarray['products']->isNotEmpty()){
 
-				$categories = $backarray['categories'];
-				$products	= $backarray['products'];
-	
-				return view('rxcp_prod1.rxcp_prod1_update',compact('categories','products'));
-
-	 		} 
-
+					$categories = $backarray['categories'];
+					$products	= $backarray['products'];
+		
+					return view('rxcp_prod1.rxcp_prod1_update',compact('categories','products'));
+				} 
+			}		
 		}
-	
-	}
 
-	//--------------------------------------------------------------------------
-	//error message
-	$flash='El producto que buscas, no existe.';			
-	return redirect()->route('rxcp-prod1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------	
+		throw new Exception();			
+
+	} catch (Exception $e) {
+
+		//--------------------------------------------------------------------------
+		//error message
+		$flash='El producto que buscas, no existe.';			
+		return redirect()->route('rxcp-prod1-list')->with('mal', $flash);
+		//--------------------------------------------------------------------------	
+	}
 
 }
 
@@ -209,20 +226,22 @@ public function update_RXCP_Prod1_CR($rxcp_prod1_id=null,$rxcp_prod1_token=null)
 public function updatePro_RXCP_Prod1_CR()
 {	
 
-	//update pro
-	$updatepro= $this->rxcp_prod1bs->updatePro_RXCP_Prod1_BS();
+	try {
 
-	if(isset($updatepro) and $updatepro=='1'){
+		$updatepro= $this->rxcp_prod1bs->updatePro_RXCP_Prod1_BS();
 
-		return redirect()->route('rxcp-prod1-list');
+		if(isset($updatepro) and $updatepro=='1'){
 
-	}	
+			return redirect()->route('rxcp-prod1-list');
+		}
+		
+		throw new Exception();			
 
-	//--------------------------------------------------------------------------
-	//error message
-	$flash='El producto no se actualizo.';			
-	return redirect()->route('rxcp-prod1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------			
+	} catch (Exception $e) {
+
+		$flash='El producto no se actualizo.';			
+		return redirect()->route('rxcp-prod1-list')->with('mal', $flash);
+	}		
 
 }
 
@@ -232,28 +251,30 @@ public function updatePro_RXCP_Prod1_CR()
 
 public function deletePro_RXCP_Prod1_CR($rxcp_prod1_id=null,$rxcp_prod1_token=null)
 {	
+	try {
 
-   if(isset($rxcp_prod1_id) and is_numeric($rxcp_prod1_id)){
+		if(isset($rxcp_prod1_id) and is_numeric($rxcp_prod1_id)){
 
-      if(isset($rxcp_prod1_token) and is_string($rxcp_prod1_token)){
-
-			//delete pro
-			$deletepro = $this->rxcp_prod1bs->deletePro_RXCP_Prod1_BS($rxcp_prod1_id,$rxcp_prod1_token);
-
-			if(isset($deletepro) and $deletepro=='1'){
-
-	   		return redirect()->route('rxcp-prod1-list');
-
-			}	
-		}
-	
-	}
+			if(isset($rxcp_prod1_token) and is_string($rxcp_prod1_token)){
 				
-  	//--------------------------------------------------------------------------
-	//error message
-	$flash='El producto no se pudo eliminar.';			
-	return redirect()->route('rxcp-prod1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------	
+				$deletepro = $this->rxcp_prod1bs->deletePro_RXCP_Prod1_BS($rxcp_prod1_id,$rxcp_prod1_token);
+
+				if(isset($deletepro) and $deletepro=='1'){
+
+					return redirect()->route('rxcp-prod1-list');
+
+				}	
+			}
+			
+		}
+
+		throw new Exception();			
+
+	} catch (Exception $e) {
+				
+		$flash='El producto no se pudo eliminar.';			
+		return redirect()->route('rxcp-prod1-list')->with('mal', $flash);
+	}
 
 }
 
@@ -264,35 +285,30 @@ public function deletePro_RXCP_Prod1_CR($rxcp_prod1_id=null,$rxcp_prod1_token=nu
 public function clonePro_RXCP_Prod1_CR($rxcp_prod1_id=null,$rxcp_prod1_token=null)
 {	
 
-   if(isset($rxcp_prod1_id) and is_numeric($rxcp_prod1_id)){
+	try {
 
-      if(isset($rxcp_prod1_token) and is_string($rxcp_prod1_token)){
+		if(isset($rxcp_prod1_id) and is_numeric($rxcp_prod1_id)){
 
-			//$rxcp_prod1_id was inserted
-			$rxcp_prod1_id = $this->rxcp_prod1bs->clonePro_RXCP_Prod1_BS($rxcp_prod1_id,$rxcp_prod1_token);	
+			if(isset($rxcp_prod1_token) and is_string($rxcp_prod1_token)){
 
-			if(isset($rxcp_prod1_id) and is_numeric($rxcp_prod1_id)){
+				$rxcp_prod1_id = $this->rxcp_prod1bs->clonePro_RXCP_Prod1_BS($rxcp_prod1_id,$rxcp_prod1_token);	
 
-	   		return redirect()->route('rxcp-prod1-list');
+				if(isset($rxcp_prod1_id) and is_numeric($rxcp_prod1_id)){
 
-			}	
-
+					return redirect()->route('rxcp-prod1-list');
+				}
+			}			
 		}
-	
-	}
-				
-   //--------------------------------------------------------------------------
-	//error message
-	$flash='El producto no se pudo clonar.';			
-	return redirect()->route('rxcp-prod1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------	
 
+		throw new Exception();			
+
+	} catch (Exception $e) {
+					
+		$flash='El producto no se pudo clonar.';			
+		return redirect()->route('rxcp-prod1-list')->with('mal', $flash);
+	}
 
 }
-
-//----------------------------------------------------------
-//----------------------- IMAGES ---------------------------
-//----------------------------------------------------------
 
 //----------------------------------------------------------
 // GET - UPDATE IMAGES FORM PRODUCTS
@@ -300,33 +316,34 @@ public function clonePro_RXCP_Prod1_CR($rxcp_prod1_id=null,$rxcp_prod1_token=nul
 
 public function updateImages_RXCP_Prod1_CR($rxcp_prod1_id=null,$rxcp_prod1_token=null)
 {	
-	$products=null;
+	try {
 
-	if(isset($rxcp_prod1_id) and is_numeric($rxcp_prod1_id)){
+		if(isset($rxcp_prod1_id) and is_numeric($rxcp_prod1_id)){
 
-      if(isset($rxcp_prod1_token) and is_string($rxcp_prod1_token)){
+			if(isset($rxcp_prod1_token) and is_string($rxcp_prod1_token)){
 
-			//update form
-			$backarray = $this->rxcp_prod1bs->update_RXCP_Prod1_BS($rxcp_prod1_id,$rxcp_prod1_token);
+				//update form
+				$backarray = $this->rxcp_prod1bs->update_RXCP_Prod1_BS($rxcp_prod1_id,$rxcp_prod1_token);
 
-			if($backarray['products']->isNotEmpty()){
+				if($backarray['products']->isNotEmpty()){
 
-				$categories = $backarray['categories'];
-				$products	= $backarray['products'];
-	
-				return view('rxcp_prod1.rxcp_prod1_images',compact('categories','products'));
+					$categories = $backarray['categories'];
+					$products	= $backarray['products'];
 
-	 		} 
+					return view('rxcp_prod1.rxcp_prod1_images',compact('categories','products'));
 
+				} 
+			}		
 		}
-	
-	}
 
-	//--------------------------------------------------------------------------
-	//error message
-	$flash='El producto que buscas, no existe.';			
-	return redirect()->route('rxcp-prod1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------	
+		throw new Exception();			
+
+	} catch (Exception $e) {
+
+		$flash='El producto que buscas, no existe.';			
+		return redirect()->route('rxcp-prod1-list')->with('mal', $flash);
+
+	}
 
 }
 
@@ -337,19 +354,23 @@ public function updateImages_RXCP_Prod1_CR($rxcp_prod1_id=null,$rxcp_prod1_token
 public function updateImagesPro_RXCP_Prod1_CR()
 {	
 
-	//update pro
-	$backarray= $this->rxcp_prod1bs->updateImagesPro_RXCP_Prod1_BS();
+	try {
 
-	if(isset($backarray) and $backarray['updateimagespro']=='1'){
+		$backarray= $this->rxcp_prod1bs->updateImagesPro_RXCP_Prod1_BS();
 
-	   return redirect()->route('rxcp-prod1-images-update', ['rxcp_prod1_id' => $backarray['rxcp_prod1_id'],'rxcp_prod1_token' => $backarray['rxcp_prod1_token']]);
+		if(isset($backarray) and $backarray['updateimagespro']=='1'){
+
+			return redirect()->route('rxcp-prod1-images-update', ['rxcp_prod1_id' => $backarray['rxcp_prod1_id'],'rxcp_prod1_token' => $backarray['rxcp_prod1_token']]);
+		}
+
+		throw new Exception();			
+
+	} catch (Exception $e) {
+
+		$flash='la imagen no se pudo actualizar.';			
+		return redirect()->route('rxcp-prod1-list')->with('mal', $flash);
+
 	}
-
-   //--------------------------------------------------------------------------
-	//error message
-	$flash='la imagen no se pudo actualizar.';			
-	return redirect()->route('rxcp-prod1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------	
 			
 }
 
@@ -360,31 +381,32 @@ public function updateImagesPro_RXCP_Prod1_CR()
 public function deleteImagesPro_RXCP_Prod1_CR($rxcp_prod1_id=null,$rxcp_prod1_token=null,$image_number=null)
 {	
 
-   if(isset($rxcp_prod1_id) and is_numeric($rxcp_prod1_id)){
+	try {
 
-      if(isset($rxcp_prod1_token) and is_string($rxcp_prod1_token)){
+		if(isset($rxcp_prod1_id) and is_numeric($rxcp_prod1_id)){
 
-      	if(isset($image_number) and is_numeric($image_number)){
+			if(isset($rxcp_prod1_token) and is_string($rxcp_prod1_token)){
 
-				//delete image pro
-				$deleteimagespro = $this->rxcp_prod1bs->deleteImagesPro_RXCP_Prod1_BS($rxcp_prod1_id,$rxcp_prod1_token,$image_number);
+				if(isset($image_number) and is_numeric($image_number)){
 
-				if(isset($deleteimagespro) and $deleteimagespro=='1'){
+					$deleteimagespro = $this->rxcp_prod1bs->deleteImagesPro_RXCP_Prod1_BS($rxcp_prod1_id,$rxcp_prod1_token,$image_number);
 
-					return redirect()->route('rxcp-prod1-images-update', ['rxcp_prod1_id' => $rxcp_prod1_id,'rxcp_prod1_token' => $rxcp_prod1_token]);			
+					if(isset($deleteimagespro) and $deleteimagespro=='1'){
 
+						return redirect()->route('rxcp-prod1-images-update', ['rxcp_prod1_id' => $rxcp_prod1_id,'rxcp_prod1_token' => $rxcp_prod1_token]);
+
+					}
 				}
-
-			}
+			}			
 		}
-	
-	}
 
-	//--------------------------------------------------------------------------
-	//error message
-	$flash='La imagen no se pudo eliminar.';			
-	return redirect()->route('rxcp-prod1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------
+		throw new Exception();			
+
+	} catch (Exception $e) {
+
+		$flash='La imagen no se pudo eliminar.';			
+		return redirect()->route('rxcp-prod1-list')->with('mal', $flash);
+	}
 }
 
 //----------------------------------------------------------
@@ -394,18 +416,22 @@ public function deleteImagesPro_RXCP_Prod1_CR($rxcp_prod1_id=null,$rxcp_prod1_to
 public function order_RXCP_Prod1_CR()
 {	
 
-	$products= $this->rxcp_prod1bs->getOrder_RXCP_Prod1_BS();
+	try {
 
-	if(isset($products) and $products->isNotEmpty()){
+		$products= $this->rxcp_prod1bs->getOrder_RXCP_Prod1_BS();
 
-		return view('rxcp_prod1.rxcp_prod1_order',compact('products'));
-	} 
+		if(isset($products) and $products->isNotEmpty()){
 
-	//--------------------------------------------------------------------------
-	//error message
-	$flash='No hay productos, aqui puedes agregar los que necesitas';			
-	return redirect()->route('rxcp-prod1-insert')->with('mal', $flash);
-	//--------------------------------------------------------------------------
+			return view('rxcp_prod1.rxcp_prod1_order',compact('products'));
+		} 
+
+		throw new Exception();			
+
+	} catch (Exception $e) {
+
+		$flash='No hay productos, aqui puedes agregar los que necesitas';			
+		return redirect()->route('rxcp-prod1-insert')->with('mal', $flash);
+	}
 
 }
 
