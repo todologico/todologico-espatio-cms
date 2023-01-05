@@ -6,8 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
+use Exception;
 
 use App\AppBusiness\AAB_Bann1BS\AAB_Bann1_Main_BS;
+
+
 
 
 //----------------------------------------------------------
@@ -51,20 +54,27 @@ public function __construct(AAB_Bann1_Main_BS $aab_bann1_bs)
 public function get_AAB_Bann1_CR()
 {	
 
-	$banners= $this->aab_bann1_bs->get_AAB_Bann1_BS();
-
-	if($banners->isNotEmpty()){
+	try	{
 	
-		return view('aab_bann1.aab_bann1_list',compact('banners'));
+		$banners= $this->aab_bann1_bs->get_AAB_Bann1_BS();
 
-	 } 
+		if($banners->isNotEmpty()){
+		
+			return view('aab_bann1.aab_bann1_list',compact('banners'));
 
-	//--------------------------------------------------------------------------
-	//error message
-	$flash='No hay banners, aqui puedes agregar los que necesitas';			
-	return redirect()->route('aab-bann1-insert')->with('mal', $flash);
-	//--------------------------------------------------------------------------
+		} 
 
+		throw new Exception();			
+
+	} catch (Exception $e) {
+
+		//--------------------------------------------------------------------------
+		//error message
+		$flash='No hay banners, aqui puedes agregar los que necesitas';			
+		return redirect()->route('aab-bann1-insert')->with('mal', $flash);
+		//------------------------------------------------------------------
+
+	}
 }
 
 //----------------------------------------------------------
@@ -84,20 +94,27 @@ public function insert_AAB_Bann1_CR()
 public function insertPro_AAB_Bann1_CR()
 {	
 
-	//insert pro
-	$aab_bann1_id= $this->aab_bann1_bs->insertPro_AAB_Bann1_BS();	
+	try{
 
-	if(isset($aab_bann1_id) and is_numeric($aab_bann1_id)){
+		$aab_bann1_id= $this->aab_bann1_bs->insertPro_AAB_Bann1_BS();	
+
+		if(isset($aab_bann1_id) and is_numeric($aab_bann1_id)){
+			
+			return redirect()->route('aab-bann1-list');
 		
-   	return redirect()->route('aab-bann1-list');
-	
-	}
+		} 
 
-	//--------------------------------------------------------------------------
-	//error message
-	$flash='El banner no se pudo insertar.';			
-	return redirect()->route('aab-bann1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------
+		throw new Exception();	
+
+	} catch (Exception $e) {
+
+		//--------------------------------------------------------------------------
+		//error message
+		$flash='El banner no se pudo insertar.';			
+		return redirect()->route('aab-bann1-list')->with('mal', $flash);
+		//--------------------------------------------------------------------------
+
+	}
 
 }
 
@@ -107,30 +124,35 @@ public function insertPro_AAB_Bann1_CR()
 
 public function update_AAB_Bann1_CR($aab_bann1_id=null,$aab_bann1_token=null)
 {	
-	$banners=null;
-
-	if(isset($aab_bann1_id) and is_numeric($aab_bann1_id)){
-
-      if(isset($aab_bann1_token) and is_string($aab_bann1_token)){
-
-			//update form
-			$banners = $this->aab_bann1_bs->update_AAB_Bann1_BS($aab_bann1_id,$aab_bann1_token);
-
-			if($banners->isNotEmpty()){
 	
-				return view('aab_bann1.aab_bann1_update',compact('banners'));
+	try {
 
-	 		} 
+			if(isset($aab_bann1_id) and is_numeric($aab_bann1_id)){
 
-		}
-	
+				if(isset($aab_bann1_token) and is_string($aab_bann1_token)){
+
+					//update form
+					$banners = $this->aab_bann1_bs->update_AAB_Bann1_BS($aab_bann1_id,$aab_bann1_token);
+
+					if($banners->isNotEmpty()){
+			
+						return view('aab_bann1.aab_bann1_update',compact('banners'));
+				
+					} 	
+				} 	
+			}	
+			
+			throw new Exception();			
+
+	} catch (Exception $e) {
+
+		//--------------------------------------------------------------------------
+		//error message
+		$flash='El banner que buscas, no existe.';			
+		return redirect()->route('aab-bann1-list')->with('mal', $flash);
+		//--------------------------------------------------------------------------	
+
 	}
-
-	//--------------------------------------------------------------------------
-	//error message
-	$flash='El banner que buscas, no existe.';			
-	return redirect()->route('aab-bann1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------	
 
 }
 
@@ -142,20 +164,27 @@ public function update_AAB_Bann1_CR($aab_bann1_id=null,$aab_bann1_token=null)
 public function updatePro_AAB_Bann1_CR()
 {	
 
-	//update pro
-	$updatepro= $this->aab_bann1_bs->updatePro_AAB_Bann1_BS();
+	try {
 
-	if(isset($updatepro) and $updatepro=='1'){
+		$updatepro= $this->aab_bann1_bs->updatePro_AAB_Bann1_BS();
 
-	   return redirect()->route('aab-bann1-list');
+		if(isset($updatepro) and $updatepro=='1'){
 
-	}	
+			return redirect()->route('aab-bann1-list');
+
+		}	
+
+		throw new Exception();
+
+	} catch(Exception $e){
 
 	//--------------------------------------------------------------------------
 	//error message
 	$flash='El banner no se pudo actualizar.';			
 	return redirect()->route('aab-bann1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------			
+	//--------------------------------------------------------------------------	
+	
+	}
 
 }
 
@@ -166,27 +195,34 @@ public function updatePro_AAB_Bann1_CR()
 public function deletePro_AAB_Bann1_CR($aab_bann1_id=null,$aab_bann1_token=null)
 {	
 
-   if(isset($aab_bann1_id) and is_numeric($aab_bann1_id)){
+	try {
 
-      if(isset($aab_bann1_token) and is_string($aab_bann1_token)){
+		if(isset($aab_bann1_id) and is_numeric($aab_bann1_id)){
 
-			//delete pro
-			$deletepro = $this->aab_bann1_bs->deletePro_AAB_Bann1_BS($aab_bann1_id,$aab_bann1_token);
+			if(isset($aab_bann1_token) and is_string($aab_bann1_token)){
 
-			if(isset($deletepro) and $deletepro=='1'){
+				//delete pro
+				$deletepro = $this->aab_bann1_bs->deletePro_AAB_Bann1_BS($aab_bann1_id,$aab_bann1_token);
 
-	   		return redirect()->route('aab-bann1-list');
+				if(isset($deletepro) and $deletepro=='1'){
 
-			}	
+					return redirect()->route('aab-bann1-list');
+
+				}	
+			}			
 		}
-	
-	}
+
+		throw new Exception();	
+
+	} catch(Exception $e){		
 				
   	//--------------------------------------------------------------------------
 	//error message
 	$flash='El banner no se pudo eliminar.';			
 	return redirect()->route('aab-bann1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------	
+	//--------------------------------------------------------------------------
+	
+	}
 }
 
 //----------------------------------------------------------
@@ -196,28 +232,33 @@ public function deletePro_AAB_Bann1_CR($aab_bann1_id=null,$aab_bann1_token=null)
 public function clonePro_AAB_Bann1_CR($aab_bann1_id=null,$aab_bann1_token=null)
 {	
 
-   if(isset($aab_bann1_id) and is_numeric($aab_bann1_id)){
+	try {
 
-      if(isset($aab_bann1_token) and is_string($aab_bann1_token)){
+		if(isset($aab_bann1_id) and is_numeric($aab_bann1_id)){
 
-			//$aab_bann1_id was inserted
-			$aab_bann1_id = $this->aab_bann1_bs->clonePro_AAB_Bann1_BS($aab_bann1_id,$aab_bann1_token);	
+			if(isset($aab_bann1_token) and is_string($aab_bann1_token)){
 
-			if(isset($aab_bann1_id) and is_numeric($aab_bann1_id)){
+				//$aab_bann1_id was inserted
+				$aab_bann1_id = $this->aab_bann1_bs->clonePro_AAB_Bann1_BS($aab_bann1_id,$aab_bann1_token);	
 
-	   		return redirect()->route('aab-bann1-list');
+				if(isset($aab_bann1_id) and is_numeric($aab_bann1_id)){
 
-			}	
+					return redirect()->route('aab-bann1-list');
 
+				}
+			}			
 		}
-	
+
+		throw new Exception();
+
+	} catch(Exception $e) {
+			
+		//--------------------------------------------------------------------------
+		//error message
+		$flash='El banner no se pudo clonar.';			
+		return redirect()->route('aab-bann1-list')->with('mal', $flash);
+		//--------------------------------------------------------------------------
 	}
-				
-   //--------------------------------------------------------------------------
-	//error message
-	$flash='El banner no se pudo clonar.';			
-	return redirect()->route('aab-bann1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------	
 }
 
 //----------------------------------------------------------
@@ -230,30 +271,33 @@ public function clonePro_AAB_Bann1_CR($aab_bann1_id=null,$aab_bann1_token=null)
 
 public function updateImages_AAB_Bann1_CR($aab_bann1_id=null,$aab_bann1_token=null)
 {	
-	$banners=null;
+	try{
 
-	if(isset($aab_bann1_id) and is_numeric($aab_bann1_id)){
+		if(isset($aab_bann1_id) and is_numeric($aab_bann1_id)){
 
-      if(isset($aab_bann1_token) and is_string($aab_bann1_token)){
+			if(isset($aab_bann1_token) and is_string($aab_bann1_token)){
 
-			//update form
-			$banners = $this->aab_bann1_bs->update_AAB_Bann1_BS($aab_bann1_id,$aab_bann1_token);
+				//update form
+				$banners = $this->aab_bann1_bs->update_AAB_Bann1_BS($aab_bann1_id,$aab_bann1_token);
 
-			if($banners->isNotEmpty()){
-	
-				return view('aab_bann1.aab_bann1_images',compact('banners'));
+				if($banners->isNotEmpty()){
+		
+					return view('aab_bann1.aab_bann1_images',compact('banners'));
 
-	 		} 
-
+				} 
+			}		
 		}
-	
-	}
 
-	//--------------------------------------------------------------------------
-	//error message
-	$flash='El banner que buscas, no existe.';			
-	return redirect()->route('aab-bann1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------	
+		throw new Exception();
+
+	} catch(Exception $e){
+
+		//--------------------------------------------------------------------------
+		//error message
+		$flash='El banner que buscas, no existe.';			
+		return redirect()->route('aab-bann1-list')->with('mal', $flash);
+		//--------------------------------------------------------------------------	
+	}
 
 }
 
@@ -263,20 +307,27 @@ public function updateImages_AAB_Bann1_CR($aab_bann1_id=null,$aab_bann1_token=nu
 
 public function updateImagesPro_AAB_Bann1_CR()
 {	
+	try {
 
-	//update pro
-	$backarray= $this->aab_bann1_bs->updateImagesPro_AAB_Bann1_BS();
+		//update pro
+		$backarray= $this->aab_bann1_bs->updateImagesPro_AAB_Bann1_BS();
 
-	if(isset($backarray) and $backarray['updateimagespro']=='1'){
+		if(isset($backarray) and $backarray['updateimagespro']=='1'){
 
-	   return redirect()->route('aab-bann1-images-update', ['aab_bann1_id' => $backarray['aab_bann1_id'],'aab_bann1_token' => $backarray['aab_bann1_token']]);
-	}
+			return redirect()->route('aab-bann1-images-update', ['aab_bann1_id' => $backarray['aab_bann1_id'],'aab_bann1_token' => $backarray['aab_bann1_token']]);
+		
+		}
 
-   //--------------------------------------------------------------------------
-	//error message
-	$flash='la imagen no se pudo actualizar.';			
-	return redirect()->route('aab-bann1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------	
+		throw new Exception();
+
+	} catch(Exception $e){
+
+		//--------------------------------------------------------------------------
+		//error message
+		$flash='la imagen no se pudo actualizar.';			
+		return redirect()->route('aab-bann1-list')->with('mal', $flash);
+		//--------------------------------------------------------------------------
+	}	
 			
 }
 
@@ -287,31 +338,36 @@ public function updateImagesPro_AAB_Bann1_CR()
 public function deleteImagesPro_AAB_Bann1_CR($aab_bann1_id=null,$aab_bann1_token=null,$image_number=null)
 {	
 
-   if(isset($aab_bann1_id) and is_numeric($aab_bann1_id)){
+	try {
 
-      if(isset($aab_bann1_token) and is_string($aab_bann1_token)){
+		if(isset($aab_bann1_id) and is_numeric($aab_bann1_id)){
 
-      	if(isset($image_number) and is_numeric($image_number)){
+			if(isset($aab_bann1_token) and is_string($aab_bann1_token)){
 
-				//delete image pro
-				$deleteimagespro = $this->aab_bann1_bs->deleteImagesPro_AAB_Bann1_BS($aab_bann1_id,$aab_bann1_token,$image_number);
+				if(isset($image_number) and is_numeric($image_number)){
 
-				if(isset($deleteimagespro) and $deleteimagespro=='1'){
+					//delete image pro
+					$deleteimagespro = $this->aab_bann1_bs->deleteImagesPro_AAB_Bann1_BS($aab_bann1_id,$aab_bann1_token,$image_number);
 
-					return redirect()->route('aab-bann1-images-update', ['aab_bann1_id' => $aab_bann1_id,'aab_bann1_token' => $aab_bann1_token]);			
+					if(isset($deleteimagespro) and $deleteimagespro=='1'){
 
+						return redirect()->route('aab-bann1-images-update', ['aab_bann1_id' => $aab_bann1_id,'aab_bann1_token' => $aab_bann1_token]);			
+
+					}
 				}
-
-			}
+			}		
 		}
-	
-	}
 
-	//--------------------------------------------------------------------------
-	//error message
-	$flash='La imagen no se pudo eliminar.';			
-	return redirect()->route('aab-bann1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------
+		throw new Exception();
+
+	} catch(Exception $e){
+
+		//--------------------------------------------------------------------------
+		//error message
+		$flash='La imagen no se pudo eliminar.';			
+		return redirect()->route('aab-bann1-list')->with('mal', $flash);
+		//--------------------------------------------------------------------------
+	}
 }
 
 //----------------------------------------------------------
@@ -320,19 +376,25 @@ public function deleteImagesPro_AAB_Bann1_CR($aab_bann1_id=null,$aab_bann1_token
 
 public function order_AAB_Bann1_CR()
 {	
+	try {
 
-	$banners= $this->aab_bann1_bs->getOrder_AAB_Bann1_BS();
+		$banners= $this->aab_bann1_bs->getOrder_AAB_Bann1_BS();
 
-	if(isset($banners) and $banners->isNotEmpty()){
+		if(isset($banners) and $banners->isNotEmpty()){
 
-		return view('aab_bann1.aab_bann1_order',compact('banners'));
-	} 
+			return view('aab_bann1.aab_bann1_order',compact('banners'));
+		} 
 
-	//--------------------------------------------------------------------------
-	//error message
-	$flash='No hay banners, aqui puedes agregar los que necesitas';			
-	return redirect()->route('aab-bann1-insert')->with('mal', $flash);
-	//--------------------------------------------------------------------------
+		throw new Exception();
+
+	} catch(Exception $e){
+
+		//--------------------------------------------------------------------------
+		//error message
+		$flash='No hay banners, aqui puedes agregar los que necesitas';			
+		return redirect()->route('aab-bann1-insert')->with('mal', $flash);
+		//--------------------------------------------------------------------------
+	}
 
 }
 
