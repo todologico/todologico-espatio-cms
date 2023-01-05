@@ -168,7 +168,7 @@ public function update_BBP_Prod1_CR($bbp_prod1_id=null,$bbp_prod1_token=null)
 
 	} catch (Exception $e) {
 
-		$flash='El producto que buscas, no existe.';			
+		$flash='El producto buscado no existe.';			
 		return redirect()->route('bbp-prod1-list')->with('mal', $flash);
 	}
 
@@ -318,8 +318,7 @@ public function updateImagesPro_BBP_Prod1_CR()
 
 		if(isset($backarray) and $backarray['updateimagespro']=='1'){
 
-			return redirect()->route('bbp-prod1-images-update', ['bbp_prod1_id' => $backarray['bbp_prod1_id'],'bbp_prod1_token' => $backarray['bbp_prod1_token']]);
-		
+			return redirect()->route('bbp-prod1-images-update', ['bbp_prod1_id' => $backarray['bbp_prod1_id'],'bbp_prod1_token' => $backarray['bbp_prod1_token']]);		
 		}
 
 		throw new Exception();			
