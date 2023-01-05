@@ -10,9 +10,6 @@ use Exception;
 
 use App\AppBusiness\AAB_Bann1BS\AAB_Bann1_Main_BS;
 
-
-
-
 //----------------------------------------------------------
 // BANNERS CONTROLLER
 //----------------------------------------------------------
@@ -68,11 +65,8 @@ public function get_AAB_Bann1_CR()
 
 	} catch (Exception $e) {
 
-		//--------------------------------------------------------------------------
-		//error message
 		$flash='No hay banners, aqui puedes agregar los que necesitas';			
 		return redirect()->route('aab-bann1-insert')->with('mal', $flash);
-		//------------------------------------------------------------------
 
 	}
 }
@@ -108,12 +102,8 @@ public function insertPro_AAB_Bann1_CR()
 
 	} catch (Exception $e) {
 
-		//--------------------------------------------------------------------------
-		//error message
 		$flash='El banner no se pudo insertar.';			
 		return redirect()->route('aab-bann1-list')->with('mal', $flash);
-		//--------------------------------------------------------------------------
-
 	}
 
 }
@@ -146,16 +136,11 @@ public function update_AAB_Bann1_CR($aab_bann1_id=null,$aab_bann1_token=null)
 
 	} catch (Exception $e) {
 
-		//--------------------------------------------------------------------------
-		//error message
 		$flash='El banner que buscas, no existe.';			
 		return redirect()->route('aab-bann1-list')->with('mal', $flash);
-		//--------------------------------------------------------------------------	
-
 	}
 
 }
-
 
 //----------------------------------------------------------
 // POST - UPDATE DATA PRO BANNERS
@@ -178,11 +163,8 @@ public function updatePro_AAB_Bann1_CR()
 
 	} catch(Exception $e){
 
-	//--------------------------------------------------------------------------
-	//error message
-	$flash='El banner no se pudo actualizar.';			
-	return redirect()->route('aab-bann1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------	
+		$flash='El banner no se pudo actualizar.';			
+		return redirect()->route('aab-bann1-list')->with('mal', $flash);
 	
 	}
 
@@ -216,11 +198,8 @@ public function deletePro_AAB_Bann1_CR($aab_bann1_id=null,$aab_bann1_token=null)
 
 	} catch(Exception $e){		
 				
-  	//--------------------------------------------------------------------------
-	//error message
-	$flash='El banner no se pudo eliminar.';			
-	return redirect()->route('aab-bann1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------
+		$flash='El banner no se pudo eliminar.';			
+		return redirect()->route('aab-bann1-list')->with('mal', $flash);
 	
 	}
 }
@@ -253,17 +232,11 @@ public function clonePro_AAB_Bann1_CR($aab_bann1_id=null,$aab_bann1_token=null)
 
 	} catch(Exception $e) {
 			
-		//--------------------------------------------------------------------------
-		//error message
 		$flash='El banner no se pudo clonar.';			
 		return redirect()->route('aab-bann1-list')->with('mal', $flash);
-		//--------------------------------------------------------------------------
 	}
 }
 
-//----------------------------------------------------------
-//----------------------- IMAGES ---------------------------
-//----------------------------------------------------------
 
 //----------------------------------------------------------
 // GET - UPDATE IMAGES FORM BANNERS
@@ -292,11 +265,8 @@ public function updateImages_AAB_Bann1_CR($aab_bann1_id=null,$aab_bann1_token=nu
 
 	} catch(Exception $e){
 
-		//--------------------------------------------------------------------------
-		//error message
 		$flash='El banner que buscas, no existe.';			
 		return redirect()->route('aab-bann1-list')->with('mal', $flash);
-		//--------------------------------------------------------------------------	
 	}
 
 }
@@ -322,11 +292,9 @@ public function updateImagesPro_AAB_Bann1_CR()
 
 	} catch(Exception $e){
 
-		//--------------------------------------------------------------------------
-		//error message
 		$flash='la imagen no se pudo actualizar.';			
 		return redirect()->route('aab-bann1-list')->with('mal', $flash);
-		//--------------------------------------------------------------------------
+
 	}	
 			
 }
@@ -362,11 +330,8 @@ public function deleteImagesPro_AAB_Bann1_CR($aab_bann1_id=null,$aab_bann1_token
 
 	} catch(Exception $e){
 
-		//--------------------------------------------------------------------------
-		//error message
 		$flash='La imagen no se pudo eliminar.';			
 		return redirect()->route('aab-bann1-list')->with('mal', $flash);
-		//--------------------------------------------------------------------------
 	}
 }
 
@@ -389,11 +354,8 @@ public function order_AAB_Bann1_CR()
 
 	} catch(Exception $e){
 
-		//--------------------------------------------------------------------------
-		//error message
 		$flash='No hay banners, aqui puedes agregar los que necesitas';			
 		return redirect()->route('aab-bann1-insert')->with('mal', $flash);
-		//--------------------------------------------------------------------------
 	}
 
 }
@@ -413,7 +375,7 @@ public function orderPro_AAB_Bann1_CR()
 	$backarray= $this->aab_bann1_bs->orderPro_AAB_Bann1_BS();	
 		
    return $backarray;
-
+   
 }
 
 //----------------------------------------------------------
