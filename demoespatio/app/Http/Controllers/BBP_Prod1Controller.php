@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
+use Exception;
 
 use App\AppBusiness\BBP_Prod1BS\BBP_Prod1_Main_BS;
 
@@ -53,19 +54,23 @@ public function __construct(BBP_Prod1_Main_BS $bbp_prod1bs)
 public function get_BBP_Prod1_CR()
 {	
 
-	$products= $this->bbp_prod1bs->get_BBP_Prod1_BS();
+	try {
 
-	if($products->isNotEmpty()){
-	
-		return view('bbp_prod1.bbp_prod1_list',compact('products'));
+		$products= $this->bbp_prod1bs->get_BBP_Prod1_BS();
 
-	} 
+		if($products->isNotEmpty()){
+		
+			return view('bbp_prod1.bbp_prod1_list',compact('products'));
 
-	//--------------------------------------------------------------------------
-	//error message
-	$flash='No hay productos, aqui puedes agregar los que necesitas';			
-	return redirect()->route('bbp-prod1-insert')->with('mal', $flash);
-	//--------------------------------------------------------------------------
+		}
+
+		throw new Exception();			
+
+	} catch (Exception $e) {
+
+		$flash='No hay productos, aqui puedes agregar los que necesitas';			
+		return redirect()->route('bbp-prod1-insert')->with('mal', $flash);
+	}
 
 }
 
@@ -76,22 +81,24 @@ public function get_BBP_Prod1_CR()
 public function getSearch_BBP_Prod1_CR()
 {	
 
-	$products= $this->bbp_prod1bs->getSearch_BBP_Prod1_BS();
+	try {
 
-	if($products->isNotEmpty()){
-	
-		return view('bbp_prod1.bbp_prod1_list',compact('products'));
+		$products= $this->bbp_prod1bs->getSearch_BBP_Prod1_BS();
 
-	} 
+		if($products->isNotEmpty()){
+		
+			return view('bbp_prod1.bbp_prod1_list',compact('products'));
+		} 
 
-	//--------------------------------------------------------------------------
-	//error message
-	$flash='No hay productos en la búsqueda';			
-	return redirect()->route('bbp-prod1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------
+		throw new Exception();			
+
+	} catch (Exception $e) {
+
+		$flash='No hay productos en la búsqueda';			
+		return redirect()->route('bbp-prod1-list')->with('mal', $flash);
+
+	}
 }
-
-
 
 //----------------------------------------------------------
 // GET - INSERT FORM PRODUCTS
@@ -110,20 +117,27 @@ public function insert_BBP_Prod1_CR()
 public function insertPro_BBP_Prod1_CR()
 {	
 
-	//insert pro
-	$bbp_prod1_id= $this->bbp_prod1bs->insertPro_BBP_Prod1_BS();	
+	try {
 
-	if(isset($bbp_prod1_id) and is_numeric($bbp_prod1_id)){
+		//insert pro
+		$bbp_prod1_id= $this->bbp_prod1bs->insertPro_BBP_Prod1_BS();	
+
+		if(isset($bbp_prod1_id) and is_numeric($bbp_prod1_id)){
+			
+			return redirect()->route('bbp-prod1-list');
 		
-   	return redirect()->route('bbp-prod1-list');
-	
-	}
+		}
 
-	//--------------------------------------------------------------------------
-	//error message
-	$flash='El producto no se pudo insertar.';			
-	return redirect()->route('bbp-prod1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------
+		throw new Exception();			
+
+	} catch (Exception $e) {
+
+		//--------------------------------------------------------------------------
+		//error message
+		$flash='El producto no se pudo insertar.';			
+		return redirect()->route('bbp-prod1-list')->with('mal', $flash);
+		//--------------------------------------------------------------------------
+	}
 
 }
 
@@ -133,30 +147,30 @@ public function insertPro_BBP_Prod1_CR()
 
 public function update_BBP_Prod1_CR($bbp_prod1_id=null,$bbp_prod1_token=null)
 {	
-	$products=null;
 
-	if(isset($bbp_prod1_id) and is_numeric($bbp_prod1_id)){
+	try {
 
-      if(isset($bbp_prod1_token) and is_string($bbp_prod1_token)){
+		if(isset($bbp_prod1_id) and is_numeric($bbp_prod1_id)){
 
-			//update form
-			$products = $this->bbp_prod1bs->update_BBP_Prod1_BS($bbp_prod1_id,$bbp_prod1_token);
+			if(isset($bbp_prod1_token) and is_string($bbp_prod1_token)){
 
-			if($products->isNotEmpty()){
-	
-				return view('bbp_prod1.bbp_prod1_update',compact('products'));
+				//update form
+				$products = $this->bbp_prod1bs->update_BBP_Prod1_BS($bbp_prod1_id,$bbp_prod1_token);
 
-	 		} 
-
+				if($products->isNotEmpty()){
+		
+					return view('bbp_prod1.bbp_prod1_update',compact('products'));
+				} 
+			}		
 		}
-	
-	}
 
-	//--------------------------------------------------------------------------
-	//error message
-	$flash='El producto que buscas, no existe.';			
-	return redirect()->route('bbp-prod1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------	
+		throw new Exception();			
+
+	} catch (Exception $e) {
+
+		$flash='El producto que buscas, no existe.';			
+		return redirect()->route('bbp-prod1-list')->with('mal', $flash);
+	}
 
 }
 
@@ -167,20 +181,22 @@ public function update_BBP_Prod1_CR($bbp_prod1_id=null,$bbp_prod1_token=null)
 public function updatePro_BBP_Prod1_CR()
 {	
 
-	//update pro
-	$updatepro= $this->bbp_prod1bs->updatePro_BBP_Prod1_BS();
+	try {
 
-	if(isset($updatepro) and $updatepro=='1'){
+		$updatepro= $this->bbp_prod1bs->updatePro_BBP_Prod1_BS();
 
-		return redirect()->route('bbp-prod1-list');
+		if(isset($updatepro) and $updatepro=='1'){
 
-	}	
+			return redirect()->route('bbp-prod1-list');
+		}	
 
-	//--------------------------------------------------------------------------
-	//error message
-	$flash='El producto no se actualizo.';			
-	return redirect()->route('bbp-prod1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------			
+		throw new Exception();			
+
+	} catch (Exception $e) {
+
+		$flash='El producto no se actualizo.';			
+		return redirect()->route('bbp-prod1-list')->with('mal', $flash);
+	}		
 
 }
 
@@ -191,27 +207,30 @@ public function updatePro_BBP_Prod1_CR()
 public function deletePro_BBP_Prod1_CR($bbp_prod1_id=null,$bbp_prod1_token=null)
 {	
 
-   if(isset($bbp_prod1_id) and is_numeric($bbp_prod1_id)){
+	try {
 
-      if(isset($bbp_prod1_token) and is_string($bbp_prod1_token)){
+		if(isset($bbp_prod1_id) and is_numeric($bbp_prod1_id)){
 
-			//delete pro
-			$deletepro = $this->bbp_prod1bs->deletePro_BBP_Prod1_BS($bbp_prod1_id,$bbp_prod1_token);
+			if(isset($bbp_prod1_token) and is_string($bbp_prod1_token)){
 
-			if(isset($deletepro) and $deletepro=='1'){
+				$deletepro = $this->bbp_prod1bs->deletePro_BBP_Prod1_BS($bbp_prod1_id,$bbp_prod1_token);
 
-	   		return redirect()->route('bbp-prod1-list');
+				if(isset($deletepro) and $deletepro=='1'){
 
-			}	
+					return redirect()->route('bbp-prod1-list');
+
+				}	
+			}
+			
 		}
-	
-	}
+
+		throw new Exception();			
+
+	} catch (Exception $e) {
 				
-  	//--------------------------------------------------------------------------
-	//error message
-	$flash='El producto no se pudo eliminar.';			
-	return redirect()->route('bbp-prod1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------	
+		$flash='El producto no se pudo eliminar.';			
+		return redirect()->route('bbp-prod1-list')->with('mal', $flash);
+	}	
 
 }
 
@@ -222,35 +241,35 @@ public function deletePro_BBP_Prod1_CR($bbp_prod1_id=null,$bbp_prod1_token=null)
 public function clonePro_BBP_Prod1_CR($bbp_prod1_id=null,$bbp_prod1_token=null)
 {	
 
-   if(isset($bbp_prod1_id) and is_numeric($bbp_prod1_id)){
+	try {
 
-      if(isset($bbp_prod1_token) and is_string($bbp_prod1_token)){
+		if(isset($bbp_prod1_id) and is_numeric($bbp_prod1_id)){
 
-			//$bbp_prod1_id was inserted
-			$bbp_prod1_id = $this->bbp_prod1bs->clonePro_BBP_Prod1_BS($bbp_prod1_id,$bbp_prod1_token);	
+			if(isset($bbp_prod1_token) and is_string($bbp_prod1_token)){
 
-			if(isset($bbp_prod1_id) and is_numeric($bbp_prod1_id)){
+				$bbp_prod1_id = $this->bbp_prod1bs->clonePro_BBP_Prod1_BS($bbp_prod1_id,$bbp_prod1_token);	
 
-	   		return redirect()->route('bbp-prod1-list');
+				if(isset($bbp_prod1_id) and is_numeric($bbp_prod1_id)){
 
-			}	
+					return redirect()->route('bbp-prod1-list');
 
+				}	
+
+			}
+			
 		}
-	
+
+		throw new Exception();			
+
+	} catch (Exception $e) {
+					
+		$flash='El producto no se pudo clonar.';			
+		return redirect()->route('bbp-prod1-list')->with('mal', $flash);
+
 	}
-				
-   //--------------------------------------------------------------------------
-	//error message
-	$flash='El producto no se pudo clonar.';			
-	return redirect()->route('bbp-prod1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------	
 
 
 }
-
-//----------------------------------------------------------
-//----------------------- IMAGES ---------------------------
-//----------------------------------------------------------
 
 //----------------------------------------------------------
 // GET - UPDATE IMAGES FORM PRODUCTS
@@ -258,30 +277,32 @@ public function clonePro_BBP_Prod1_CR($bbp_prod1_id=null,$bbp_prod1_token=null)
 
 public function updateImages_BBP_Prod1_CR($bbp_prod1_id=null,$bbp_prod1_token=null)
 {	
-	$products=null;
 
-	if(isset($bbp_prod1_id) and is_numeric($bbp_prod1_id)){
-
-      if(isset($bbp_prod1_token) and is_string($bbp_prod1_token)){
-
-			//update form
-			$products = $this->bbp_prod1bs->update_BBP_Prod1_BS($bbp_prod1_id,$bbp_prod1_token);
-
-			if($products->isNotEmpty()){
+	try {
 	
-				return view('bbp_prod1.bbp_prod1_images',compact('products'));
+		if(isset($bbp_prod1_id) and is_numeric($bbp_prod1_id)){
 
-	 		} 
+			if(isset($bbp_prod1_token) and is_string($bbp_prod1_token)){
 
+				$products = $this->bbp_prod1bs->update_BBP_Prod1_BS($bbp_prod1_id,$bbp_prod1_token);
+
+				if($products->isNotEmpty()){
+		
+					return view('bbp_prod1.bbp_prod1_images',compact('products'));
+
+				} 
+
+			}
+		
 		}
-	
-	}
 
-	//--------------------------------------------------------------------------
-	//error message
-	$flash='El producto que buscas, no existe.';			
-	return redirect()->route('bbp-prod1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------	
+		throw new Exception();			
+
+	} catch (Exception $e) {
+
+		$flash='El producto no existe.';			
+		return redirect()->route('bbp-prod1-list')->with('mal', $flash);
+	}	
 
 }
 
@@ -291,20 +312,23 @@ public function updateImages_BBP_Prod1_CR($bbp_prod1_id=null,$bbp_prod1_token=nu
 
 public function updateImagesPro_BBP_Prod1_CR()
 {	
+	try {
 
-	//update pro
-	$backarray= $this->bbp_prod1bs->updateImagesPro_BBP_Prod1_BS();
+		$backarray= $this->bbp_prod1bs->updateImagesPro_BBP_Prod1_BS();
 
-	if(isset($backarray) and $backarray['updateimagespro']=='1'){
+		if(isset($backarray) and $backarray['updateimagespro']=='1'){
 
-	   return redirect()->route('bbp-prod1-images-update', ['bbp_prod1_id' => $backarray['bbp_prod1_id'],'bbp_prod1_token' => $backarray['bbp_prod1_token']]);
+			return redirect()->route('bbp-prod1-images-update', ['bbp_prod1_id' => $backarray['bbp_prod1_id'],'bbp_prod1_token' => $backarray['bbp_prod1_token']]);
+		
+		}
+
+		throw new Exception();			
+
+	} catch (Exception $e) {
+
+		$flash='la imagen no se pudo actualizar.';			
+		return redirect()->route('bbp-prod1-list')->with('mal', $flash);
 	}
-
-   //--------------------------------------------------------------------------
-	//error message
-	$flash='la imagen no se pudo actualizar.';			
-	return redirect()->route('bbp-prod1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------	
 			
 }
 
@@ -315,31 +339,33 @@ public function updateImagesPro_BBP_Prod1_CR()
 public function deleteImagesPro_BBP_Prod1_CR($bbp_prod1_id=null,$bbp_prod1_token=null,$image_number=null)
 {	
 
-   if(isset($bbp_prod1_id) and is_numeric($bbp_prod1_id)){
+	try {
 
-      if(isset($bbp_prod1_token) and is_string($bbp_prod1_token)){
+		if(isset($bbp_prod1_id) and is_numeric($bbp_prod1_id)){
 
-      	if(isset($image_number) and is_numeric($image_number)){
+			if(isset($bbp_prod1_token) and is_string($bbp_prod1_token)){
 
-				//delete image pro
-				$deleteimagespro = $this->bbp_prod1bs->deleteImagesPro_BBP_Prod1_BS($bbp_prod1_id,$bbp_prod1_token,$image_number);
+				if(isset($image_number) and is_numeric($image_number)){
 
-				if(isset($deleteimagespro) and $deleteimagespro=='1'){
+					$deleteimagespro = $this->bbp_prod1bs->deleteImagesPro_BBP_Prod1_BS($bbp_prod1_id,$bbp_prod1_token,$image_number);
 
-					return redirect()->route('bbp-prod1-images-update', ['bbp_prod1_id' => $bbp_prod1_id,'bbp_prod1_token' => $bbp_prod1_token]);			
+					if(isset($deleteimagespro) and $deleteimagespro=='1'){
 
+						return redirect()->route('bbp-prod1-images-update', ['bbp_prod1_id' => $bbp_prod1_id,'bbp_prod1_token' => $bbp_prod1_token]);			
+
+					}
 				}
-
-			}
+			}			
 		}
-	
-	}
 
-	//--------------------------------------------------------------------------
-	//error message
-	$flash='La imagen no se pudo eliminar.';			
-	return redirect()->route('bbp-prod1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------
+		throw new Exception();			
+
+	} catch (Exception $e) {
+
+		$flash='La imagen no se pudo eliminar.';			
+		return redirect()->route('bbp-prod1-list')->with('mal', $flash);
+
+	}
 }
 
 //----------------------------------------------------------
@@ -348,19 +374,23 @@ public function deleteImagesPro_BBP_Prod1_CR($bbp_prod1_id=null,$bbp_prod1_token
 
 public function order_BBP_Prod1_CR()
 {	
+	try {
 
-	$products= $this->bbp_prod1bs->getOrder_BBP_Prod1_BS();
+		$products= $this->bbp_prod1bs->getOrder_BBP_Prod1_BS();
 
-	if(isset($products) and $products->isNotEmpty()){
+		if(isset($products) and $products->isNotEmpty()){
 
-		return view('bbp_prod1.bbp_prod1_order',compact('products'));
-	} 
+			return view('bbp_prod1.bbp_prod1_order',compact('products'));
+		} 
 
-	//--------------------------------------------------------------------------
-	//error message
-	$flash='No hay productos, aqui puedes agregar los que necesitas';			
-	return redirect()->route('bbp-prod1-insert')->with('mal', $flash);
-	//--------------------------------------------------------------------------
+		throw new Exception();			
+
+	} catch (Exception $e) {
+
+		$flash='No hay productos, aqui puedes agregar los que necesitas';			
+		return redirect()->route('bbp-prod1-insert')->with('mal', $flash);
+
+	}
 
 }
 
@@ -375,7 +405,6 @@ public function order_BBP_Prod1_CR()
 public function orderPro_BBP_Prod1_CR()
 {	
 
-	//order pro
 	$backarray= $this->bbp_prod1bs->orderPro_BBP_Prod1_BS();	
 		
    return $backarray;
@@ -389,7 +418,6 @@ public function orderPro_BBP_Prod1_CR()
 public function publishPro_BBP_Prod1_CR()
 {	
 
-	//publish pro
 	$backarray= $this->bbp_prod1bs->publishPro_BBP_Prod1_BS();	
 		
    return $backarray;
