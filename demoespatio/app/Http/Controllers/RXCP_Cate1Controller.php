@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
+use Exception;
 
 use App\AppBusiness\RXCP_Cate1Prod1BS\RXCP_Cate1BS\RXCP_Cate1_Main_BS;
 
@@ -50,25 +51,27 @@ public function __construct(RXCP_Cate1_Main_BS $rxcp_cate1bs)
 
 public function get_RXCP_Cate1_CR()
 {	
+	try {
 
-	$backarray= $this->rxcp_cate1bs->get_RXCP_Cate1_BS();
+		$backarray= $this->rxcp_cate1bs->get_RXCP_Cate1_BS();
 
-	$categories=$backarray['categories'];
+		$categories=$backarray['categories'];
 
-   //counting the products of each category
-	$countprod1xcate1=$backarray['countprod1xcate1'];
+		$countprod1xcate1=$backarray['countprod1xcate1'];
 
-	if($categories->isNotEmpty()){
-	
-		return view('rxcp_cate1.rxcp_cate1_list',compact('categories','countprod1xcate1'));
+		if($categories->isNotEmpty()){
+		
+			return view('rxcp_cate1.rxcp_cate1_list',compact('categories','countprod1xcate1'));
 
-	} 
+		} 
 
-	//--------------------------------------------------------------------------
-	//error message
-	$flash='No hay categorias, aqui puedes agregar las que necesitas';			
-	return redirect()->route('rxcp-cate1-insert')->with('mal', $flash);
-	//--------------------------------------------------------------------------
+		throw new Exception();			
+
+	} catch (Exception $e) {
+
+		$flash='No hay categorias, aqui puedes agregar las que necesitas';			
+		return redirect()->route('rxcp-cate1-insert')->with('mal', $flash);
+	}
 
 }
 
@@ -89,20 +92,24 @@ public function insert_RXCP_Cate1_CR()
 public function insertPro_RXCP_Cate1_CR()
 {	
 
-	//insert pro
-	$rxcp_cate1_id= $this->rxcp_cate1bs->insertPro_RXCP_Cate1_BS();	
+	try {
 
-	if(isset($rxcp_cate1_id) and is_numeric($rxcp_cate1_id)){
+		$rxcp_cate1_id= $this->rxcp_cate1bs->insertPro_RXCP_Cate1_BS();	
+
+		if(isset($rxcp_cate1_id) and is_numeric($rxcp_cate1_id)){
+			
+			return redirect()->route('rxcp-cate1-list');
 		
-   	return redirect()->route('rxcp-cate1-list');
-	
-	}
+		}
 
-	//--------------------------------------------------------------------------
-	//error message
-	$flash='La categoria no se pudo insertar.';			
-	return redirect()->route('rxcp-cate1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------
+		throw new Exception();			
+
+	} catch (Exception $e) {
+
+		$flash='La categoria no se pudo insertar.';			
+		return redirect()->route('rxcp-cate1-list')->with('mal', $flash);
+
+	}
 
 }
 
@@ -112,30 +119,29 @@ public function insertPro_RXCP_Cate1_CR()
 
 public function update_RXCP_Cate1_CR($rxcp_cate1_id=null,$rxcp_cate1_token=null)
 {	
-	$categories=null;
+	try {
 
-	if(isset($rxcp_cate1_id) and is_numeric($rxcp_cate1_id)){
+		if(isset($rxcp_cate1_id) and is_numeric($rxcp_cate1_id)){
 
-      if(isset($rxcp_cate1_token) and is_string($rxcp_cate1_token)){
+			if(isset($rxcp_cate1_token) and is_string($rxcp_cate1_token)){
 
-			//update form
-			$categories = $this->rxcp_cate1bs->update_RXCP_Cate1_BS($rxcp_cate1_id,$rxcp_cate1_token);
+				$categories = $this->rxcp_cate1bs->update_RXCP_Cate1_BS($rxcp_cate1_id,$rxcp_cate1_token);
 
-			if($categories->isNotEmpty()){
-	
-				return view('rxcp_cate1.rxcp_cate1_update',compact('categories'));
-
-	 		} 
-
+				if($categories->isNotEmpty()){
+		
+					return view('rxcp_cate1.rxcp_cate1_update',compact('categories'));
+				} 
+			}		
 		}
-	
-	}
 
-	//--------------------------------------------------------------------------
-	//error message
-	$flash='La categoria que buscas, no existe.';			
-	return redirect()->route('rxcp-cate1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------	
+		throw new Exception();			
+
+	} catch (Exception $e) {
+
+		$flash='La categoria no se pudo mostrar.';	
+		return redirect()->route('rxcp-cate1-list')->with('mal', $flash);
+
+	}	
 
 }
 
@@ -146,20 +152,23 @@ public function update_RXCP_Cate1_CR($rxcp_cate1_id=null,$rxcp_cate1_token=null)
 public function updatePro_RXCP_Cate1_CR()
 {	
 
-	//update pro
-	$updatepro= $this->rxcp_cate1bs->updatePro_RXCP_Cate1_BS();
+	try {
 
-	if(isset($updatepro) and $updatepro=='1'){
+		$updatepro= $this->rxcp_cate1bs->updatePro_RXCP_Cate1_BS();
 
-		return redirect()->route('rxcp-cate1-list');
+		if(isset($updatepro) and $updatepro=='1'){
 
-	}	
+			return redirect()->route('rxcp-cate1-list');
+		}	
 
-	//--------------------------------------------------------------------------
-	//error message
-	$flash='La categoria no se actualizo.';			
-	return redirect()->route('rxcp-cate1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------			
+		throw new Exception();			
+
+	} catch (Exception $e) {
+
+		$flash='La categoria no se actualizo.';			
+		return redirect()->route('rxcp-cate1-list')->with('mal', $flash);
+
+	}		
 
 }
 
@@ -170,27 +179,30 @@ public function updatePro_RXCP_Cate1_CR()
 public function deletePro_RXCP_Cate1_CR($rxcp_cate1_id=null,$rxcp_cate1_token=null)
 {	
 
-   if(isset($rxcp_cate1_id) and is_numeric($rxcp_cate1_id)){
+	try {
 
-      if(isset($rxcp_cate1_token) and is_string($rxcp_cate1_token)){
+		if(isset($rxcp_cate1_id) and is_numeric($rxcp_cate1_id)){
 
-			//delete pro
-			$deletepro = $this->rxcp_cate1bs->deletePro_RXCP_Cate1_BS($rxcp_cate1_id,$rxcp_cate1_token);
+			if(isset($rxcp_cate1_token) and is_string($rxcp_cate1_token)){
 
-			if(isset($deletepro) and $deletepro=='1'){
+				//delete pro
+				$deletepro = $this->rxcp_cate1bs->deletePro_RXCP_Cate1_BS($rxcp_cate1_id,$rxcp_cate1_token);
 
-	   		return redirect()->route('rxcp-cate1-list');
+				if(isset($deletepro) and $deletepro=='1'){
 
-			}	
+					return redirect()->route('rxcp-cate1-list');
+				}	
+			}			
 		}
-	
+
+		throw new Exception();			
+
+	} catch (Exception $e) {
+					
+		$flash='La categoria no se pudo eliminar.';			
+		return redirect()->route('rxcp-cate1-list')->with('mal', $flash);
+
 	}
-				
-  	//--------------------------------------------------------------------------
-	//error message
-	$flash='La categoria no se pudo eliminar.';			
-	return redirect()->route('rxcp-cate1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------	
 
 }
 
@@ -200,29 +212,28 @@ public function deletePro_RXCP_Cate1_CR($rxcp_cate1_id=null,$rxcp_cate1_token=nu
 
 public function clonePro_RXCP_Cate1_CR($rxcp_cate1_id=null,$rxcp_cate1_token=null)
 {	
+	try {
 
-   if(isset($rxcp_cate1_id) and is_numeric($rxcp_cate1_id)){
+		if(isset($rxcp_cate1_id) and is_numeric($rxcp_cate1_id)){
 
-      if(isset($rxcp_cate1_token) and is_string($rxcp_cate1_token)){
+			if(isset($rxcp_cate1_token) and is_string($rxcp_cate1_token)){
 
-			//$rxcp_cate1_id was inserted
-			$rxcp_cate1_id = $this->rxcp_cate1bs->clonePro_RXCP_Cate1_BS($rxcp_cate1_id,$rxcp_cate1_token);	
+				$rxcp_cate1_id = $this->rxcp_cate1bs->clonePro_RXCP_Cate1_BS($rxcp_cate1_id,$rxcp_cate1_token);	
 
-			if(isset($rxcp_cate1_id) and is_numeric($rxcp_cate1_id)){
+				if(isset($rxcp_cate1_id) and is_numeric($rxcp_cate1_id)){
 
-	   		return redirect()->route('rxcp-cate1-list');
-
-			}	
-
+					return redirect()->route('rxcp-cate1-list');
+				}
+			}			
 		}
-	
-	}
-				
-   //--------------------------------------------------------------------------
-	//error message
-	$flash='La categoria no se pudo clonar.';			
-	return redirect()->route('rxcp-cate1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------	
+
+		throw new Exception();			
+
+	} catch (Exception $e) {
+					
+		$flash='La categoria no se pudo clonar.';			
+		return redirect()->route('rxcp-cate1-list')->with('mal', $flash);
+	}	
 
 
 }
@@ -237,30 +248,32 @@ public function clonePro_RXCP_Cate1_CR($rxcp_cate1_id=null,$rxcp_cate1_token=nul
 
 public function updateImages_RXCP_Cate1_CR($rxcp_cate1_id=null,$rxcp_cate1_token=null)
 {	
-	$categories=null;
+	try {
 
-	if(isset($rxcp_cate1_id) and is_numeric($rxcp_cate1_id)){
+		if(isset($rxcp_cate1_id) and is_numeric($rxcp_cate1_id)){
 
-      if(isset($rxcp_cate1_token) and is_string($rxcp_cate1_token)){
+			if(isset($rxcp_cate1_token) and is_string($rxcp_cate1_token)){
 
-			//update form
-			$categories = $this->rxcp_cate1bs->update_RXCP_Cate1_BS($rxcp_cate1_id,$rxcp_cate1_token);
+				$categories = $this->rxcp_cate1bs->update_RXCP_Cate1_BS($rxcp_cate1_id,$rxcp_cate1_token);
 
-			if($categories->isNotEmpty()){
-	
-				return view('rxcp_cate1.rxcp_cate1_images',compact('categories'));
+				if($categories->isNotEmpty()){
+		
+					return view('rxcp_cate1.rxcp_cate1_images',compact('categories'));
 
-	 		} 
+				} 
 
+			}
+		
 		}
-	
-	}
 
-	//--------------------------------------------------------------------------
-	//error message
-	$flash='La categoria que buscas, no existe.';			
-	return redirect()->route('rxcp-cate1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------	
+		throw new Exception();			
+
+	} catch (Exception $e) {
+
+		$flash='La categoria que buscas, no existe.';			
+		return redirect()->route('rxcp-cate1-list')->with('mal', $flash);
+
+	}
 
 }
 
@@ -270,20 +283,22 @@ public function updateImages_RXCP_Cate1_CR($rxcp_cate1_id=null,$rxcp_cate1_token
 
 public function updateImagesPro_RXCP_Cate1_CR()
 {	
+	try {
 
-	//update pro
-	$backarray= $this->rxcp_cate1bs->updateImagesPro_RXCP_Cate1_BS();
+		$backarray= $this->rxcp_cate1bs->updateImagesPro_RXCP_Cate1_BS();
 
-	if(isset($backarray) and $backarray['updateimagespro']=='1'){
+		if(isset($backarray) and $backarray['updateimagespro']=='1'){
 
-	   return redirect()->route('rxcp-cate1-images-update', ['rxcp_cate1_id' => $backarray['rxcp_cate1_id'],'rxcp_cate1_token' => $backarray['rxcp_cate1_token']]);
+			return redirect()->route('rxcp-cate1-images-update', ['rxcp_cate1_id' => $backarray['rxcp_cate1_id'],'rxcp_cate1_token' => $backarray['rxcp_cate1_token']]);
+		}
+
+		throw new Exception();			
+
+	} catch (Exception $e) {
+
+		$flash='La imagen no se pudo actualizar.';			
+		return redirect()->route('rxcp-cate1-list')->with('mal', $flash);
 	}
-
-   //--------------------------------------------------------------------------
-	//error message
-	$flash='La imagen no se pudo actualizar.';			
-	return redirect()->route('rxcp-cate1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------				
 }
 
 //----------------------------------------------------------
@@ -292,32 +307,32 @@ public function updateImagesPro_RXCP_Cate1_CR()
 
 public function deleteImagesPro_RXCP_Cate1_CR($rxcp_cate1_id=null,$rxcp_cate1_token=null,$image_number=null)
 {	
+	try {
 
-   if(isset($rxcp_cate1_id) and is_numeric($rxcp_cate1_id)){
+		if(isset($rxcp_cate1_id) and is_numeric($rxcp_cate1_id)){
 
-      if(isset($rxcp_cate1_token) and is_string($rxcp_cate1_token)){
+			if(isset($rxcp_cate1_token) and is_string($rxcp_cate1_token)){
 
-      	if(isset($image_number) and is_numeric($image_number)){
+				if(isset($image_number) and is_numeric($image_number)){
 
-				//delete image pro
-				$deleteimagespro = $this->rxcp_cate1bs->deleteImagesPro_RXCP_Cate1_BS($rxcp_cate1_id,$rxcp_cate1_token,$image_number);
+					$deleteimagespro = $this->rxcp_cate1bs->deleteImagesPro_RXCP_Cate1_BS($rxcp_cate1_id,$rxcp_cate1_token,$image_number);
 
-				if(isset($deleteimagespro) and $deleteimagespro=='1'){
+					if(isset($deleteimagespro) and $deleteimagespro=='1'){
 
-					return redirect()->route('rxcp-cate1-images-update', ['rxcp_cate1_id' => $rxcp_cate1_id,'rxcp_cate1_token' => $rxcp_cate1_token]);			
+						return redirect()->route('rxcp-cate1-images-update', ['rxcp_cate1_id' => $rxcp_cate1_id,'rxcp_cate1_token' => $rxcp_cate1_token]);		
 
+					}
 				}
-
 			}
 		}
 
-	}
+		throw new Exception();			
 
-	//--------------------------------------------------------------------------
-	//error message
-	$flash='La imagen no se pudo eliminar.';			
-	return redirect()->route('rxcp-cate1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------
+	} catch (Exception $e) {
+
+		$flash='La imagen no se pudo eliminar.';			
+		return redirect()->route('rxcp-cate1-list')->with('mal', $flash);
+	}
 }
 
 //----------------------------------------------------------
@@ -326,19 +341,22 @@ public function deleteImagesPro_RXCP_Cate1_CR($rxcp_cate1_id=null,$rxcp_cate1_to
 
 public function order_RXCP_Cate1_CR()
 {	
+	try {
 
-	$categories= $this->rxcp_cate1bs->getOrder_RXCP_Cate1_BS();
+		$categories= $this->rxcp_cate1bs->getOrder_RXCP_Cate1_BS();
 
-	if(isset($categories) and $categories->isNotEmpty()){
+		if(isset($categories) and $categories->isNotEmpty()){
 
-		return view('rxcp_cate1.rxcp_cate1_order',compact('categories'));
-	} 
+			return view('rxcp_cate1.rxcp_cate1_order',compact('categories'));
+		} 
 
-	//--------------------------------------------------------------------------
-	//error message
-	$flash='No hay categorias, aqui puedes agregar los que necesitas';			
-	return redirect()->route('rxcp-cate1-insert')->with('mal', $flash);
-	//--------------------------------------------------------------------------
+		throw new Exception();			
+
+	} catch (Exception $e) {
+
+		$flash='No hay categorias, aqui puedes agregar las que necesitas';			
+		return redirect()->route('rxcp-cate1-insert')->with('mal', $flash);
+	}
 
 }
 
