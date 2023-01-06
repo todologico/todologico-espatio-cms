@@ -53,25 +53,28 @@ public function __construct(ZGFCP_Prod1_Main_BS $zgfcp_prod1bs)
 public function get_ZGFCP_Prod1_CR()
 {	
 
-	$backarray= $this->zgfcp_prod1bs->get_ZGFCP_Prod1_BS();
+	try {
 
-	if($backarray['products']->isNotEmpty()){
+		$backarray= $this->zgfcp_prod1bs->get_ZGFCP_Prod1_BS();
 
-		$families=$backarray['families'];
+		if($backarray['products']->isNotEmpty()){
+
+			$families=$backarray['families'];
+			
+			$categories=$backarray['categories'];
+			
+			$products=$backarray['products'];
 		
-		$categories=$backarray['categories'];
-		
-		$products=$backarray['products'];
-	
-		return view('zgfcp_prod1.zgfcp_prod1_list',compact('families','categories','products'));
+			return view('zgfcp_prod1.zgfcp_prod1_list',compact('families','categories','products'));
+		} 
 
-	} 
+		throw new Exception();
 
-	//--------------------------------------------------------------------------
-	//error message
-	$flash='No hay productos, aqui puedes agregar los que necesitas';			
-	return redirect()->route('zgfcp-prod1-insert')->with('mal', $flash);
-	//--------------------------------------------------------------------------
+	} catch(Exception $e) {
+
+		$flash='No hay productos, aqui puedes agregar los que necesitas';			
+		return redirect()->route('zgfcp-prod1-insert')->with('mal', $flash);
+	}
 
 }
 
@@ -81,25 +84,30 @@ public function get_ZGFCP_Prod1_CR()
 public function getSearch_ZGFCP_Prod1_CR()
 {	
 
-	$backarray= $this->zgfcp_prod1bs->getSearch_ZGFCP_Prod1_BS();
+	try {
 
-	if($backarray['products']->isNotEmpty()){
+		$backarray= $this->zgfcp_prod1bs->getSearch_ZGFCP_Prod1_BS();
 
-		$families=$backarray['families'];
+		if($backarray['products']->isNotEmpty()){
 
-		$categories=$backarray['categories'];
+			$families=$backarray['families'];
+
+			$categories=$backarray['categories'];
+			
+			$products=$backarray['products'];
 		
-		$products=$backarray['products'];
-	
-		return view('zgfcp_prod1.zgfcp_prod1_list',compact('families','categories','products'));
+			return view('zgfcp_prod1.zgfcp_prod1_list',compact('families','categories','products'));
 
-	} 
+		} 
 
-	//--------------------------------------------------------------------------
-	//error message
-	$flash='No hay resultados en la búsqueda';			
-	return redirect()->route('zgfcp-prod1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------
+		throw new Exception();
+
+
+	} catch (Exception $e) {
+
+		$flash='No hay resultados en la búsqueda';			
+		return redirect()->route('zgfcp-prod1-list')->with('mal', $flash);
+	}
 
 }
 
@@ -109,31 +117,35 @@ public function getSearch_ZGFCP_Prod1_CR()
 public function getSearchLinkxFami1_ZGFCP_Prod1_CR($zgfcp_fami1_id=null,$zgfcp_fami1_token=null)
 {	
 
-	if(isset($zgfcp_fami1_id) and is_numeric($zgfcp_fami1_id)){
+	try {
 
-      if(isset($zgfcp_fami1_token) and is_string($zgfcp_fami1_token)){
+		if(isset($zgfcp_fami1_id) and is_numeric($zgfcp_fami1_id)){
 
-			$backarray= $this->zgfcp_prod1bs->getSearchLinkxFami1_ZGFCP_Prod1_BS($zgfcp_fami1_id,$zgfcp_fami1_token);
+			if(isset($zgfcp_fami1_token) and is_string($zgfcp_fami1_token)){
 
-			if($backarray['products']->isNotEmpty()){
+				$backarray= $this->zgfcp_prod1bs->getSearchLinkxFami1_ZGFCP_Prod1_BS($zgfcp_fami1_id,$zgfcp_fami1_token);
 
-				$families=$backarray['families'];
+				if($backarray['products']->isNotEmpty()){
 
-				$categories=$backarray['categories'];
+					$families=$backarray['families'];
+
+					$categories=$backarray['categories'];
+						
+					$products=$backarray['products'];
 					
-				$products=$backarray['products'];
-				
-				return view('zgfcp_prod1.zgfcp_prod1_list',compact('families','categories','products'));
-
+					return view('zgfcp_prod1.zgfcp_prod1_list',compact('families','categories','products'));
+				} 
 			} 
 		} 
-	} 
 
-	//--------------------------------------------------------------------------
-	//error message
+		throw new Exception();
+
+	} catch (Exception $e) {
+
 	$flash='No hay resultados en la búsqueda';			
 	return redirect()->route('zgfcp-prod1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------
+
+	}
 
 }
 
@@ -143,31 +155,34 @@ public function getSearchLinkxFami1_ZGFCP_Prod1_CR($zgfcp_fami1_id=null,$zgfcp_f
 public function getSearchLinkxCate1_ZGFCP_Prod1_CR($zgfcp_cate1_id=null,$zgfcp_cate1_token=null)
 {	
 
-	if(isset($zgfcp_cate1_id) and is_numeric($zgfcp_cate1_id)){
+	try {
 
-      if(isset($zgfcp_cate1_token) and is_string($zgfcp_cate1_token)){
+		if(isset($zgfcp_cate1_id) and is_numeric($zgfcp_cate1_id)){
 
-			$backarray= $this->zgfcp_prod1bs->getSearchLinkxCate1_ZGFCP_Prod1_BS($zgfcp_cate1_id,$zgfcp_cate1_token);
+			if(isset($zgfcp_cate1_token) and is_string($zgfcp_cate1_token)){
 
-			if($backarray['products']->isNotEmpty()){
+				$backarray= $this->zgfcp_prod1bs->getSearchLinkxCate1_ZGFCP_Prod1_BS($zgfcp_cate1_id,$zgfcp_cate1_token);
 
-				$families=$backarray['families'];
+				if($backarray['products']->isNotEmpty()){
 
-				$categories=$backarray['categories'];
+					$families=$backarray['families'];
+
+					$categories=$backarray['categories'];
+						
+					$products=$backarray['products'];
 					
-				$products=$backarray['products'];
-				
-				return view('zgfcp_prod1.zgfcp_prod1_list',compact('families','categories','products'));
-
+					return view('zgfcp_prod1.zgfcp_prod1_list',compact('families','categories','products'));
+				} 
 			} 
 		} 
-	} 
 
-	//--------------------------------------------------------------------------
-	//error message
-	$flash='No hay resultados en la búsqueda';			
-	return redirect()->route('zgfcp-prod1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------
+		throw new Exception();
+
+	} catch(Exception $e) {
+
+		$flash='No hay resultados en la búsqueda';			
+		return redirect()->route('zgfcp-prod1-list')->with('mal', $flash);
+	}
 
 }
 
@@ -189,22 +204,24 @@ public function insert_ZGFCP_Prod1_CR()
 
 public function insertPro_ZGFCP_Prod1_CR()
 {	
+	try {
 
-	//insert pro
-	$zgfcp_prod1_id= $this->zgfcp_prod1bs->insertPro_ZGFCP_Prod1_BS();	
+		$zgfcp_prod1_id= $this->zgfcp_prod1bs->insertPro_ZGFCP_Prod1_BS();	
 
-	if(isset($zgfcp_prod1_id) and is_numeric($zgfcp_prod1_id)){
-		
-   	return redirect()->route('zgfcp-prod1-list');
+		if(isset($zgfcp_prod1_id) and is_numeric($zgfcp_prod1_id)){
+			
+			return redirect()->route('zgfcp-prod1-list');
 	
+		}
+
+		throw new Exception();
+
+	} catch(Exception $e) {
+
+		$flash='El producto no se pudo insertar.';			
+		return redirect()->route('zgfcp-prod1-list')->with('mal', $flash);
+
 	}
-
-	//--------------------------------------------------------------------------
-	//error message
-	$flash='El producto no se pudo insertar.';			
-	return redirect()->route('zgfcp-prod1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------
-
 }
 
 //----------------------------------------------------------
@@ -213,33 +230,31 @@ public function insertPro_ZGFCP_Prod1_CR()
 
 public function update_ZGFCP_Prod1_CR($zgfcp_prod1_id=null,$zgfcp_prod1_token=null)
 {	
-	$products=null;
+	try {
 
-	if(isset($zgfcp_prod1_id) and is_numeric($zgfcp_prod1_id)){
+		if(isset($zgfcp_prod1_id) and is_numeric($zgfcp_prod1_id)){
 
-      if(isset($zgfcp_prod1_token) and is_string($zgfcp_prod1_token)){
+			if(isset($zgfcp_prod1_token) and is_string($zgfcp_prod1_token)){
 
-			//update form
-			$backarray = $this->zgfcp_prod1bs->update_ZGFCP_Prod1_BS($zgfcp_prod1_id,$zgfcp_prod1_token);
+				$backarray = $this->zgfcp_prod1bs->update_ZGFCP_Prod1_BS($zgfcp_prod1_id,$zgfcp_prod1_token);
 
-			if($backarray['products']->isNotEmpty()){
+				if($backarray['products']->isNotEmpty()){
 
-				$categories = $backarray['categories'];
-				$products	= $backarray['products'];
-	
-				return view('zgfcp_prod1.zgfcp_prod1_update',compact('categories','products'));
-
-	 		} 
-
+					$categories = $backarray['categories'];
+					$products	= $backarray['products'];
+		
+					return view('zgfcp_prod1.zgfcp_prod1_update',compact('categories','products'));
+				} 
+			}		
 		}
-	
-	}
 
-	//--------------------------------------------------------------------------
-	//error message
-	$flash='El producto que buscas, no existe.';			
-	return redirect()->route('zgfcp-prod1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------	
+		throw new Exception();
+
+	} catch (Exception $e) {
+
+		$flash='El producto que buscas, no existe.';			
+		return redirect()->route('zgfcp-prod1-list')->with('mal', $flash);
+	}
 
 }
 
@@ -250,20 +265,22 @@ public function update_ZGFCP_Prod1_CR($zgfcp_prod1_id=null,$zgfcp_prod1_token=nu
 public function updatePro_ZGFCP_Prod1_CR()
 {	
 
-	//update pro
-	$updatepro= $this->zgfcp_prod1bs->updatePro_ZGFCP_Prod1_BS();
+	try {
 
-	if(isset($updatepro) and $updatepro=='1'){
+		$updatepro= $this->zgfcp_prod1bs->updatePro_ZGFCP_Prod1_BS();
 
-		return redirect()->route('zgfcp-prod1-list');
+		if(isset($updatepro) and $updatepro=='1'){
 
-	}	
+			return redirect()->route('zgfcp-prod1-list');
+		}	
 
-	//--------------------------------------------------------------------------
-	//error message
-	$flash='El producto no se actualizo.';			
-	return redirect()->route('zgfcp-prod1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------			
+		throw new Exception();
+
+	} catch (Exception $e) {
+
+		$flash='El producto no se actualizo.';			
+		return redirect()->route('zgfcp-prod1-list')->with('mal', $flash);
+	}
 
 }
 
@@ -274,27 +291,29 @@ public function updatePro_ZGFCP_Prod1_CR()
 public function deletePro_ZGFCP_Prod1_CR($zgfcp_prod1_id=null,$zgfcp_prod1_token=null)
 {	
 
-   if(isset($zgfcp_prod1_id) and is_numeric($zgfcp_prod1_id)){
+	try {
 
-      if(isset($zgfcp_prod1_token) and is_string($zgfcp_prod1_token)){
+		if(isset($zgfcp_prod1_id) and is_numeric($zgfcp_prod1_id)){
 
-			//delete pro
-			$deletepro = $this->zgfcp_prod1bs->deletePro_ZGFCP_Prod1_BS($zgfcp_prod1_id,$zgfcp_prod1_token);
-
-			if(isset($deletepro) and $deletepro=='1'){
-
-	   		return redirect()->route('zgfcp-prod1-list');
-
-			}	
-		}
-	
-	}
+			if(isset($zgfcp_prod1_token) and is_string($zgfcp_prod1_token)){
 				
-  	//--------------------------------------------------------------------------
-	//error message
-	$flash='El producto no se pudo eliminar.';			
-	return redirect()->route('zgfcp-prod1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------	
+				$deletepro = $this->zgfcp_prod1bs->deletePro_ZGFCP_Prod1_BS($zgfcp_prod1_id,$zgfcp_prod1_token);
+
+				if(isset($deletepro) and $deletepro=='1'){
+
+					return redirect()->route('zgfcp-prod1-list');
+
+				}	
+			}			
+		}
+
+		throw new Exception();
+
+	} catch (Exception $e) {
+					
+		$flash='El producto no se pudo eliminar.';			
+		return redirect()->route('zgfcp-prod1-list')->with('mal', $flash);
+	}
 
 }
 
@@ -304,36 +323,31 @@ public function deletePro_ZGFCP_Prod1_CR($zgfcp_prod1_id=null,$zgfcp_prod1_token
 
 public function clonePro_ZGFCP_Prod1_CR($zgfcp_prod1_id=null,$zgfcp_prod1_token=null)
 {	
+	try {
 
-   if(isset($zgfcp_prod1_id) and is_numeric($zgfcp_prod1_id)){
+		if(isset($zgfcp_prod1_id) and is_numeric($zgfcp_prod1_id)){
 
-      if(isset($zgfcp_prod1_token) and is_string($zgfcp_prod1_token)){
+			if(isset($zgfcp_prod1_token) and is_string($zgfcp_prod1_token)){
 
-			//$zgfcp_prod1_id was inserted
-			$zgfcp_prod1_id = $this->zgfcp_prod1bs->clonePro_ZGFCP_Prod1_BS($zgfcp_prod1_id,$zgfcp_prod1_token);	
+				$zgfcp_prod1_id = $this->zgfcp_prod1bs->clonePro_ZGFCP_Prod1_BS($zgfcp_prod1_id,$zgfcp_prod1_token);	
 
-			if(isset($zgfcp_prod1_id) and is_numeric($zgfcp_prod1_id)){
+				if(isset($zgfcp_prod1_id) and is_numeric($zgfcp_prod1_id)){
 
-	   		return redirect()->route('zgfcp-prod1-list');
-
-			}	
-
+					return redirect()->route('zgfcp-prod1-list');
+				}
+			}			
 		}
-	
+
+		throw new Exception();
+
+	} catch (Exception $e) {
+					
+		$flash='El producto no se pudo clonar.';			
+		return redirect()->route('zgfcp-prod1-list')->with('mal', $flash);
+
 	}
-				
-   //--------------------------------------------------------------------------
-	//error message
-	$flash='El producto no se pudo clonar.';			
-	return redirect()->route('zgfcp-prod1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------	
-
-
 }
 
-//----------------------------------------------------------
-//----------------------- IMAGES ---------------------------
-//----------------------------------------------------------
 
 //----------------------------------------------------------
 // GET - UPDATE IMAGES FORM PRODUCTS
@@ -341,34 +355,32 @@ public function clonePro_ZGFCP_Prod1_CR($zgfcp_prod1_id=null,$zgfcp_prod1_token=
 
 public function updateImages_ZGFCP_Prod1_CR($zgfcp_prod1_id=null,$zgfcp_prod1_token=null)
 {	
-	$products=null;
+	try {
 
-	if(isset($zgfcp_prod1_id) and is_numeric($zgfcp_prod1_id)){
+		if(isset($zgfcp_prod1_id) and is_numeric($zgfcp_prod1_id)){
 
-      if(isset($zgfcp_prod1_token) and is_string($zgfcp_prod1_token)){
+			if(isset($zgfcp_prod1_token) and is_string($zgfcp_prod1_token)){
 
-			//update form
-			$backarray = $this->zgfcp_prod1bs->update_ZGFCP_Prod1_BS($zgfcp_prod1_id,$zgfcp_prod1_token);
+				$backarray = $this->zgfcp_prod1bs->update_ZGFCP_Prod1_BS($zgfcp_prod1_id,$zgfcp_prod1_token);
 
-			if($backarray['products']->isNotEmpty()){
+				if($backarray['products']->isNotEmpty()){
 
-				$categories = $backarray['categories'];
-				$products	= $backarray['products'];
-	
-				return view('zgfcp_prod1.zgfcp_prod1_images',compact('categories','products'));
-
-	 		} 
-
+					$categories = $backarray['categories'];
+					$products	= $backarray['products'];
+		
+					return view('zgfcp_prod1.zgfcp_prod1_images',compact('categories','products'));
+				} 
+			}		
 		}
-	
+
+		throw new Exception();
+
+	} catch (Exception $e) {
+
+		$flash='El producto que buscas, no existe.';			
+		return redirect()->route('zgfcp-prod1-list')->with('mal', $flash);
+		
 	}
-
-	//--------------------------------------------------------------------------
-	//error message
-	$flash='El producto que buscas, no existe.';			
-	return redirect()->route('zgfcp-prod1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------	
-
 }
 
 //----------------------------------------------------------
@@ -377,21 +389,23 @@ public function updateImages_ZGFCP_Prod1_CR($zgfcp_prod1_id=null,$zgfcp_prod1_to
 
 public function updateImagesPro_ZGFCP_Prod1_CR()
 {	
+	try {
 
-	//update pro
-	$backarray= $this->zgfcp_prod1bs->updateImagesPro_ZGFCP_Prod1_BS();
+		$backarray= $this->zgfcp_prod1bs->updateImagesPro_ZGFCP_Prod1_BS();
 
-	if(isset($backarray) and $backarray['updateimagespro']=='1'){
+		if(isset($backarray) and $backarray['updateimagespro']=='1'){
 
-	   return redirect()->route('zgfcp-prod1-images-update', ['zgfcp_prod1_id' => $backarray['zgfcp_prod1_id'],'zgfcp_prod1_token' => $backarray['zgfcp_prod1_token']]);
-	}
+			return redirect()->route('zgfcp-prod1-images-update', ['zgfcp_prod1_id' => $backarray['zgfcp_prod1_id'],'zgfcp_prod1_token' => $backarray['zgfcp_prod1_token']]);
+		}
 
-   //--------------------------------------------------------------------------
-	//error message
-	$flash='la imagen no se pudo actualizar.';			
-	return redirect()->route('zgfcp-prod1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------	
-			
+		throw new Exception();
+
+	} catch (Exception $e) {
+
+		$flash='la imagen no se pudo actualizar.';			
+		return redirect()->route('zgfcp-prod1-list')->with('mal', $flash);
+
+	}				
 }
 
 //----------------------------------------------------------
@@ -401,31 +415,33 @@ public function updateImagesPro_ZGFCP_Prod1_CR()
 public function deleteImagesPro_ZGFCP_Prod1_CR($zgfcp_prod1_id=null,$zgfcp_prod1_token=null,$image_number=null)
 {	
 
-   if(isset($zgfcp_prod1_id) and is_numeric($zgfcp_prod1_id)){
+	try {
 
-      if(isset($zgfcp_prod1_token) and is_string($zgfcp_prod1_token)){
+		if(isset($zgfcp_prod1_id) and is_numeric($zgfcp_prod1_id)){
 
-      	if(isset($image_number) and is_numeric($image_number)){
+			if(isset($zgfcp_prod1_token) and is_string($zgfcp_prod1_token)){
 
-				//delete image pro
-				$deleteimagespro = $this->zgfcp_prod1bs->deleteImagesPro_ZGFCP_Prod1_BS($zgfcp_prod1_id,$zgfcp_prod1_token,$image_number);
+				if(isset($image_number) and is_numeric($image_number)){
 
-				if(isset($deleteimagespro) and $deleteimagespro=='1'){
+					$deleteimagespro = $this->zgfcp_prod1bs->deleteImagesPro_ZGFCP_Prod1_BS($zgfcp_prod1_id,$zgfcp_prod1_token,$image_number);
 
-					return redirect()->route('zgfcp-prod1-images-update', ['zgfcp_prod1_id' => $zgfcp_prod1_id,'zgfcp_prod1_token' => $zgfcp_prod1_token]);			
+					if(isset($deleteimagespro) and $deleteimagespro=='1'){
 
+						return redirect()->route('zgfcp-prod1-images-update', ['zgfcp_prod1_id' => $zgfcp_prod1_id,'zgfcp_prod1_token' => $zgfcp_prod1_token]);			
+
+					}
 				}
-
-			}
+			}			
 		}
-	
-	}
 
-	//--------------------------------------------------------------------------
-	//error message
-	$flash='La imagen no se pudo eliminar.';			
-	return redirect()->route('zgfcp-prod1-list')->with('mal', $flash);
-	//--------------------------------------------------------------------------
+		throw new Exception();
+
+	} catch (Exception $e) {
+
+		$flash='La imagen no se pudo eliminar.';			
+		return redirect()->route('zgfcp-prod1-list')->with('mal', $flash);
+
+	}
 }
 
 //----------------------------------------------------------
@@ -435,24 +451,25 @@ public function deleteImagesPro_ZGFCP_Prod1_CR($zgfcp_prod1_id=null,$zgfcp_prod1
 public function order_ZGFCP_Prod1_CR()
 {	
 
-	$products= $this->zgfcp_prod1bs->getOrder_ZGFCP_Prod1_BS();
+	try {
 
-	if(isset($products) and $products->isNotEmpty()){
+		$products= $this->zgfcp_prod1bs->getOrder_ZGFCP_Prod1_BS();
 
-		return view('zgfcp_prod1.zgfcp_prod1_order',compact('products'));
-	} 
+		if(isset($products) and $products->isNotEmpty()){
 
-	//--------------------------------------------------------------------------
-	//error message
-	$flash='No hay productos, aqui puedes agregar los que necesitas';			
-	return redirect()->route('zgfcp-prod1-insert')->with('mal', $flash);
-	//--------------------------------------------------------------------------
+			return view('zgfcp_prod1.zgfcp_prod1_order',compact('products'));
+		} 
+
+		throw new Exception();
+
+	} catch (Exception $e) {
+
+		$flash='No hay productos, aqui puedes agregar los que necesitas';			
+		return redirect()->route('zgfcp-prod1-insert')->with('mal', $flash);
+		
+	}
 
 }
-
-//----------------------------------------------------------
-//----------------------- ANGULAR ---------------------------
-//----------------------------------------------------------
 
 //----------------------------------------------------------
 // ANGULAR POST - ORDER PRO PRODUCTS
