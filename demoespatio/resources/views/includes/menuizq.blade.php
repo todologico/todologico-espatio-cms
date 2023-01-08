@@ -6,7 +6,7 @@
         <li class="br-menu-item">
           <a href="{{route('aab-bann1-list')}}" class="br-menu-link">
             <ion-icon name="caret-forward-outline"></ion-icon>
-            <span class="menu-item-label"><b>Banners</b></span>
+            <span class="menu-item-label"><b>AAB-Banners</b></span>
           </a>
         </li>
 
@@ -14,7 +14,7 @@
         <li class="br-menu-item">
           <a href="{{route('bbp-prod1-list')}}" class="br-menu-link">
             <ion-icon name="caret-forward-outline"></ion-icon>
-            <span class="menu-item-label"><b>A-Productos</b></span>
+            <span class="menu-item-label"><b>BBP-Products</b></span>
           </a>
         </li>
 
@@ -22,14 +22,14 @@
          <li class="br-menu-item">
           <a href="{{route('rxcp-cate1-list')}}" class="br-menu-link">
             <ion-icon name="caret-forward-outline"></ion-icon>
-            <span class="menu-item-label"><b>B-Categoria</b></span>
+            <span class="menu-item-label"><b>RXCP-Categories</b></span>
           </a>
         </li>
 
          <li class="br-menu-item">
           <a href="{{route('rxcp-prod1-list')}}" class="br-menu-link">
             <ion-icon name="caret-forward-outline"></ion-icon>
-            <span class="menu-item-label"><b>B-Productos</b></span>
+            <span class="menu-item-label"><b>RXCP-Products</b></span>
           </a>
         </li>
 
@@ -37,14 +37,14 @@
          <li class="br-menu-item">
           <a href="{{route('zgfcp-fami1-list')}}" class="br-menu-link">
             <ion-icon name="caret-forward-outline"></ion-icon>
-            <span class="menu-item-label"><b>C-Rubro</b></span>
+            <span class="menu-item-label"><b>ZGFCP-Families</b></span>
           </a>
         </li>
 
          <li class="br-menu-item">
           <a href="{{route('zgfcp-cate1-list')}}" class="br-menu-link">
             <ion-icon name="caret-forward-outline"></ion-icon>
-            <span class="menu-item-label"><b>C-Categoria</b></span>
+            <span class="menu-item-label"><b>ZGFCP-Categories</b></span>
           </a>
         </li>
 
@@ -52,7 +52,7 @@
         <li class="br-menu-item">
           <a href="{{route('zgfcp-prod1-list')}}" class="br-menu-link">
             <ion-icon name="caret-forward-outline"></ion-icon>
-            <span class="menu-item-label"><b>C-Productos</b></span>
+            <span class="menu-item-label"><b>ZGFCP-Products</b></span>
           </a>
         </li>
 
@@ -60,7 +60,7 @@
         <li class="br-menu-item">
           <a href="{{route('ccc-cont1-list')}}" class="br-menu-link">
             <ion-icon name="caret-forward-outline"></ion-icon>
-            <span class="menu-item-label"><b>Contactos</b></span>
+            <span class="menu-item-label"><b>CCC-Contacts</b></span>
           </a>
         </li>
 
