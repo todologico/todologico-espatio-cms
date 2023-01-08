@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Categorias.Modificar</title>
+    <title>Category.Update</title>
 
     <link href="{{url('/')}}/panel/lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 		<link href="{{url('/')}}/panel/lib/highlightjs/styles/github.css" rel="stylesheet">
@@ -25,8 +25,8 @@
 
       <div class="br-pagebody">
         <div class="br-section-wrapper">
-          <h6 class="br-section-label">Modificar una Categoria</h6>
-          <p class="br-section-text">Modificar una categoria ingresada previamente.</p>
+          <h6 class="br-section-label">Edit a Category</h6>
+          <p class="br-section-text">Modify a Category.</p>
 
           @if ($errors->any())
               <div class="alert alert-danger">
@@ -54,41 +54,41 @@
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Nombre Categoria:
+                Category Name:
               </div>
-              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="rxcp_cate1_category" value="{{$categories[0]->rxcp_cate1_category}}" maxlength="255" placeholder="Nombre Categoria" required></div>
+              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="rxcp_cate1_category" value="{{$categories[0]->rxcp_cate1_category}}" maxlength="255" placeholder="Category Name" required></div>
             </div>
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Titulo Categoria1:
+                Category Title 1:
               </div>
-              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="rxcp_cate1_title1" value="{{$categories[0]->rxcp_cate1_title1}}" maxlength="255" placeholder="Titulo Categoria" required></div>
+              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="rxcp_cate1_title1" value="{{$categories[0]->rxcp_cate1_title1}}" maxlength="255" placeholder="Category Title" required></div>
             </div>
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Titulo Categoria2:
+                category Title 2:
               </div>
-              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="rxcp_cate1_title2" value="{{$categories[0]->rxcp_cate1_title2}}" maxlength="255" placeholder="Titulo Categoria" required></div>
+              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="rxcp_cate1_title2" value="{{$categories[0]->rxcp_cate1_title2}}" maxlength="255" placeholder="Category Title" required></div>
             </div>
                           
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Publicar:
+                Publish:
               </div>
               <div class="col-7 col-sm-8">
-                <select class="form-control select2" name="rxcp_cate1_enable" data-placeholder="Publicar">
-                  <option value="0" <?if($categories[0]->rxcp_cate1_enable=='0'){echo "selected";}?>>Suspendido</option>                 
-                  <option value="1" <?if($categories[0]->rxcp_cate1_enable=='1'){echo "selected";}?>>Publicado</option>
+                <select class="form-control select2" name="rxcp_cate1_enable" data-placeholder="Publish">
+                  <option value="0" <?if($categories[0]->rxcp_cate1_enable=='0'){echo "selected";}?>>Suspended</option>                 
+                  <option value="1" <?if($categories[0]->rxcp_cate1_enable=='1'){echo "selected";}?>>Published</option>
                 </select>
               </div>
             </div>
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Image Categoria1:
+                Image:
               </div>
               <div class="col-7 col-sm-8"> <input class="form-control-file" type="file" name="rxcp_cate1_photo[]" placeholder="Imagen"></div>
             </div> 
@@ -102,7 +102,7 @@
             
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-               <button type="button" class="btn btn-primary" onclick="submit();"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
+               <button type="button" class="btn btn-primary" onclick="submit();"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
               </div>
               <div class="col-7 col-sm-8">           
               </div>

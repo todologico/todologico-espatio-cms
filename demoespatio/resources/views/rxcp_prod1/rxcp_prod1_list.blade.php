@@ -125,7 +125,7 @@
 
                   </td>
                   
-                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->rxcp_prod1_id}}"><a href="{{route('rxcp-prod1-update',[$reg->rxcp_prod1_id,$reg->rxcp_prod1_token])}}"><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-file-text" aria-hidden="true"></i> Mod</button></a></td>
+                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->rxcp_prod1_id}}"><a href="{{route('rxcp-prod1-update',[$reg->rxcp_prod1_id,$reg->rxcp_prod1_token])}}"><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-file-text" aria-hidden="true"></i> Edit</button></a></td>
                  
                 </tr>
 

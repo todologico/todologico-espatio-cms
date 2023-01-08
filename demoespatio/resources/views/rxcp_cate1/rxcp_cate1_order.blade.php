@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Categorias.Ordenar</title>
+    <title>Categories.Order</title>
 
     <link href="{{url('/')}}/panel/lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 		<link href="{{url('/')}}/panel/lib/highlightjs/styles/github.css" rel="stylesheet">
@@ -30,8 +30,8 @@
 
       <div class="br-pagebody">
         <div class="br-section-wrapper">
-          <h6 class="br-section-label">Ordenar Categorias</h6>
-          <p class="br-section-text">Permite ordenar numericamente Categorias.  <span style="color: #ff0000;" ng-cloak ng-show="orderok"><b><i class="fa fa-check-square" aria-hidden="true"></i> Listo, el orden fue actualizado! Presiona F5 para ver resultados</b></span></p>
+          <h6 class="br-section-label">Sort Categories</h6>
+          <p class="br-section-text">Allows numerical sorting categories.  <span style="color: #ff0000;" ng-cloak ng-show="orderok"><b><i class="fa fa-check-square" aria-hidden="true"></i> Done, the order has been updated! Press F5 to see results</b></span></p>
 
 
            @if (session('mal'))
@@ -50,13 +50,13 @@
             <table class="table mg-b-0  table-colored table-dark">
               <thead>
                 <tr>
-                  <th>Eliminar</th>
+                  <th>Delete</th>
                   <th>ID</th>
-                  <th>Categoria</th>
-                  <th>Imagen</th>                  
-                  <th>Publicado</th>                  
-                  <th>orden</th>                  
-                  <th>Ordenar</th>                 
+                  <th>Category</th>
+                  <th>Image</th>                  
+                  <th>Publish</th>                  
+                  <th>Order</th>                  
+                  <th>Sort</th>                 
                 </tr>
               </thead>
               <tbody>
