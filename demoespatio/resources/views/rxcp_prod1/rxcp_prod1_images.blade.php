@@ -25,8 +25,8 @@
 
       <div class="br-pagebody">
         <div class="br-section-wrapper">
-          <h6 class="br-section-label">Modificar imagenes de un Producto</h6>
-          <p class="br-section-text">Modificar un banner ingresado previamente.</p>
+          <h6 class="br-section-label">Modify images</h6>
+          <p class="br-section-text">Enter new images. Check the size before uploading your image</p>
 
           @if ($errors->any())
               <div class="alert alert-danger">
@@ -54,14 +54,14 @@
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Acciones:
+                Options:
               </div>
               <div class="col-7 col-sm-8"> {{$products[0]->rxcp_prod1_product}}</div>
             </div>
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-               <?if(isset($products[0]->rxcp_prod1_image1)){?><a href="{{route('rxcp-prod1-images-delete-pro',[$products[0]->rxcp_prod1_id,$products[0]->rxcp_prod1_token,1])}}"><button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i> Elim</button></a><?}?>
+               <?if(isset($products[0]->rxcp_prod1_image1)){?><a href="{{route('rxcp-prod1-images-delete-pro',[$products[0]->rxcp_prod1_id,$products[0]->rxcp_prod1_token,1])}}"><button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i> Del</button></a><?}?>
               </div>
               
               <div class="col-3 col-sm-4"> <?if(isset($products[0]->rxcp_prod1_image1)){?><img src="{{url('/')}}/storage/uploaddir/{{$products[0]->rxcp_prod1_image1}}" style="height:80px;" /><?}?>
@@ -75,7 +75,7 @@
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                 <?if(isset($products[0]->rxcp_prod1_image2)){?><a href="{{route('rxcp-prod1-images-delete-pro',[$products[0]->rxcp_prod1_id,$products[0]->rxcp_prod1_token,2])}}"><button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i> Elim</button></a><?}?>
+                 <?if(isset($products[0]->rxcp_prod1_image2)){?><a href="{{route('rxcp-prod1-images-delete-pro',[$products[0]->rxcp_prod1_id,$products[0]->rxcp_prod1_token,2])}}"><button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i> Del</button></a><?}?>
               </div>
               
               <div class="col-3 col-sm-4"> <?if(isset($products[0]->rxcp_prod1_image2)){?><img src="{{url('/')}}/storage/uploaddir/{{$products[0]->rxcp_prod1_image2}}" style="height:80px;" /><?}?>
@@ -89,7 +89,7 @@
             
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-               <button type="button" class="btn btn-primary" onclick="submit();"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
+               <button type="button" class="btn btn-primary" onclick="submit();"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
               </div>
               <div class="col-7 col-sm-8">           
               </div>
