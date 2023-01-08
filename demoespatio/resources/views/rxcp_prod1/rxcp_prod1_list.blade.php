@@ -30,8 +30,8 @@
 
       <div class="br-pagebody">
         <div class="br-section-wrapper">
-          <h6 class="br-section-label">Productos Cat1-Prod1</h6>
-          <p class="br-section-text">Listado completo de productos. Buscador en lista completa o por categoría.</p>
+          <h6 class="br-section-label">Products Cat1-Prod1</h6>
+          <p class="br-section-text">Complete list of products. Search in complete list or by category.</p>
 
            @if (session('mal'))
               <div class="alert alert-danger">
@@ -52,31 +52,31 @@
                   <tr>
                     <td  colspan="3">    <form method="GET" action="{{route('rxcp-prod1-search-list-pro')}}"> {{ csrf_field() }}                  
                      <select class="form-control select2" name="rxcp_cate1_id" data-placeholder="Categorias">
-                      <option value="0">Todas las Categorias</option>
+                      <option value="0">All categories</option>
                       @foreach ($categories as $key => $reg)
                       <option value="{{$reg->rxcp_cate1_id}}">{{$reg->rxcp_cate1_category}}</option>  
                       @endforeach                   
                     </select>
                     </td>
 
-                    <td colspan="2"><input class="form-control" type="text" name="rxcp_prod1_txtsearch" maxlength="15" placeholder="Búsqueda id - cod - prod"></td>
-                    <td colspan="1"><button type="button" class="btn btn-primary" onclick="submit();"><i class="fa fa-search" aria-hidden="true"></i> Buscar</button></td>
+                    <td colspan="2"><input class="form-control" type="text" name="rxcp_prod1_txtsearch" maxlength="15" placeholder="Search by id - code - product name"></td>
+                    <td colspan="1"><button type="button" class="btn btn-primary" onclick="submit();"><i class="fa fa-search" aria-hidden="true"></i> Search</button></td>
                     <td colspan="6"></td></form>
                 </tr>              
 
                 <tr>
-                  <th>Eliminar</th>
+                  <th>Delete</th>
                   <th>ID</th>
-                  <th>Categoria</th>
-                  <th>Producto</th>
-                  <th>Código</th>
-                  <th>Precio</th>
-                  <th>Imagen</th>
-                  <th>Imagen</th>
-                  <th>Archivo</th>
-                  <th>Clonar</th>
-                  <th>Publicar</th>
-                  <th>Modificar</th>                 
+                  <th>Category</th>
+                  <th>Product</th>
+                  <th>Code</th>
+                  <th>Price</th>
+                  <th>Image</th>
+                  <th>Image</th>
+                  <th>File</th>
+                  <th>Clone</th>
+                  <th>Publish</th>
+                  <th>Modify</th>                 
                 </tr>
               </thead>
               <tbody>
@@ -88,7 +88,7 @@
                 <tr>
 
                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->rxcp_prod1_id}}">
-                      <a href="{{route('rxcp-prod1-delete-pro',[$reg->rxcp_prod1_id,$reg->rxcp_prod1_token])}}"><button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i> Elim</button></a></td>
+                      <a href="{{route('rxcp-prod1-delete-pro',[$reg->rxcp_prod1_id,$reg->rxcp_prod1_token])}}"><button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i> Del</button></a></td>
                   
                   <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->rxcp_prod1_id}}">{{$reg->rxcp_prod1_id}}</td>
                  
@@ -103,9 +103,9 @@
                   
                   <td  style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->rxcp_prod1_id}}"><?if(isset($reg->rxcp_prod1_image2)){?><a href="{{url('/')}}/storage/uploaddir/{{$reg->rxcp_prod1_image2}}" target="_blank"><img src="{{url('/')}}/storage/uploaddir/{{$reg->rxcp_prod1_image2}}" style="height:80px;" /></a><?}?></td>                  
                   
-                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->rxcp_prod1_id}}"><a href="{{route('rxcp-prod1-images-update',[$reg->rxcp_prod1_id,$reg->rxcp_prod1_token])}}"><button type="button" class="btn btn-warning btn-sm"><i class="fa fa-file-image-o" aria-hidden="true"></i> Imagen</button></a></td>                  
+                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->rxcp_prod1_id}}"><a href="{{route('rxcp-prod1-images-update',[$reg->rxcp_prod1_id,$reg->rxcp_prod1_token])}}"><button type="button" class="btn btn-warning btn-sm"><i class="fa fa-file-image-o" aria-hidden="true"></i> File</button></a></td>                  
                   
-                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->rxcp_prod1_id}}"><a href="{{route('rxcp-prod1-clone-pro',[$reg->rxcp_prod1_id,$reg->rxcp_prod1_token])}}"><button type="button" class="btn btn-primary btn-sm" style="background-color: #4B330B; border-color: #4B330B;"><i class="fa fa-files-o" aria-hidden="true"></i> Clonar</button></a></td>
+                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->rxcp_prod1_id}}"><a href="{{route('rxcp-prod1-clone-pro',[$reg->rxcp_prod1_id,$reg->rxcp_prod1_token])}}"><button type="button" class="btn btn-primary btn-sm" style="background-color: #4B330B; border-color: #4B330B;"><i class="fa fa-files-o" aria-hidden="true"></i> Clone</button></a></td>
                   
                   <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->rxcp_prod1_id}}">
 
