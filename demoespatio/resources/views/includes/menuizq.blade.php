@@ -1,4 +1,4 @@
-  <div class="br-logo"><a href="{{route('dashboard')}}"><span>[</span>Espatio<span>]</span></a></div>
+  <div class="br-logo"><a href="{{route('dashboard')}}"><span>[</span>Espatio CMS<span>]</span></a></div>
     <div class="br-sideleft sideleft-scrollbar">
       <label class="sidebar-label pd-x-10 mg-t-20 op-3">Menu</label>
       <ul class="br-sideleft-menu">
