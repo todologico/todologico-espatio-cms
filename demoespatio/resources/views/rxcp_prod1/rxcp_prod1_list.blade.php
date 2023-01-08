@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Productos.Listado</title>
+    <title>Products.List</title>
 
     <link href="{{url('/')}}/panel/lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 		<link href="{{url('/')}}/panel/lib/highlightjs/styles/github.css" rel="stylesheet">
