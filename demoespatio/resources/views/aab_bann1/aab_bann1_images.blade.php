@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Banners.Imagenes</title>
+    <title>Banners.Imagees</title>
 
     <link href="{{url('/')}}/panel/lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 		<link href="{{url('/')}}/panel/lib/highlightjs/styles/github.css" rel="stylesheet">
@@ -25,8 +25,8 @@
 
       <div class="br-pagebody">
         <div class="br-section-wrapper">
-          <h6 class="br-section-label">Modificar imagenes de un Banner</h6>
-          <p class="br-section-text">Modificar un banner ingresado previamente.</p>
+          <h6 class="br-section-label">Image modifications</h6>
+          <p class="br-section-text">Enter new images. Check the size before uploading your image.</p>
 
           @if ($errors->any())
               <div class="alert alert-danger">
@@ -54,14 +54,14 @@
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Acciones:
+                Options:
               </div>
               <div class="col-7 col-sm-8"> {{$banners[0]->aab_bann1_banner}}</div>
             </div>
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-               <?if(isset($banners[0]->aab_bann1_image1)){?><a href="{{route('aab-bann1-images-delete-pro',[$banners[0]->aab_bann1_id,$banners[0]->aab_bann1_token,1])}}"><button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i> Elim</button></a><?}?>
+               <?if(isset($banners[0]->aab_bann1_image1)){?><a href="{{route('aab-bann1-images-delete-pro',[$banners[0]->aab_bann1_id,$banners[0]->aab_bann1_token,1])}}"><button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i> Del</button></a><?}?>
               </div>
               
               <div class="col-3 col-sm-4"> <?if(isset($banners[0]->aab_bann1_image1)){?><img src="{{url('/')}}/storage/uploaddir/{{$banners[0]->aab_bann1_image1}}" style="height:80px;" /><?}?>
@@ -89,7 +89,7 @@
             
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-               <button type="button" class="btn btn-primary" onclick="submit();"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
+               <button type="button" class="btn btn-primary" onclick="submit();"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save Image</button>
               </div>
               <div class="col-7 col-sm-8">           
               </div>

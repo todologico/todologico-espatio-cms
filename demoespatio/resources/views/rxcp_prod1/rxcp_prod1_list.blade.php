@@ -103,7 +103,7 @@
                   
                   <td  style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->rxcp_prod1_id}}"><?if(isset($reg->rxcp_prod1_image2)){?><a href="{{url('/')}}/storage/uploaddir/{{$reg->rxcp_prod1_image2}}" target="_blank"><img src="{{url('/')}}/storage/uploaddir/{{$reg->rxcp_prod1_image2}}" style="height:80px;" /></a><?}?></td>                  
                   
-                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->rxcp_prod1_id}}"><a href="{{route('rxcp-prod1-images-update',[$reg->rxcp_prod1_id,$reg->rxcp_prod1_token])}}"><button type="button" class="btn btn-warning btn-sm"><i class="fa fa-file-image-o" aria-hidden="true"></i> File</button></a></td>                  
+                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->rxcp_prod1_id}}"><a href="{{route('rxcp-prod1-images-update',[$reg->rxcp_prod1_id,$reg->rxcp_prod1_token])}}"><button type="button" class="btn btn-warning btn-sm"><i class="fa fa-file-image-o" aria-hidden="true"></i> Images</button></a></td>                  
                   
                   <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->rxcp_prod1_id}}"><a href="{{route('rxcp-prod1-clone-pro',[$reg->rxcp_prod1_id,$reg->rxcp_prod1_token])}}"><button type="button" class="btn btn-primary btn-sm" style="background-color: #4B330B; border-color: #4B330B;"><i class="fa fa-files-o" aria-hidden="true"></i> Clone</button></a></td>
                   

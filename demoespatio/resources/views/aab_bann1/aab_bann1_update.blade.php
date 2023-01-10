@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Banners.Modificar</title>
+    <title>Banners.Edit</title>
 
     <link href="{{url('/')}}/panel/lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 		<link href="{{url('/')}}/panel/lib/highlightjs/styles/github.css" rel="stylesheet">
@@ -25,8 +25,8 @@
 
       <div class="br-pagebody">
         <div class="br-section-wrapper">
-          <h6 class="br-section-label">Modificar un Banner</h6>
-          <p class="br-section-text">Modificar un banner ingresado previamente.</p>
+          <h6 class="br-section-label">MODIFY A PRODUCT</h6>
+          <p class="br-section-text">Change the banners characteristics.</p>
 
           @if ($errors->any())
               <div class="alert alert-danger">
@@ -54,61 +54,55 @@
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Nombre Banner:
+                Banner Name:
               </div>
-              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="aab_bann1_banner" value="{{$banners[0]->aab_bann1_banner}}" maxlength="255" placeholder="Nombre Banner" required></div>
+              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="aab_bann1_banner" value="{{$banners[0]->aab_bann1_banner}}" maxlength="255" placeholder="Banner Name" required></div>
             </div>
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Titulo Banner1:
+                Banner Title 1:
               </div>
-              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="aab_bann1_title1" value="{{$banners[0]->aab_bann1_title1}}" maxlength="255" placeholder="Titulo Banner" required></div>
+              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="aab_bann1_title1" value="{{$banners[0]->aab_bann1_title1}}" maxlength="255" placeholder="Banner Title" required></div>
             </div>
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Titulo Banner2:
+                Banner Title 2:
               </div>
-              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="aab_bann1_title2" value="{{$banners[0]->aab_bann1_title2}}" maxlength="255" placeholder="Titulo Banner" required></div>
+              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="aab_bann1_title2" value="{{$banners[0]->aab_bann1_title2}}" maxlength="255" placeholder="Banner Title" required></div>
             </div>
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Titulo Banner3:
+                Banner Title 3:
               </div>
-              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="aab_bann1_title3" value="{{$banners[0]->aab_bann1_title3}}" maxlength="255" placeholder="Titulo Banner" required></div>
+              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="aab_bann1_title3" value="{{$banners[0]->aab_bann1_title3}}" maxlength="255" placeholder="Banner Title" required></div>
             </div>                     
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Publicar:
+                Publish:
               </div>
               <div class="col-7 col-sm-8">
                 <select class="form-control select2" name="aab_bann1_enable" data-placeholder="Publicar">
-                  <option value="0" <?if($banners[0]->aab_bann1_enable=='0'){echo "selected";}?>>Suspendido</option>                 
-                  <option value="1" <?if($banners[0]->aab_bann1_enable=='1'){echo "selected";}?>>Publicado</option>
+                  <option value="0" <?if($banners[0]->aab_bann1_enable=='0'){echo "selected";}?>>Suspended</option>                 
+                  <option value="1" <?if($banners[0]->aab_bann1_enable=='1'){echo "selected";}?>>Published</option>
                 </select>
               </div>
             </div>
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Image Banner1:
+                Image Banner:
               </div>
               <div class="col-7 col-sm-8"> <input class="form-control-file" type="file" name="aab_bann1_photo[]" placeholder="Imagen"></div>
             </div> 
 
-            <!-- <div class="row no-gutters">
-              <div class="col-5 col-sm-4">
-                Image Banner2:
-              </div>
-              <div class="col-7 col-sm-8"> <input class="form-control-file" type="file" name="aab_bann1_photo[]" placeholder="Imagen"></div>
-            </div>  --> 
-            
+                    
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-               <button type="button" class="btn btn-primary" onclick="submit();"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
+               <button type="button" class="btn btn-primary" onclick="submit();"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
               </div>
               <div class="col-7 col-sm-8">           
               </div>

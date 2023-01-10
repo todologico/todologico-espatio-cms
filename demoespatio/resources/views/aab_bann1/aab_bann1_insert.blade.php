@@ -25,8 +25,8 @@
 
       <div class="br-pagebody">
         <div class="br-section-wrapper">
-          <h6 class="br-section-label">Agregar un Banner</h6>
-          <p class="br-section-text">Ingresar un banner nuevo a la home.</p>
+          <h6 class="br-section-label">Add a new Banner</h6>
+          <p class="br-section-text">Enter a new banner.</p>
 
           @if ($errors->any())
               <div class="alert alert-danger">
@@ -51,40 +51,40 @@
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Nombre Banner:
+                Banner Name:
               </div>
-              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="aab_bann1_banner" maxlength="255" placeholder="Nombre Banner" required></div>
+              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="aab_bann1_banner" maxlength="255" placeholder="Banner Name" required></div>
             </div>
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Titulo Banner1:
+                Banner Title 1:
               </div>
-              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="aab_bann1_title1" maxlength="255" placeholder="Titulo Banner" required></div>
+              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="aab_bann1_title1" maxlength="255" placeholder="Banner Titler" required></div>
             </div>
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Titulo Banner2:
+                Banner Title 2:
               </div>
-              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="aab_bann1_title2" maxlength="255" placeholder="Titulo Banner" required></div>
+              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="aab_bann1_title2" maxlength="255" placeholder="Banner Title" required></div>
             </div>
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Titulo Banner3:
+                Banner Title 3:
               </div>
-              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="aab_bann1_title3" maxlength="255" placeholder="Titulo Banner" required></div>
+              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="aab_bann1_title3" maxlength="255" placeholder="Banner Title" required></div>
             </div>                     
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Publicar:
+                Publish:
               </div>
               <div class="col-7 col-sm-8">
                 <select class="form-control select2" name="aab_bann1_enable" data-placeholder="Publicar">
-                  <option value="0" selected>Suspender</option>                 
-                  <option value="1">Publicar</option>
+                  <option value="0" selected>Suspended</option>                 
+                  <option value="1">Published</option>
                 </select>
               </div>
             </div>
@@ -93,7 +93,7 @@
               <div class="col-5 col-sm-4">
                 Image Banner1:
               </div>
-              <div class="col-7 col-sm-8"> <input class="form-control-file" type="file" name="aab_bann1_photo[]" placeholder="Imagen"></div>
+              <div class="col-7 col-sm-8"> <input class="form-control-file" type="file" name="aab_bann1_photo[]" placeholder="Image"></div>
             </div> 
 
             <!-- <div class="row no-gutters">
@@ -105,7 +105,7 @@
             
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-               <button type="button" class="btn btn-primary" onclick="submit();"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
+               <button type="button" class="btn btn-primary" onclick="submit();"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
               </div>
               <div class="col-7 col-sm-8">           
               </div>

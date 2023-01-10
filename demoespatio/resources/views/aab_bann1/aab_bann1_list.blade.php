@@ -30,8 +30,8 @@
 
       <div class="br-pagebody">
         <div class="br-section-wrapper">
-          <h6 class="br-section-label">Banner publicitarios</h6>
-          <p class="br-section-text">Listado completo de Banners</p>
+          <h6 class="br-section-label">Advertising banners</h6>
+          <p class="br-section-text">Full list of Banners</p>
 
            @if (session('mal'))
               <div class="alert alert-danger">
@@ -49,14 +49,14 @@
             <table class="table mg-b-0  table-colored table-dark">
               <thead>          
                 <tr>
-                  <th>Eliminar</th>
+                  <th>Delete</th>
                   <th>ID</th>
                   <th>Banner</th>
-                  <th>Imagen</th>
-                  <th>Archivo</th>
-                  <th>Clonar</th>
-                  <th>Publicar</th>
-                  <th>Modificar</th>                 
+                  <th>Image</th>
+                  <th>File</th>
+                  <th>Clone</th>
+                  <th>Publish</th>
+                  <th>Edit</th>                 
                 </tr>
               </thead>
               <tbody>
@@ -68,7 +68,7 @@
                 <tr>
 
                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->aab_bann1_id}}">
-                      <a href="{{route('aab-bann1-delete-pro',[$reg->aab_bann1_id,$reg->aab_bann1_token])}}"><button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i> Elim</button></a></td>
+                      <a href="{{route('aab-bann1-delete-pro',[$reg->aab_bann1_id,$reg->aab_bann1_token])}}"><button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i> Del</button></a></td>
                   
                   <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->aab_bann1_id}}">{{$reg->aab_bann1_id}}</td>
                  
@@ -78,9 +78,9 @@
                   
                   <!-- <td  style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->aab_bann1_id}}"><?if(isset($reg->aab_bann1_image2)){?><a href="{{url('/')}}/storage/uploaddir/{{$reg->aab_bann1_image2}}" target="_blank"><img src="{{url('/')}}/storage/uploaddir/{{$reg->aab_bann1_image2}}" style="height:80px;" /></a><?}?></td>   -->                
                   
-                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->aab_bann1_id}}"><a href="{{route('aab-bann1-images-update',[$reg->aab_bann1_id,$reg->aab_bann1_token])}}"><button type="button" class="btn btn-warning btn-sm"><i class="fa fa-file-image-o" aria-hidden="true"></i> Imagen</button></a></td>                  
+                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->aab_bann1_id}}"><a href="{{route('aab-bann1-images-update',[$reg->aab_bann1_id,$reg->aab_bann1_token])}}"><button type="button" class="btn btn-warning btn-sm"><i class="fa fa-file-image-o" aria-hidden="true"></i> Image</button></a></td>                  
                   
-                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->aab_bann1_id}}"><a href="{{route('aab-bann1-clone-pro',[$reg->aab_bann1_id,$reg->aab_bann1_token])}}"><button type="button" class="btn btn-primary btn-sm" style="background-color: #4B330B; border-color: #4B330B;"><i class="fa fa-files-o" aria-hidden="true"></i> Clonar</button></a></td>
+                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->aab_bann1_id}}"><a href="{{route('aab-bann1-clone-pro',[$reg->aab_bann1_id,$reg->aab_bann1_token])}}"><button type="button" class="btn btn-primary btn-sm" style="background-color: #4B330B; border-color: #4B330B;"><i class="fa fa-files-o" aria-hidden="true"></i> Clone</button></a></td>
                   
                   <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->aab_bann1_id}}">
 
@@ -100,7 +100,7 @@
 
                   </td>
                   
-                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->aab_bann1_id}}"><a href="{{route('aab-bann1-update',[$reg->aab_bann1_id,$reg->aab_bann1_token])}}"><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-file-text" aria-hidden="true"></i> Mod</button></a></td>
+                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->aab_bann1_id}}"><a href="{{route('aab-bann1-update',[$reg->aab_bann1_id,$reg->aab_bann1_token])}}"><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-file-text" aria-hidden="true"></i> Edit</button></a></td>
                  
                 </tr>
 
