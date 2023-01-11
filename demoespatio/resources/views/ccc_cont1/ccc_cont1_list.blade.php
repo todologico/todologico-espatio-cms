@@ -81,7 +81,7 @@
 
                 <tr>
                   <td style="<?=$bgcolor;?>"></td>                  
-                  <td colspan="5" style="<?=$bgcolor1;?>">{{$reg->ccc_cont1_text1}}</td> 
+                  <td colspan="5" style="<?=$bgcolor1;?>">MESSAGE: {{$reg->ccc_cont1_text1}}</td> 
                 </tr>
 
                   @if($loop->last)
