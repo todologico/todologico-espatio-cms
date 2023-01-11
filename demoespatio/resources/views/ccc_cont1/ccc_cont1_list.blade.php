@@ -50,7 +50,7 @@
               <thead>
 
                  <tr> <form method="GET" action="{{route('ccc-cont1-search-list-pro')}}"> {{ csrf_field() }} 
-                    <td colspan="3"><input class="form-control" type="text" name="ccc_cont1_txtsearch" maxlength="25" placeholder="Search by name - nombre, surname - email"></td>
+                    <td colspan="3"><input class="form-control" type="text" name="ccc_cont1_txtsearch" maxlength="25" placeholder="Search by name - name, surname - email"></td>
                     <td colspan="1"><button type="button" class="btn btn-primary" onclick="submit();"><i class="fa fa-search" aria-hidden="true"></i> Search</button></td>
                     <td colspan="2"></td></form>
                 </tr>   
