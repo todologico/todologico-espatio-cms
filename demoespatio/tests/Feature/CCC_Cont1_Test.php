@@ -13,32 +13,23 @@ class CCC_Cont1_Test extends TestCase
 {
    
     
-    // public function test_example()
-    // {
-    //     $response = $this->get('/');
-
-    //     $response->assertStatus(200);
-    // }
-
-
-
 //----------------------------------------------------------
 // contact list view
 //----------------------------------------------------------    
 
-// public function test_get_list_contacts(){
+public function test_get_list_contacts(){
     
-//     $user = User::factory()->create();
+    $user = User::factory()->create();
     
-//     $response = $this->actingAs($user)->get('/ccc-cont1-list');
+    $response = $this->actingAs($user)->get('/ccc-cont1-list');
     
-//     $response->assertStatus(200);
+    $response->assertStatus(200);
   
-//     $response->assertSee('Listado completo de contactos');
+    $response->assertSee('Complete leads list.');
   
-//     $response->assertOk();
+    $response->assertOk();
 
-// }
+}
 
   
 

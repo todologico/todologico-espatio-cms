@@ -55,17 +55,20 @@ public function test_get_AAB_Bann1_CR(){
 
   $this->withoutExceptionHandling();
 
-  //$this->actingAs($user = User::factory()->create());
-
+  //new user 
   $user = User::factory()->create();
 
-  //llamo la vista de banners y la asigno al response
+  //calling the view
   $response = $this->actingAs($user)->get('/aab-bann1-list');
+
+  $response->assertRedirect('/aab-bann1-list');
+
+  //check the status  
+  $response->assertStatus(200);  
   
-  $response->assertStatus(200);
 
   //reviso que la vista contenga el texto
-  //$response->assertSee('Listado completo de Banners');
+  $response->assertSee('ADVERTISING BANNERS');
 
   //Assert that a table in the database contains the given number of records
  // $this->actingAs($user)->assertDatabaseCount('aab_bann1', 6);
