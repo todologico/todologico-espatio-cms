@@ -25,8 +25,8 @@
 
       <div class="br-pagebody">
         <div class="br-section-wrapper">
-          <h6 class="br-section-label">Agregar una Categoria</h6>
-          <p class="br-section-text">Ingresar una categoria nueva.</p>
+          <h6 class="br-section-label">ADD A NEW CATEGORY</h6>
+          <p class="br-section-text">Enter a new category..</p>
 
           @if ($errors->any())
               <div class="alert alert-danger">
@@ -51,7 +51,7 @@
 
           <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Rubro:
+                Family:
               </div>
               <div class="col-7 col-sm-8">
                 <select class="form-control select2" name="zgfcp_cate1_fami1_id" data-placeholder="Publicar">                  
@@ -66,40 +66,40 @@
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Nombre Categoria:
+                Category Name:
               </div>
-              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="zgfcp_cate1_category" maxlength="255" placeholder="Nombre Categoria" required></div>
+              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="zgfcp_cate1_category" maxlength="255" placeholder="Category Name" required></div>
             </div>
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Titulo Categoria1:
+                Category Name 1:
               </div>
-              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="zgfcp_cate1_title1" maxlength="255" placeholder="Titulo Categoria" required></div>
+              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="zgfcp_cate1_title1" maxlength="255" placeholder="Category Name" required></div>
             </div>
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Titulo Categoria2:
+                Category Name 2:
               </div>
-              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="zgfcp_cate1_title2" maxlength="255" placeholder="Titulo Categoria" required></div>
+              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="zgfcp_cate1_title2" maxlength="255" placeholder="Category Name" required></div>
             </div>                               
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Publicar:
+                Publish:
               </div>
               <div class="col-7 col-sm-8">
                 <select class="form-control select2" name="zgfcp_cate1_enable" data-placeholder="Publicar">
-                  <option value="0" selected>Suspender</option>                 
-                  <option value="1">Publicar</option>
+                  <option value="0" selected>Suspended</option>                 
+                  <option value="1">Published</option>
                 </select>
               </div>
             </div>
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Image Categoria:
+                Image:
               </div>
               <div class="col-7 col-sm-8"> <input class="form-control-file" type="file" name="zgfcp_cate1_photo[]" placeholder="Imagen"></div>
             </div> 
@@ -113,7 +113,7 @@
             
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-               <button type="button" class="btn btn-primary" onclick="submit();"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
+               <button type="button" class="btn btn-primary" onclick="submit();"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
               </div>
               <div class="col-7 col-sm-8">           
               </div>

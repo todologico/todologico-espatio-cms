@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Rubros.Listado</title>
+    <title>Families.List</title>
 
     <link href="{{url('/')}}/panel/lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 		<link href="{{url('/')}}/panel/lib/highlightjs/styles/github.css" rel="stylesheet">
@@ -30,8 +30,8 @@
 
       <div class="br-pagebody">
         <div class="br-section-wrapper">
-          <h6 class="br-section-label">Rubros Family1</h6>
-          <p class="br-section-text">Listado completo de rubros</p>
+          <h6 class="br-section-label">Families Family 1</h6>
+          <p class="br-section-text">Complete list of families</p>
 
            @if (session('mal'))
               <div class="alert alert-danger">
@@ -49,15 +49,15 @@
             <table class="table mg-b-0  table-colored table-dark">
               <thead>
                 <tr>
-                  <th>Eliminar</th>
+                  <th>Delete</th>
                   <th>ID</th>
-                  <th>Rubro</th>
-                  <th>Contiene</th>
-                  <th>Imagen</th>
-                  <th>Archivo</th>
-                  <th>Clonar</th>
-                  <th>Publicar</th>
-                  <th>Modificar</th>                 
+                  <th>Family</th>
+                  <th>Contains</th>
+                  <th>Image</th>
+                  <th>File</th>
+                  <th>Clone</th>
+                  <th>Publish</th>
+                  <th>Edit</th>                 
                 </tr>
               </thead>
               <tbody>
@@ -69,7 +69,7 @@
                 <tr>
 
                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->zgfcp_fami1_id}}">
-                      <a href="{{route('zgfcp-fami1-delete-pro',[$reg->zgfcp_fami1_id,$reg->zgfcp_fami1_token])}}"><button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i> Elim</button></a></td>
+                      <a href="{{route('zgfcp-fami1-delete-pro',[$reg->zgfcp_fami1_id,$reg->zgfcp_fami1_token])}}"><button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i> Del</button></a></td>
                   
                   <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->zgfcp_fami1_id}}">{{$reg->zgfcp_fami1_id}}</td>
                  
@@ -110,9 +110,9 @@
                   
                 <!--   <td  style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->zgfcp_fami1_id}}"><?if(isset($reg->zgfcp_fami1_image2)){?><a href="{{url('/')}}/storage/uploaddir/{{$reg->zgfcp_fami1_image2}}" target="_blank"><img src="{{url('/')}}/storage/uploaddir/{{$reg->zgfcp_fami1_image2}}" style="height:80px;" /></a><?}?></td>    -->               
                   
-                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->zgfcp_fami1_id}}"><a href="{{route('zgfcp-fami1-images-update',[$reg->zgfcp_fami1_id,$reg->zgfcp_fami1_token])}}"><button type="button" class="btn btn-warning btn-sm"><i class="fa fa-file-image-o" aria-hidden="true"></i> Imagen</button></a></td>                  
+                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->zgfcp_fami1_id}}"><a href="{{route('zgfcp-fami1-images-update',[$reg->zgfcp_fami1_id,$reg->zgfcp_fami1_token])}}"><button type="button" class="btn btn-warning btn-sm"><i class="fa fa-file-image-o" aria-hidden="true"></i> Image</button></a></td>                  
                   
-                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->zgfcp_fami1_id}}"><a href="{{route('zgfcp-fami1-clone-pro',[$reg->zgfcp_fami1_id,$reg->zgfcp_fami1_token])}}"><button type="button" class="btn btn-primary btn-sm" style="background-color: #4B330B; border-color: #4B330B;"><i class="fa fa-files-o" aria-hidden="true"></i> Clonar</button></a></td>
+                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->zgfcp_fami1_id}}"><a href="{{route('zgfcp-fami1-clone-pro',[$reg->zgfcp_fami1_id,$reg->zgfcp_fami1_token])}}"><button type="button" class="btn btn-primary btn-sm" style="background-color: #4B330B; border-color: #4B330B;"><i class="fa fa-files-o" aria-hidden="true"></i> Clone</button></a></td>
                   
                   <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->zgfcp_fami1_id}}">
 
@@ -132,7 +132,7 @@
 
                   </td>
                   
-                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->zgfcp_fami1_id}}"><a href="{{route('zgfcp-fami1-update',[$reg->zgfcp_fami1_id,$reg->zgfcp_fami1_token])}}"><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-file-text" aria-hidden="true"></i> Mod</button></a></td>
+                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->zgfcp_fami1_id}}"><a href="{{route('zgfcp-fami1-update',[$reg->zgfcp_fami1_id,$reg->zgfcp_fami1_token])}}"><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-file-text" aria-hidden="true"></i> Edit</button></a></td>
                  
                 </tr>
 

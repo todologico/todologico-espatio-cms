@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Rubros.Modificar</title>
+    <title>Family.Update</title>
 
     <link href="{{url('/')}}/panel/lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 		<link href="{{url('/')}}/panel/lib/highlightjs/styles/github.css" rel="stylesheet">
@@ -25,8 +25,8 @@
 
       <div class="br-pagebody">
         <div class="br-section-wrapper">
-          <h6 class="br-section-label">Modificar un Rubro</h6>
-          <p class="br-section-text">Modificar un rubro ingresado previamente.</p>
+          <h6 class="br-section-label">EDIT A FAMILY</h6>
+          <p class="br-section-text">Change the characteristics of a family</p>
 
           @if ($errors->any())
               <div class="alert alert-danger">
@@ -54,41 +54,41 @@
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Nombre Rubro:
+                Famyly Name:
               </div>
-              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="zgfcp_fami1_family" value="{{$families[0]->zgfcp_fami1_family}}" maxlength="255" placeholder="Nombre Rubro" required></div>
+              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="zgfcp_fami1_family" value="{{$families[0]->zgfcp_fami1_family}}" maxlength="255" placeholder="Famyly Name" required></div>
             </div>
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Titulo Rubro1:
+                Famyly Title 1:
               </div>
-              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="zgfcp_fami1_title1" value="{{$families[0]->zgfcp_fami1_title1}}" maxlength="255" placeholder="Titulo Rubro" required></div>
+              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="zgfcp_fami1_title1" value="{{$families[0]->zgfcp_fami1_title1}}" maxlength="255" placeholder="Famyly Title" required></div>
             </div>
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Titulo Rubro2:
+                Famyly Title 2:
               </div>
-              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="zgfcp_fami1_title2" value="{{$families[0]->zgfcp_fami1_title2}}" maxlength="255" placeholder="Titulo Rubro" required></div>
+              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="zgfcp_fami1_title2" value="{{$families[0]->zgfcp_fami1_title2}}" maxlength="255" placeholder="Famyly Title" required></div>
             </div>
                           
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Publicar:
+                Publish:
               </div>
               <div class="col-7 col-sm-8">
                 <select class="form-control select2" name="zgfcp_fami1_enable" data-placeholder="Publicar">
-                  <option value="0" <?if($families[0]->zgfcp_fami1_enable=='0'){echo "selected";}?>>Suspendido</option>                 
-                  <option value="1" <?if($families[0]->zgfcp_fami1_enable=='1'){echo "selected";}?>>Publicado</option>
+                  <option value="0" <?if($families[0]->zgfcp_fami1_enable=='0'){echo "selected";}?>>Suspended</option>                 
+                  <option value="1" <?if($families[0]->zgfcp_fami1_enable=='1'){echo "selected";}?>>Published</option>
                 </select>
               </div>
             </div>
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Image Rubro1:
+                Image:
               </div>
               <div class="col-7 col-sm-8"> <input class="form-control-file" type="file" name="zgfcp_fami1_photo[]" placeholder="Imagen"></div>
             </div> 
@@ -102,7 +102,7 @@
             
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-               <button type="button" class="btn btn-primary" onclick="submit();"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
+               <button type="button" class="btn btn-primary" onclick="submit();"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
               </div>
               <div class="col-7 col-sm-8">           
               </div>

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Contactos.Listado</title>
+    <title>Contacts.List</title>
 
     <link href="{{url('/')}}/panel/lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 		<link href="{{url('/')}}/panel/lib/highlightjs/styles/github.css" rel="stylesheet">
@@ -30,8 +30,8 @@
 
       <div class="br-pagebody">
         <div class="br-section-wrapper">
-          <h6 class="br-section-label">Contactos Cont1</h6>
-          <p class="br-section-text">Listado completo de contactos</p>
+          <h6 class="br-section-label">Contacts Cont1</h6>
+          <p class="br-section-text">Complete leads list.</p>
 
            @if (session('mal'))
               <div class="alert alert-danger">
@@ -50,17 +50,17 @@
               <thead>
 
                  <tr> <form method="GET" action="{{route('ccc-cont1-search-list-pro')}}"> {{ csrf_field() }} 
-                    <td colspan="3"><input class="form-control" type="text" name="ccc_cont1_txtsearch" maxlength="25" placeholder="Búsqueda nombre, apellido,email"></td>
-                    <td colspan="1"><button type="button" class="btn btn-primary" onclick="submit();"><i class="fa fa-search" aria-hidden="true"></i> Buscar</button></td>
+                    <td colspan="3"><input class="form-control" type="text" name="ccc_cont1_txtsearch" maxlength="25" placeholder="Search by name - nombre, surname - email"></td>
+                    <td colspan="1"><button type="button" class="btn btn-primary" onclick="submit();"><i class="fa fa-search" aria-hidden="true"></i> Search</button></td>
                     <td colspan="2"></td></form>
                 </tr>   
 
                 <tr>
-                  <th>Eliminar</th>
+                  <th>Delete</th>
                   <th>ID</th>
-                  <th>Nombre</th>
-                  <th>Empresa</th>
-                  <th>Teléfono</th>
+                  <th>Name</th>
+                  <th>Company</th>
+                  <th>Phone</th>
                   <th>Email</th>                                 
                 </tr>
               </thead>
@@ -71,7 +71,7 @@
                 <? $bgcolor1='background-color: #B0B3B8;'; $bgcolor='background-color: #D5D9DF;'; ;?>
 
                 <tr>
-                 <td style="<?=$bgcolor;?>"><a href="{{route('ccc-cont1-delete-pro',[$reg->ccc_cont1_id,$reg->ccc_cont1_token])}}"><button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i> Elim</button></a></td>                  
+                 <td style="<?=$bgcolor;?>"><a href="{{route('ccc-cont1-delete-pro',[$reg->ccc_cont1_id,$reg->ccc_cont1_token])}}"><button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i> Del</button></a></td>                  
                   <td style="<?=$bgcolor;?>">{{$reg->ccc_cont1_id}}</td>
                   <td style="<?=$bgcolor;?>">{{$reg->ccc_cont1_name}} {{$reg->ccc_cont1_surname}}</td>                  
                   <td style="<?=$bgcolor;?>">{{$reg->ccc_cont1_company}}</td>                  

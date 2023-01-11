@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Categorias.Ordenar</title>
+    <title>Family.Order</title>
 
     <link href="{{url('/')}}/panel/lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 		<link href="{{url('/')}}/panel/lib/highlightjs/styles/github.css" rel="stylesheet">
@@ -30,8 +30,8 @@
 
       <div class="br-pagebody">
         <div class="br-section-wrapper">
-          <h6 class="br-section-label">Ordenar Rubros</h6>
-          <p class="br-section-text">Permite ordenar numericamente Rubros.  <span style="color: #ff0000;" ng-cloak ng-show="orderok"><b><i class="fa fa-check-square" aria-hidden="true"></i> Listo, el orden fue actualizado! Presiona F5 para ver resultados</b></span></p>
+          <h6 class="br-section-label">Families order</h6>
+          <p class="br-section-text">Allows numerical sorting families.  <span style="color: #ff0000;" ng-cloak ng-show="orderok"><b><i class="fa fa-check-square" aria-hidden="true"></i> Done, the order has been updated! Press F5 to see results</b></span></p>
 
 
            @if (session('mal'))
@@ -50,13 +50,13 @@
             <table class="table mg-b-0  table-colored table-dark">
               <thead>
                 <tr>
-                  <th>Eliminar</th>
+                  <th>Delete</th>
                   <th>ID</th>
-                  <th>Rubro</th>
-                  <th>Imagen</th>                  
-                  <th>Publicado</th>                  
-                  <th>orden</th>                  
-                  <th>Ordenar</th>                 
+                  <th>Family</th>
+                  <th>Image</th>                  
+                  <th>Publish</th>                  
+                  <th>Order</th>                  
+                  <th>Sort</th>                 
                 </tr>
               </thead>
               <tbody>
@@ -68,7 +68,7 @@
                 <tr>
 
                  <td style="<?=$bgcolor;?>">
-                      <a href="{{route('zgfcp-fami1-delete-pro',[$reg->zgfcp_fami1_id,$reg->zgfcp_fami1_token])}}"><button type="button" class="btn btn-danger btn-sm">Elim</button></a></td>
+                      <a href="{{route('zgfcp-fami1-delete-pro',[$reg->zgfcp_fami1_id,$reg->zgfcp_fami1_token])}}"><button type="button" class="btn btn-danger btn-sm">Del</button></a></td>
                   
                   <td style="<?=$bgcolor;?>">{{$reg->zgfcp_fami1_id}}</td>
                  

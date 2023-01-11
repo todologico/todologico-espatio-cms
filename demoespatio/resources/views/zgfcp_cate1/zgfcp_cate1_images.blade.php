@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Categorias.Imagenes</title>
+    <title>Category.Images</title>
 
     <link href="{{url('/')}}/panel/lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 		<link href="{{url('/')}}/panel/lib/highlightjs/styles/github.css" rel="stylesheet">
@@ -25,8 +25,8 @@
 
       <div class="br-pagebody">
         <div class="br-section-wrapper">
-          <h6 class="br-section-label">Modificar imagenes de una Categoria</h6>
-          <p class="br-section-text">Modificar una categoria ingresada previamente.</p>
+          <h6 class="br-section-label">EDIT CATEGORY IMAGES</h6>
+          <p class="br-section-text">Enter new images..</p>
 
           @if ($errors->any())
               <div class="alert alert-danger">
@@ -54,7 +54,7 @@
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Acciones:
+                Options:
               </div>
               <div class="col-7 col-sm-8"> {{$categories[0]->zgfcp_cate1_category}}</div>
             </div>
@@ -67,7 +67,7 @@
               <div class="col-3 col-sm-4"> <?if(isset($categories[0]->zgfcp_cate1_image1)){?><img src="{{url('/')}}/storage/uploaddir/{{$categories[0]->zgfcp_cate1_image1}}" style="height:80px;" /><?}?>
               </div>
 
-              <div class="col-4 col-sm-4"> <input class="form-control-file" type="file" name="zgfcp_cate1_photo[]" placeholder="Imagen">
+              <div class="col-4 col-sm-4"> <input class="form-control-file" type="file" name="zgfcp_cate1_photo[]" placeholder="Imagn">
               </div>
 
             </div> 
@@ -89,7 +89,7 @@
             
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-               <button type="button" class="btn btn-primary" onclick="submit();"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
+               <button type="button" class="btn btn-primary" onclick="submit();"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save Image</button>
               </div>
               <div class="col-7 col-sm-8">           
               </div>

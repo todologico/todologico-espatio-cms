@@ -50,7 +50,7 @@
               <thead>
 
                  <tr> <form method="GET" action="{{route('bbp-prod1-search-list-pro')}}"> {{ csrf_field() }} 
-                    <td colspan="5"><input class="form-control" type="text" name="bbp_prod1_txtsearch" maxlength="15" placeholder="Búsqueda id - cod - prod"></td>
+                    <td colspan="5"><input class="form-control" type="text" name="bbp_prod1_txtsearch" maxlength="15" placeholder="Search by id - code - product name"></td>
                     <td colspan="1"><button type="button" class="btn btn-primary" onclick="submit();"><i class="fa fa-search" aria-hidden="true"></i> Search</button></td>
                     <td colspan="5"></td></form>
                 </tr>   

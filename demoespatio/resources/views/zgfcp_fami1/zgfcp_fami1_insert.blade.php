@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Banners.Ingresar</title>
+    <title>Families.Insert</title>
 
     <link href="{{url('/')}}/panel/lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 		<link href="{{url('/')}}/panel/lib/highlightjs/styles/github.css" rel="stylesheet">
@@ -25,8 +25,8 @@
 
       <div class="br-pagebody">
         <div class="br-section-wrapper">
-          <h6 class="br-section-label">Agregar un Rubro</h6>
-          <p class="br-section-text">Ingresar una rubro nuevo.</p>
+          <h6 class="br-section-label">ADD A NEW FAMILY</h6>
+          <p class="br-section-text">Enter a new family.</p>
 
           @if ($errors->any())
               <div class="alert alert-danger">
@@ -51,42 +51,42 @@
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Nombre Rubro:
+                Family Name:
               </div>
-              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="zgfcp_fami1_family" maxlength="255" placeholder="Nombre Rubro" required></div>
+              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="zgfcp_fami1_family" maxlength="255" placeholder="Family Name" required></div>
             </div>
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Titulo Rubro1:
+                Family Title 1:
               </div>
-              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="zgfcp_fami1_title1" maxlength="255" placeholder="Titulo Rubro" required></div>
+              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="zgfcp_fami1_title1" maxlength="255" placeholder="Family Title" required></div>
             </div>
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Titulo Rubro2:
+                Family Title 2:
               </div>
-              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="zgfcp_fami1_title2" maxlength="255" placeholder="Titulo Rubro" required></div>
+              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="zgfcp_fami1_title2" maxlength="255" placeholder="Family Title" required></div>
             </div>                               
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Publicar:
+                Publish:
               </div>
               <div class="col-7 col-sm-8">
                 <select class="form-control select2" name="zgfcp_fami1_enable" data-placeholder="Publicar">
-                  <option value="0" selected>Suspender</option>                 
-                  <option value="1">Publicar</option>
+                  <option value="0" selected>Suspended</option>                 
+                  <option value="1">Published</option>
                 </select>
               </div>
             </div>
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Image Rubro:
+                Image:
               </div>
-              <div class="col-7 col-sm-8"> <input class="form-control-file" type="file" name="zgfcp_fami1_photo[]" placeholder="Imagen"></div>
+              <div class="col-7 col-sm-8"> <input class="form-control-file" type="file" name="zgfcp_fami1_photo[]" placeholder="Image"></div>
             </div> 
 
            <!--  <div class="row no-gutters">
@@ -98,7 +98,7 @@
             
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-               <button type="button" class="btn btn-primary" onclick="submit();"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
+               <button type="button" class="btn btn-primary" onclick="submit();"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
               </div>
               <div class="col-7 col-sm-8">           
               </div>

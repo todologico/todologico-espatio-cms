@@ -73,7 +73,7 @@
 
              <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Price € - $ :
+                Price €:
               </div>
               <div class="col-7 col-sm-8"> <input class="form-control" type="number" name="rxcp_prod1_price1" value="{{$products[0]->rxcp_prod1_price1}}" maxlength="10" placeholder="Price" required></div>
             </div>   

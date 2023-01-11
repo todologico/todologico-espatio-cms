@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Categorias.Imagenes</title>
+    <title>Families.Images</title>
 
     <link href="{{url('/')}}/panel/lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 		<link href="{{url('/')}}/panel/lib/highlightjs/styles/github.css" rel="stylesheet">
@@ -25,8 +25,8 @@
 
       <div class="br-pagebody">
         <div class="br-section-wrapper">
-          <h6 class="br-section-label">Modificar imagenes de una Categoria</h6>
-          <p class="br-section-text">Modificar una categoria ingresada previamente.</p>
+          <h6 class="br-section-label">MODIFY IMAGES</h6>
+          <p class="br-section-text">Enter new images. Check the size before uploading your image.</p>
 
           @if ($errors->any())
               <div class="alert alert-danger">
@@ -54,14 +54,14 @@
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Acciones:
+                Options:
               </div>
               <div class="col-7 col-sm-8"> {{$families[0]->zgfcp_fami1_family}}</div>
             </div>
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-               <?if(isset($families[0]->zgfcp_fami1_image1)){?><a href="{{route('zgfcp-fami1-images-delete-pro',[$families[0]->zgfcp_fami1_id,$families[0]->zgfcp_fami1_token,1])}}"><button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i> Elim</button></a><?}?>
+               <?if(isset($families[0]->zgfcp_fami1_image1)){?><a href="{{route('zgfcp-fami1-images-delete-pro',[$families[0]->zgfcp_fami1_id,$families[0]->zgfcp_fami1_token,1])}}"><button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i> Del</button></a><?}?>
               </div>
               
               <div class="col-3 col-sm-4"> <?if(isset($families[0]->zgfcp_fami1_image1)){?><img src="{{url('/')}}/storage/uploaddir/{{$families[0]->zgfcp_fami1_image1}}" style="height:80px;" /><?}?>
@@ -73,23 +73,11 @@
             </div> 
 
 
-            <!-- <div class="row no-gutters">
-              <div class="col-5 col-sm-4">
-                 <?if(isset($families[0]->zgfcp_fami1_image2)){?><a href="{{route('zgfcp-fami1-images-delete-pro',[$families[0]->zgfcp_fami1_id,$families[0]->zgfcp_fami1_token,2])}}"><button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i> Elim</button></a><?}?>
-              </div>
-              
-              <div class="col-3 col-sm-4"> <?if(isset($families[0]->zgfcp_fami1_image2)){?><img src="{{url('/')}}/storage/uploaddir/{{$families[0]->zgfcp_fami1_image2}}" style="height:80px;" /><?}?>
-              </div>
-
-              <div class="col-4 col-sm-4"> <input class="form-control-file" type="file" name="zgfcp_fami1_photo[]" placeholder="Imagen">
-              </div>
-
-            </div> -->
 
             
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-               <button type="button" class="btn btn-primary" onclick="submit();"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
+               <button type="button" class="btn btn-primary" onclick="submit();"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
               </div>
               <div class="col-7 col-sm-8">           
               </div>
