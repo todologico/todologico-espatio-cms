@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Productos.Listado</title>
+    <title>Products.List</title>
 
     <link href="{{url('/')}}/panel/lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 		<link href="{{url('/')}}/panel/lib/highlightjs/styles/github.css" rel="stylesheet">
@@ -30,8 +30,8 @@
 
       <div class="br-pagebody">
         <div class="br-section-wrapper">
-          <h6 class="br-section-label">Productos Prod1</h6>
-          <p class="br-section-text">Listado completo de productos</p>
+          <h6 class="br-section-label">Products Prod1</h6>
+          <p class="br-section-text">Complete list of products.</p>
 
            @if (session('mal'))
               <div class="alert alert-danger">
@@ -51,22 +51,22 @@
 
                  <tr> <form method="GET" action="{{route('bbp-prod1-search-list-pro')}}"> {{ csrf_field() }} 
                     <td colspan="5"><input class="form-control" type="text" name="bbp_prod1_txtsearch" maxlength="15" placeholder="Búsqueda id - cod - prod"></td>
-                    <td colspan="1"><button type="button" class="btn btn-primary" onclick="submit();"><i class="fa fa-search" aria-hidden="true"></i> Buscar</button></td>
+                    <td colspan="1"><button type="button" class="btn btn-primary" onclick="submit();"><i class="fa fa-search" aria-hidden="true"></i> Search</button></td>
                     <td colspan="5"></td></form>
                 </tr>   
 
                 <tr>
-                  <th>Eliminar</th>
+                  <th>delete</th>
                   <th>ID</th>
-                  <th>Producto</th>
-                  <th>Código</th>
-                  <th>Precio</th>
-                  <th>Imagen</th>
-                  <th>Imagen</th>
-                  <th>Archivo</th>
-                  <th>Clonar</th>
-                  <th>Publicar</th>
-                  <th>Modificar</th>                 
+                  <th>Product</th>
+                  <th>Code</th>
+                  <th>Price</th>
+                  <th>Image</th>
+                  <th>Image</th>
+                  <th>File</th>
+                  <th>Clone</th>
+                  <th>Publish</th>
+                  <th>Edit</th>                 
                 </tr>
               </thead>
               <tbody>
@@ -78,7 +78,7 @@
                 <tr>
 
                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->bbp_prod1_id}}">
-                      <a href="{{route('bbp-prod1-delete-pro',[$reg->bbp_prod1_id,$reg->bbp_prod1_token])}}"><button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i> Elim</button></a></td>
+                      <a href="{{route('bbp-prod1-delete-pro',[$reg->bbp_prod1_id,$reg->bbp_prod1_token])}}"><button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i> Del</button></a></td>
                   
                   <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->bbp_prod1_id}}">{{$reg->bbp_prod1_id}}</td>
                  
@@ -90,9 +90,9 @@
                   
                   <td  style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->bbp_prod1_id}}"><?if(isset($reg->bbp_prod1_image2)){?><a href="{{url('/')}}/storage/uploaddir/{{$reg->bbp_prod1_image2}}" target="_blank"><img src="{{url('/')}}/storage/uploaddir/{{$reg->bbp_prod1_image2}}" style="height:80px;" /></a><?}?></td>                  
                   
-                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->bbp_prod1_id}}"><a href="{{route('bbp-prod1-images-update',[$reg->bbp_prod1_id,$reg->bbp_prod1_token])}}"><button type="button" class="btn btn-warning btn-sm"><i class="fa fa-file-image-o" aria-hidden="true"></i> Imagen</button></a></td>                  
+                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->bbp_prod1_id}}"><a href="{{route('bbp-prod1-images-update',[$reg->bbp_prod1_id,$reg->bbp_prod1_token])}}"><button type="button" class="btn btn-warning btn-sm"><i class="fa fa-file-image-o" aria-hidden="true"></i> Images</button></a></td>                  
                   
-                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->bbp_prod1_id}}"><a href="{{route('bbp-prod1-clone-pro',[$reg->bbp_prod1_id,$reg->bbp_prod1_token])}}"><button type="button" class="btn btn-primary btn-sm" style="background-color: #4B330B; border-color: #4B330B;"><i class="fa fa-files-o" aria-hidden="true"></i> Clonar</button></a></td>
+                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->bbp_prod1_id}}"><a href="{{route('bbp-prod1-clone-pro',[$reg->bbp_prod1_id,$reg->bbp_prod1_token])}}"><button type="button" class="btn btn-primary btn-sm" style="background-color: #4B330B; border-color: #4B330B;"><i class="fa fa-files-o" aria-hidden="true"></i> Clone</button></a></td>
                   
                   <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->bbp_prod1_id}}">
 
@@ -112,7 +112,7 @@
 
                   </td>
                   
-                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->bbp_prod1_id}}"><a href="{{route('bbp-prod1-update',[$reg->bbp_prod1_id,$reg->bbp_prod1_token])}}"><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-file-text" aria-hidden="true"></i> Mod</button></a></td>
+                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->bbp_prod1_id}}"><a href="{{route('bbp-prod1-update',[$reg->bbp_prod1_id,$reg->bbp_prod1_token])}}"><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-file-text" aria-hidden="true"></i> Edit</button></a></td>
                  
                 </tr>
 

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Productos.Modificar</title>
+    <title>Productos.Update</title>
 
     <link href="{{url('/')}}/panel/lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 		<link href="{{url('/')}}/panel/lib/highlightjs/styles/github.css" rel="stylesheet">
@@ -25,8 +25,8 @@
 
       <div class="br-pagebody">
         <div class="br-section-wrapper">
-          <h6 class="br-section-label">Modificar un Producto</h6>
-          <p class="br-section-text">Modificar un producto ingresado previamente.</p>
+          <h6 class="br-section-label">MODIFY A PRODUCT</h6>
+          <p class="br-section-text">Change the characteristics of a product.</p>
 
           @if ($errors->any())
               <div class="alert alert-danger">
@@ -54,76 +54,76 @@
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Código:
+                Code:
               </div>
-              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="bbp_prod1_code" value="{{$products[0]->bbp_prod1_code}}" maxlength="60" placeholder="Código Producto" required></div>
+              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="bbp_prod1_code" value="{{$products[0]->bbp_prod1_code}}" maxlength="60" placeholder="Product code" required></div>
             </div>   
 
              <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Precio €:
+                Price €:
               </div>
-              <div class="col-7 col-sm-8"> <input class="form-control" type="number" name="bbp_prod1_price1" value="{{$products[0]->bbp_prod1_price1}}" maxlength="10" placeholder="Precio Producto" required></div>
+              <div class="col-7 col-sm-8"> <input class="form-control" type="number" name="bbp_prod1_price1" value="{{$products[0]->bbp_prod1_price1}}" maxlength="10" placeholder="Price" required></div>
             </div> 
             
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Nombre Producto:
+                Product Name:
               </div>
-              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="bbp_prod1_product" value="{{$products[0]->bbp_prod1_product}}" maxlength="255" placeholder="Nombre Producto" required></div>
+              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="bbp_prod1_product" value="{{$products[0]->bbp_prod1_product}}" maxlength="255" placeholder="Product Name" required></div>
             </div>
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Titulo Producto1:
+               Product Title 1:
               </div>
-              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="bbp_prod1_title1" value="{{$products[0]->bbp_prod1_title1}}" maxlength="255" placeholder="Titulo Producto" required></div>
+              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="bbp_prod1_title1" value="{{$products[0]->bbp_prod1_title1}}" maxlength="255" placeholder="Product Title" required></div>
             </div>
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Titulo Producto2:
+               Product Title 2:
               </div>
-              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="bbp_prod1_title2" value="{{$products[0]->bbp_prod1_title2}}" maxlength="255" placeholder="Titulo Producto" required></div>
+              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="bbp_prod1_title2" value="{{$products[0]->bbp_prod1_title2}}" maxlength="255" placeholder="Product Title" required></div>
             </div>
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Titulo Producto3:
+               Product Title 3:
               </div>
-              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="bbp_prod1_title3" value="{{$products[0]->bbp_prod1_title3}}" maxlength="255" placeholder="Titulo Producto" required></div>
+              <div class="col-7 col-sm-8"> <input class="form-control" type="text" name="bbp_prod1_title3" value="{{$products[0]->bbp_prod1_title3}}" maxlength="255" placeholder="Product Title" required></div>
             </div>                     
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Publicar:
+                Publish:
               </div>
               <div class="col-7 col-sm-8">
                 <select class="form-control select2" name="bbp_prod1_enable" data-placeholder="Publicar">
-                  <option value="0" <?if($products[0]->bbp_prod1_enable=='0'){echo "selected";}?>>Suspendido</option>                 
-                  <option value="1" <?if($products[0]->bbp_prod1_enable=='1'){echo "selected";}?>>Publicado</option>
+                  <option value="0" <?if($products[0]->bbp_prod1_enable=='0'){echo "selected";}?>>Suspended</option>                 
+                  <option value="1" <?if($products[0]->bbp_prod1_enable=='1'){echo "selected";}?>>Published</option>
                 </select>
               </div>
             </div>
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Image Producto1:
+                Image 1:
               </div>
               <div class="col-7 col-sm-8"> <input class="form-control-file" type="file" name="bbp_prod1_photo[]" placeholder="Imagen"></div>
             </div> 
 
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-                Image Producto1:
+                Image 2:
               </div>
               <div class="col-7 col-sm-8"> <input class="form-control-file" type="file" name="bbp_prod1_photo[]" placeholder="Imagen"></div>
             </div>  
             
             <div class="row no-gutters">
               <div class="col-5 col-sm-4">
-               <button type="button" class="btn btn-primary" onclick="submit();"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
+               <button type="button" class="btn btn-primary" onclick="submit();"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
               </div>
               <div class="col-7 col-sm-8">           
               </div>
