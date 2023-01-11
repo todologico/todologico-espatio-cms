@@ -40,13 +40,15 @@ public function __construct(CCC_Cont1_Main_BS $ccc_cont1bs)
 public function get_CCC_Cont1_CR()
 {	
 
+	$bgcolor=null; $bgcolor1=null;
+
 	try {
 
 		$contacts= $this->ccc_cont1bs->get_CCC_Cont1_BS();
 
 		if($contacts->isNotEmpty()){
 		
-			return view('ccc_cont1.ccc_cont1_list',compact('contacts'));
+			return view('ccc_cont1.ccc_cont1_list',compact('contacts','bgcolor','bgcolor1'));
 
 		} 
 

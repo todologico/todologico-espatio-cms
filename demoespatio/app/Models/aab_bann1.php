@@ -17,4 +17,13 @@ class aab_bann1 extends Model
     const CREATED_AT = 'aab_bann1_created_at';
     
     const UPDATED_AT = 'aab_bann1_updated_at';
+
+    protected $guarded = [];
+
+    // protected $fillable = ['aab_bann1_banner'];
+    // protected $fillable = ['aab_bann1_title1'];
+    // protected $fillable = ['aab_bann1_title2'];
+    // protected $fillable = ['aab_bann1_title3'];
+    // protected $fillable = ['aab_bann1_enable'];
+
 }
