@@ -66,9 +66,9 @@
               </thead>
               <tbody>
 
-                @foreach ($contacts as $key => $reg)
+                @foreach ($contacts as $key => $reg) 
 
-                <? $bgcolor1='background-color: #B0B3B8;'; $bgcolor='background-color: #D5D9DF;'; ;?>
+                <? $bgcolor1='background-color: #D5D9DF;'; $bgcolor='background-color: #B0B3B8;';?>
 
                 <tr>
                  <td style="<?=$bgcolor;?>"><a href="{{route('ccc-cont1-delete-pro',[$reg->ccc_cont1_id,$reg->ccc_cont1_token])}}"><button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i> Del</button></a></td>                  
