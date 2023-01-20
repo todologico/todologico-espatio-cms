@@ -68,7 +68,7 @@ public function get_BBP_Prod1_CR()
 
 	} catch (Exception $e) {
 
-		$flash='No hay productos, aqui puedes agregar los que necesitas';			
+		$flash='There are no products.';			
 		return redirect()->route('bbp-prod1-insert')->with('mal', $flash);
 	}
 
@@ -94,7 +94,7 @@ public function getSearch_BBP_Prod1_CR()
 
 	} catch (Exception $e) {
 
-		$flash='No hay productos en la búsqueda';			
+		$flash='There are no products';			
 		return redirect()->route('bbp-prod1-list')->with('mal', $flash);
 
 	}
@@ -134,7 +134,7 @@ public function insertPro_BBP_Prod1_CR()
 
 		//--------------------------------------------------------------------------
 		//error message
-		$flash='El producto no se pudo insertar.';			
+		$flash='The product could not be created.';			
 		return redirect()->route('bbp-prod1-list')->with('mal', $flash);
 		//--------------------------------------------------------------------------
 	}
@@ -168,7 +168,7 @@ public function update_BBP_Prod1_CR($bbp_prod1_id=null,$bbp_prod1_token=null)
 
 	} catch (Exception $e) {
 
-		$flash='El producto buscado no existe.';			
+		$flash='There are no products.';			
 		return redirect()->route('bbp-prod1-list')->with('mal', $flash);
 	}
 
@@ -194,7 +194,7 @@ public function updatePro_BBP_Prod1_CR()
 
 	} catch (Exception $e) {
 
-		$flash='El producto no se actualizo.';			
+		$flash='The product could not be modified.';			
 		return redirect()->route('bbp-prod1-list')->with('mal', $flash);
 	}		
 
@@ -228,7 +228,7 @@ public function deletePro_BBP_Prod1_CR($bbp_prod1_id=null,$bbp_prod1_token=null)
 
 	} catch (Exception $e) {
 				
-		$flash='El producto no se pudo eliminar.';			
+		$flash='Product could not be removed.';			
 		return redirect()->route('bbp-prod1-list')->with('mal', $flash);
 	}	
 
@@ -263,7 +263,7 @@ public function clonePro_BBP_Prod1_CR($bbp_prod1_id=null,$bbp_prod1_token=null)
 
 	} catch (Exception $e) {
 					
-		$flash='El producto no se pudo clonar.';			
+		$flash='The product could not be cloned.';			
 		return redirect()->route('bbp-prod1-list')->with('mal', $flash);
 
 	}
@@ -300,7 +300,7 @@ public function updateImages_BBP_Prod1_CR($bbp_prod1_id=null,$bbp_prod1_token=nu
 
 	} catch (Exception $e) {
 
-		$flash='El producto no existe.';			
+		$flash='There are no products.';			
 		return redirect()->route('bbp-prod1-list')->with('mal', $flash);
 	}	
 
@@ -325,7 +325,7 @@ public function updateImagesPro_BBP_Prod1_CR()
 
 	} catch (Exception $e) {
 
-		$flash='la imagen no se pudo actualizar.';			
+		$flash='The image could not be updated.';			
 		return redirect()->route('bbp-prod1-list')->with('mal', $flash);
 	}
 			
@@ -361,7 +361,7 @@ public function deleteImagesPro_BBP_Prod1_CR($bbp_prod1_id=null,$bbp_prod1_token
 
 	} catch (Exception $e) {
 
-		$flash='La imagen no se pudo eliminar.';			
+		$flash='The image could not be deleted.';			
 		return redirect()->route('bbp-prod1-list')->with('mal', $flash);
 
 	}
@@ -386,7 +386,7 @@ public function order_BBP_Prod1_CR()
 
 	} catch (Exception $e) {
 
-		$flash='No hay productos, aqui puedes agregar los que necesitas';			
+		$flash='There are no products to order';			
 		return redirect()->route('bbp-prod1-insert')->with('mal', $flash);
 
 	}

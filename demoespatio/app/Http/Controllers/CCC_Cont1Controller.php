@@ -56,7 +56,7 @@ public function get_CCC_Cont1_CR()
 
 	} catch (Exception $e) {
 
-		$flash='No hay contactos';			
+		$flash='There are no contacts';			
 		return redirect()->route('ccc-cont1-list')->with('mal', $flash);
 
 	}
@@ -84,7 +84,7 @@ public function getSearch_CCC_Cont1_CR()
 
 	} catch (Exception $e) {
 
-		$flash='No hay contactos en la búsqueda';			
+		$flash='There are no contacts';			
 		return redirect()->route('ccc-cont1-list')->with('mal', $flash);
 	}
 }
@@ -116,7 +116,7 @@ public function deletePro_CCC_Cont1_CR($ccc_cont1_id=null,$ccc_cont1_token=null)
 
 	} catch (Exception $e) {
 
-		$flash='No se pudo eliminar';			
+		$flash='The contact could not be deleted';			
 		return redirect()->route('ccc-cont1-list')->with('mal', $flash);
 	}
 
