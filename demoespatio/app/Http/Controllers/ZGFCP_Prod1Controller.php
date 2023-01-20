@@ -463,7 +463,8 @@ public function order_ZGFCP_Prod1_CR()
 		throw new Exception();
 
 	} catch (Exception $e) {
-
+		
+		
 		$flash='There are no products to order';			
 		return redirect()->route('zgfcp-prod1-insert')->with('mal', $flash);
 		
