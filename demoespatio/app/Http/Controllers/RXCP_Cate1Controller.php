@@ -138,7 +138,7 @@ public function update_RXCP_Cate1_CR($rxcp_cate1_id=null,$rxcp_cate1_token=null)
 
 	} catch (Exception $e) {
 
-		$flash='The category could not be created.';	
+		$flash='The category could not be updated.';	
 		return redirect()->route('rxcp-cate1-list')->with('mal', $flash);
 
 	}	
