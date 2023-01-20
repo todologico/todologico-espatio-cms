@@ -72,7 +72,7 @@ public function get_ZGFCP_Prod1_CR()
 
 	} catch(Exception $e) {
 
-		$flash='No hay productos, aqui puedes agregar los que necesitas';			
+		$flash='There are no products.';			
 		return redirect()->route('zgfcp-prod1-insert')->with('mal', $flash);
 	}
 
@@ -105,7 +105,7 @@ public function getSearch_ZGFCP_Prod1_CR()
 
 	} catch (Exception $e) {
 
-		$flash='No hay resultados en la búsqueda';			
+		$flash='There are no products.';			
 		return redirect()->route('zgfcp-prod1-list')->with('mal', $flash);
 	}
 
@@ -142,7 +142,7 @@ public function getSearchLinkxFami1_ZGFCP_Prod1_CR($zgfcp_fami1_id=null,$zgfcp_f
 
 	} catch (Exception $e) {
 
-	$flash='No hay resultados en la búsqueda';			
+		$flash='There are no products.';			
 	return redirect()->route('zgfcp-prod1-list')->with('mal', $flash);
 
 	}
@@ -180,7 +180,7 @@ public function getSearchLinkxCate1_ZGFCP_Prod1_CR($zgfcp_cate1_id=null,$zgfcp_c
 
 	} catch(Exception $e) {
 
-		$flash='No hay resultados en la búsqueda';			
+		$flash='There are no products.';			
 		return redirect()->route('zgfcp-prod1-list')->with('mal', $flash);
 	}
 
@@ -218,7 +218,7 @@ public function insertPro_ZGFCP_Prod1_CR()
 
 	} catch(Exception $e) {
 
-		$flash='El producto no se pudo insertar.';			
+		$flash='The product could not be created.';			
 		return redirect()->route('zgfcp-prod1-list')->with('mal', $flash);
 
 	}
@@ -252,7 +252,7 @@ public function update_ZGFCP_Prod1_CR($zgfcp_prod1_id=null,$zgfcp_prod1_token=nu
 
 	} catch (Exception $e) {
 
-		$flash='El producto que buscas, no existe.';			
+		$flash='There are no products.';			
 		return redirect()->route('zgfcp-prod1-list')->with('mal', $flash);
 	}
 
@@ -278,7 +278,7 @@ public function updatePro_ZGFCP_Prod1_CR()
 
 	} catch (Exception $e) {
 
-		$flash='El producto no se actualizo.';			
+		$flash='The product could not be modified.';			
 		return redirect()->route('zgfcp-prod1-list')->with('mal', $flash);
 	}
 
@@ -311,7 +311,7 @@ public function deletePro_ZGFCP_Prod1_CR($zgfcp_prod1_id=null,$zgfcp_prod1_token
 
 	} catch (Exception $e) {
 					
-		$flash='El producto no se pudo eliminar.';			
+		$flash='Product could not be removed.';			
 		return redirect()->route('zgfcp-prod1-list')->with('mal', $flash);
 	}
 
@@ -342,7 +342,7 @@ public function clonePro_ZGFCP_Prod1_CR($zgfcp_prod1_id=null,$zgfcp_prod1_token=
 
 	} catch (Exception $e) {
 					
-		$flash='El producto no se pudo clonar.';			
+		$flash='The product could not be cloned.';			
 		return redirect()->route('zgfcp-prod1-list')->with('mal', $flash);
 
 	}
@@ -377,7 +377,7 @@ public function updateImages_ZGFCP_Prod1_CR($zgfcp_prod1_id=null,$zgfcp_prod1_to
 
 	} catch (Exception $e) {
 
-		$flash='El producto que buscas, no existe.';			
+		$flash='There are no products.';			
 		return redirect()->route('zgfcp-prod1-list')->with('mal', $flash);
 		
 	}
@@ -402,7 +402,7 @@ public function updateImagesPro_ZGFCP_Prod1_CR()
 
 	} catch (Exception $e) {
 
-		$flash='la imagen no se pudo actualizar.';			
+		$flash='The image could not be updated.';			
 		return redirect()->route('zgfcp-prod1-list')->with('mal', $flash);
 
 	}				
@@ -438,7 +438,7 @@ public function deleteImagesPro_ZGFCP_Prod1_CR($zgfcp_prod1_id=null,$zgfcp_prod1
 
 	} catch (Exception $e) {
 
-		$flash='La imagen no se pudo eliminar.';			
+		$flash='The image could not be deleted.';			
 		return redirect()->route('zgfcp-prod1-list')->with('mal', $flash);
 
 	}
@@ -464,7 +464,7 @@ public function order_ZGFCP_Prod1_CR()
 
 	} catch (Exception $e) {
 
-		$flash='No hay productos, aqui puedes agregar los que necesitas';			
+		$flash='There are no products to order';			
 		return redirect()->route('zgfcp-prod1-insert')->with('mal', $flash);
 		
 	}
