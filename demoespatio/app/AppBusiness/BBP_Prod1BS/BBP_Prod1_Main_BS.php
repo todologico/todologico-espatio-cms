@@ -78,7 +78,7 @@ public function getSearch_BBP_Prod1_BS()
 
     //-----------------------
     //determine if a value is present on the request and is not an empty string
-    if ($this->request->filled('bbp_prod1_txtsearch')) {
+    if($this->request->filled('bbp_prod1_txtsearch')) {
 
 
         $bbp_prod1_txtsearch = $this->request->Input("bbp_prod1_txtsearch");
@@ -144,7 +144,7 @@ public function insertPro_BBP_Prod1_BS()
     // to upload images
     //----------------------------------------------------------
 
-    if ($this->request->has('bbp_prod1_photo')) {
+    if($this->request->has('bbp_prod1_photo')) {
 
         $onearray= $this->uploadut->UploadArrayImageUT($onearray,$bbp_prod1_photo,'bbp_prod1_image');  
 
@@ -257,7 +257,7 @@ public function updatePro_BBP_Prod1_BS()
                 // to upload images
                 //----------------------------------------------------------
 
-                if ($this->request->has('bbp_prod1_photo')) {
+                if($this->request->has('bbp_prod1_photo')) {
 
                     $onearray= $this->uploadut->UploadArrayImageUT($onearray,$bbp_prod1_photo,'bbp_prod1_image');  
                 }
@@ -417,7 +417,7 @@ public function updateImagesPro_BBP_Prod1_BS()
                 // to upload images
                 //----------------------------------------------------------
 
-                if ($this->request->has('bbp_prod1_photo')) {
+                if($this->request->has('bbp_prod1_photo')) {
 
                     $onearray= $this->uploadut->UploadArrayImageUT($onearray,$bbp_prod1_photo,'bbp_prod1_image');              
 

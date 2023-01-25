@@ -98,7 +98,7 @@ public function getSearch_RXCP_Prod1_BS()
 
     //-----------------------
     //determine if a value is present on the request and is not an empty string
-    if ($this->request->filled('rxcp_prod1_txtsearch')) {
+    if($this->request->filled('rxcp_prod1_txtsearch')) {
 
         $rxcp_prod1_txtsearch = $this->request->Input("rxcp_prod1_txtsearch");
         $mytext='%'.$rxcp_prod1_txtsearch.'%';                                       
@@ -227,7 +227,7 @@ public function insertPro_RXCP_Prod1_BS()
     // to upload images
     //----------------------------------------------------------
 
-    if ($this->request->has('rxcp_prod1_photo')) {
+    if($this->request->has('rxcp_prod1_photo')) {
 
         $onearray= $this->uploadut->UploadArrayImageUT($onearray,$rxcp_prod1_photo,'rxcp_prod1_image'); 
     
@@ -347,7 +347,7 @@ public function updatePro_RXCP_Prod1_BS()
                 // to upload images, if there are no images rxcp_prod1_photo == null,  to images $onearray
                 //----------------------------------------------------------
 
-                if ($this->request->has('rxcp_prod1_photo')) {
+                if($this->request->has('rxcp_prod1_photo')) {
 
                     $onearray= $this->uploadut->UploadArrayImageUT($onearray,$rxcp_prod1_photo,'rxcp_prod1_image');
                 
@@ -510,7 +510,7 @@ public function updateImagesPro_RXCP_Prod1_BS()
                 // to upload images, if there are no images rxcp_prod1_photo == null,  to images $onearray
                 //----------------------------------------------------------
 
-                if ($this->request->has('rxcp_prod1_photo')) {
+                if($this->request->has('rxcp_prod1_photo')) {
 
                     $onearray= $this->uploadut->UploadArrayImageUT($onearray,$rxcp_prod1_photo,'rxcp_prod1_image');  
 

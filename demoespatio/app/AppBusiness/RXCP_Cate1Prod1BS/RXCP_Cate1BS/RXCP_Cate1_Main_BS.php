@@ -121,7 +121,7 @@ public function insertPro_RXCP_Cate1_BS()
     // to upload images
     //----------------------------------------------------------
 
-    if ($this->request->has('rxcp_cate1_photo')) {
+    if($this->request->has('rxcp_cate1_photo')) {
 
         $onearray= $this->uploadut->UploadArrayImageUT($onearray,$rxcp_cate1_photo,'rxcp_cate1_image');   
     
@@ -228,7 +228,7 @@ public function updatePro_RXCP_Cate1_BS()
                 // to upload images, if there are no images rxcp_cate1_photo == null,  to images $onearray
                 //----------------------------------------------------------
 
-                if ($this->request->has('rxcp_cate1_photo')) {
+                if($this->request->has('rxcp_cate1_photo')) {
 
                     $onearray= $this->uploadut->UploadArrayImageUT($onearray,$rxcp_cate1_photo,'rxcp_cate1_image');     
 
@@ -383,7 +383,7 @@ public function updateImagesPro_RXCP_Cate1_BS()
                 // to upload images, if there are no images rxcp_cate1_photo == null,  to images $onearray
                 //----------------------------------------------------------
 
-                if ($this->request->has('rxcp_cate1_photo')) {
+                if($this->request->has('rxcp_cate1_photo')) {
 
                     $onearray= $this->uploadut->UploadArrayImageUT($onearray,$rxcp_cate1_photo,'rxcp_cate1_image'); 
 

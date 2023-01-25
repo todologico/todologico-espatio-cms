@@ -113,7 +113,7 @@ public function insertPro_AAB_Bann1_BS()
     // to upload images
     //----------------------------------------------------------
 
-    if ($this->request->has('aab_bann1_photo')) {
+    if($this->request->has('aab_bann1_photo')) {
 
         $onearray= $this->uploadut->UploadArrayImageUT($onearray,$aab_bann1_photo,'aab_bann1_image');       
     }
@@ -223,7 +223,7 @@ public function updatePro_AAB_Bann1_BS()
                 // to upload images, if there are no images aab_bann1_photo == null,  to images $onearray
                 //----------------------------------------------------------
 
-                if ($this->request->has('aab_bann1_photo')) {
+                if($this->request->has('aab_bann1_photo')) {
 
                     $onearray= $this->uploadut->UploadArrayImageUT($onearray,$aab_bann1_photo,'aab_bann1_image'); 
                 }
@@ -379,7 +379,7 @@ public function updateImagesPro_AAB_Bann1_BS()
                 // to upload images, if there are no images aab_bann1_photo == null,  to images $onearray
                 //----------------------------------------------------------
 
-                if ($this->request->has('aab_bann1_photo')) {
+                if($this->request->has('aab_bann1_photo')) {
 
                     $onearray= $this->uploadut->UploadArrayImageUT($onearray,$aab_bann1_photo,'aab_bann1_image');  
                 }
