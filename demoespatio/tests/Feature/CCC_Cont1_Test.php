@@ -17,7 +17,7 @@ class CCC_Cont1_Test extends TestCase
    
     
 //----------------------------------------------------------
-// contact list view
+//GET LIST CCC PRO TEST
 //----------------------------------------------------------    
 
 public function test_get_contacts_list(){
@@ -35,6 +35,27 @@ public function test_get_contacts_list(){
     
     $response = $this->actingAs($user)->get('/ccc-cont1-list');    
     $response->assertStatus(200); 
+
+}
+
+
+//-----------------------------------------------------------------
+//DELETE CCC PRO TEST
+//-----------------------------------------------------------------
+public function test_delete_CCC_Cont1_CR(){
+
+    $user = User::find(1);
+    $db=  ccc_cont1::orderby('ccc_cont1_id', 'desc')->first();
+
+    $count = ccc_cont1::all()->count();
+
+    $response = $this->actingAs($user)->get('/ccc-cont1-delete/'.$db->ccc_cont1_id.'/'.$db->ccc_cont1_token);
+
+    $response->assertValid();
+
+    $this->actingAs($user)->assertDatabaseCount('ccc_cont1',$count-1);
+
+    $response->assertRedirect('/ccc-cont1-list');
 
 }
 
