@@ -24,12 +24,16 @@ public function test_get_contacts_list(){
 
     $this->withoutExceptionHandling();
     
-    //$user = User::factory()->create();
-
     $user = User::find(1);
+
+    //Assert that a table in the database contains records matching the given key / value query constraints
+    $this->actingAs($user)->assertDatabaseHas('ccc_cont1',['ccc_cont1_name' => 'bykeLKrhsz']);
+
+
+    $count = ccc_cont1::all()->count();
+    $this->actingAs($user)->assertDatabaseCount('ccc_cont1',$count);
     
-    $response = $this->actingAs($user)->get('/ccc-cont1-list');
-    
+    $response = $this->actingAs($user)->get('/ccc-cont1-list');    
     $response->assertStatus(200); 
 
 }
