@@ -186,7 +186,7 @@ public function updatePro_AAB_Bann1_BS()
     //----------------------------------------------------------
     // form validation
     //----------------------------------------------------------
-    $validate= $this->validatebs->validateForm_AAB_Bann1_BS($this->request);
+    $this->validatebs->validateForm_AAB_Bann1_BS($this->request);
 
     $aab_bann1_id       = $this->request->Input("aab_bann1_id");
     $aab_bann1_token    = $this->request->Input("aab_bann1_token");
@@ -220,7 +220,7 @@ public function updatePro_AAB_Bann1_BS()
                 // to upload images, if there are no images aab_bann1_photo == null,  to images $onearray
                 //----------------------------------------------------------
 
-                $onearray= $this->uploadut->UploadArrayImageUT($onearray,$aab_bann1_photo,'aab_bann1_image');    
+               // $onearray= $this->uploadut->UploadArrayImageUT($onearray,$aab_bann1_photo,'aab_bann1_image');    
 
                 //----------------------------------------------------------
                 // update array banner with text info

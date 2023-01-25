@@ -17,19 +17,17 @@ class AAB_Bann1_Test extends TestCase
 {
 
 //----------------------------------------------------------
-// INSERT TESTING
+// INSERT TEST
 //----------------------------------------------------------    
 
 public function test_insert_AAB_Bann1_CR(){
 
   $this->withoutExceptionHandling();
 
-  //$user = User::factory()->create();  
-
   $user = User::find(1);
 
   $response = $this->actingAs($user)->post('aab-bann1-insert-pro',[
-    'aab_bann1_banner' => 'testing banner',
+    'aab_bann1_banner' => 'european cup1',
     'aab_bann1_title1' => 'title1',
     'aab_bann1_title2' => 'title2',
     'aab_bann1_title3' => 'title3',
@@ -39,7 +37,7 @@ public function test_insert_AAB_Bann1_CR(){
   $response->assertValid();
 
     //Assert that a table in the database contains records matching the given key / value query constraints
-    $this->actingAs($user)->assertDatabaseHas('aab_bann1', ['aab_bann1_banner' => 'testing banner']);
+    $this->actingAs($user)->assertDatabaseHas('aab_bann1', ['aab_bann1_banner' => 'european cup1']);
       
 
   $response->assertRedirect('/aab-bann1-list');
@@ -47,14 +45,12 @@ public function test_insert_AAB_Bann1_CR(){
 }
 
 //----------------------------------------------------------
-// GET TESTING
+// GET LIST RECORDS TESTING
 //----------------------------------------------------------    
 
 public function test_get_AAB_Bann1_CR(){
 
   $this->withoutExceptionHandling();
-
-  //$user = User::factory()->create();  
 
   $user = User::find(1);
 
@@ -62,7 +58,7 @@ public function test_get_AAB_Bann1_CR(){
 
   $response->assertStatus(200);    
 
-  $response->assertSee('testing banner');
+  $response->assertSee('european cup');
 
   $count = aab_bann1::all()->count();
 
@@ -70,37 +66,37 @@ public function test_get_AAB_Bann1_CR(){
   $this->actingAs($user)->assertDatabaseCount('aab_bann1',$count);
 
   //Assert that a table in the database contains records matching the given key / value query constraints
-  $this->actingAs($user)->assertDatabaseHas('aab_bann1', ['aab_bann1_banner' => 'testing banner']);
+  $this->actingAs($user)->assertDatabaseHas('aab_bann1', ['aab_bann1_banner' => 'european cup1']);
       
 }
 
 //-----------------------------------------------------------------
-//UPDATE TESTING
+//UPDATE PRO TEST
 //-----------------------------------------------------------------
 public function test_update_AAB_Bann1_CR(){
 
-  $this->withExceptionHandling();
-
-  //$user = User::factory()->create();  
+  $this->withoutExceptionHandling();
 
   $user = User::find(1);
 
   $db=  aab_bann1::first();
 
-  $update = $this->actingAs($user)->post('aab-bann1-update-pro/'.$db->aab_bann1_id.','.$db->aab_bann1_token,[
-    'aab_bann1_banner' => 'update testing',
+  $response = $this->actingAs($user)->post('/aab-bann1-update-pro',[
+    'aab_bann1_id' => $db->aab_bann1_id,
+    'aab_bann1_token' => $db->aab_bann1_token,
+    'aab_bann1_banner' => 'updateok',
     'aab_bann1_title1' => 'title1',
     'aab_bann1_title2' => 'title2',
     'aab_bann1_title3' => 'title3',
     'aab_bann1_enable' => 1,
      ]);
   
-    $update->assertValid();
+    $response->assertValid();
 
     //Assert that a table in the database contains records matching the given key / value query constraints
-    $this->actingAs($user)->assertDatabaseHas('aab_bann1', ['aab_bann1_banner' => 'update testing']);
+    $this->actingAs($user)->assertDatabaseHas('aab_bann1', ['aab_bann1_banner' => 'updateok']);
       
-    //$update->assertRedirect('/aab-bann1-list');
+    $response->assertRedirect('/aab-bann1-list');
 
 }
 
