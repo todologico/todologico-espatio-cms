@@ -227,7 +227,11 @@ public function insertPro_RXCP_Prod1_BS()
     // to upload images
     //----------------------------------------------------------
 
-    $onearray= $this->uploadut->UploadArrayImageUT($onearray,$rxcp_prod1_photo,'rxcp_prod1_image');  
+    if ($this->request->has('rxcp_prod1_photo')) {
+
+        $onearray= $this->uploadut->UploadArrayImageUT($onearray,$rxcp_prod1_photo,'rxcp_prod1_image'); 
+    
+    }
 
     //----------------------------------------------------------
     // token
@@ -343,7 +347,11 @@ public function updatePro_RXCP_Prod1_BS()
                 // to upload images, if there are no images rxcp_prod1_photo == null,  to images $onearray
                 //----------------------------------------------------------
 
-                $onearray= $this->uploadut->UploadArrayImageUT($onearray,$rxcp_prod1_photo,'rxcp_prod1_image');  
+                if ($this->request->has('rxcp_prod1_photo')) {
+
+                    $onearray= $this->uploadut->UploadArrayImageUT($onearray,$rxcp_prod1_photo,'rxcp_prod1_image');
+                
+                }
 
                 //----------------------------------------------------------
                 // update array product with text info
@@ -502,10 +510,13 @@ public function updateImagesPro_RXCP_Prod1_BS()
                 // to upload images, if there are no images rxcp_prod1_photo == null,  to images $onearray
                 //----------------------------------------------------------
 
-                $onearray= $this->uploadut->UploadArrayImageUT($onearray,$rxcp_prod1_photo,'rxcp_prod1_image');  
+                if ($this->request->has('rxcp_prod1_photo')) {
+
+                    $onearray= $this->uploadut->UploadArrayImageUT($onearray,$rxcp_prod1_photo,'rxcp_prod1_image');  
+
+                }
             
                 //---------------------------------------------------------
-
                 //1=ok or 0=error
                 $updateimagespro=$this->update_RXCP_Prod1_QY($onearray,$backarray['rxcp_prod1_id'],$backarray['rxcp_prod1_token']);
 

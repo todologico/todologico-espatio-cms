@@ -113,7 +113,10 @@ public function insertPro_AAB_Bann1_BS()
     // to upload images
     //----------------------------------------------------------
 
-    $onearray= $this->uploadut->UploadArrayImageUT($onearray,$aab_bann1_photo,'aab_bann1_image');    
+    if ($this->request->has('aab_bann1_photo')) {
+
+        $onearray= $this->uploadut->UploadArrayImageUT($onearray,$aab_bann1_photo,'aab_bann1_image');       
+    }
 
     //----------------------------------------------------------
     // token
@@ -220,7 +223,10 @@ public function updatePro_AAB_Bann1_BS()
                 // to upload images, if there are no images aab_bann1_photo == null,  to images $onearray
                 //----------------------------------------------------------
 
-               // $onearray= $this->uploadut->UploadArrayImageUT($onearray,$aab_bann1_photo,'aab_bann1_image');    
+                if ($this->request->has('aab_bann1_photo')) {
+
+                    $onearray= $this->uploadut->UploadArrayImageUT($onearray,$aab_bann1_photo,'aab_bann1_image'); 
+                }
 
                 //----------------------------------------------------------
                 // update array banner with text info
@@ -369,12 +375,14 @@ public function updateImagesPro_AAB_Bann1_BS()
                 $onearray['aab_bann1_image1'] = $banners[0]->aab_bann1_image1;
                 $onearray['aab_bann1_image2'] = $banners[0]->aab_bann1_image2;
 
-
                 //----------------------------------------------------------
                 // to upload images, if there are no images aab_bann1_photo == null,  to images $onearray
                 //----------------------------------------------------------
 
-                $onearray= $this->uploadut->UploadArrayImageUT($onearray,$aab_bann1_photo,'aab_bann1_image');    
+                if ($this->request->has('aab_bann1_photo')) {
+
+                    $onearray= $this->uploadut->UploadArrayImageUT($onearray,$aab_bann1_photo,'aab_bann1_image');  
+                }
             
                 //----------------------------------------------------------
 

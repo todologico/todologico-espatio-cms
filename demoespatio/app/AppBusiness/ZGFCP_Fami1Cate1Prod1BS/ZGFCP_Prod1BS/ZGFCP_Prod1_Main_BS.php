@@ -299,7 +299,11 @@ public function insertPro_ZGFCP_Prod1_BS()
     // to upload images
     //----------------------------------------------------------
 
-    $onearray= $this->uploadut->UploadArrayImageUT($onearray,$zgfcp_prod1_photo,'zgfcp_prod1_image');
+    if($this->request->has('zgfcp_prod1_photo')) {
+
+        $onearray= $this->uploadut->UploadArrayImageUT($onearray,$zgfcp_prod1_photo,'zgfcp_prod1_image');
+
+    }
 
     //----------------------------------------------------------
     // token
@@ -429,7 +433,11 @@ public function updatePro_ZGFCP_Prod1_BS()
                 // to upload images, if there are no images zgfcp_prod1_photo == null,  to images $onearray
                 //----------------------------------------------------------
 
-                $onearray= $this->uploadut->UploadArrayImageUT($onearray,$zgfcp_prod1_photo,'zgfcp_prod1_image');
+                if($this->request->has('zgfcp_prod1_photo')) {
+
+                    $onearray= $this->uploadut->UploadArrayImageUT($onearray,$zgfcp_prod1_photo,'zgfcp_prod1_image');
+
+                }
 
                 //----------------------------------------------------------
                 // update array product with text info
@@ -590,7 +598,11 @@ public function updateImagesPro_ZGFCP_Prod1_BS()
                 // to upload images, if there are no images zgfcp_prod1_photo == null,  to images $onearray
                 //----------------------------------------------------------
 
-                $onearray= $this->uploadut->UploadArrayImageUT($onearray,$zgfcp_prod1_photo,'zgfcp_prod1_image');              
+                if($this->request->has('zgfcp_prod1_photo')) {
+
+                    $onearray= $this->uploadut->UploadArrayImageUT($onearray,$zgfcp_prod1_photo,'zgfcp_prod1_image');              
+
+                }
 
                 //1=ok or 0=error
                 $updateimagespro=$this->update_ZGFCP_Prod1_QY($onearray,$backarray['zgfcp_prod1_id'],$backarray['zgfcp_prod1_token']);

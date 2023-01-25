@@ -144,7 +144,11 @@ public function insertPro_BBP_Prod1_BS()
     // to upload images
     //----------------------------------------------------------
 
-    $onearray= $this->uploadut->UploadArrayImageUT($onearray,$bbp_prod1_photo,'bbp_prod1_image');  
+    if ($this->request->has('bbp_prod1_photo')) {
+
+        $onearray= $this->uploadut->UploadArrayImageUT($onearray,$bbp_prod1_photo,'bbp_prod1_image');  
+
+    }
 
     //----------------------------------------------------------
     // token
@@ -253,7 +257,10 @@ public function updatePro_BBP_Prod1_BS()
                 // to upload images
                 //----------------------------------------------------------
 
-                $onearray= $this->uploadut->UploadArrayImageUT($onearray,$bbp_prod1_photo,'bbp_prod1_image');  
+                if ($this->request->has('bbp_prod1_photo')) {
+
+                    $onearray= $this->uploadut->UploadArrayImageUT($onearray,$bbp_prod1_photo,'bbp_prod1_image');  
+                }
 
                 //----------------------------------------------------------
                 // update array banner with text info
@@ -410,7 +417,11 @@ public function updateImagesPro_BBP_Prod1_BS()
                 // to upload images
                 //----------------------------------------------------------
 
-                $onearray= $this->uploadut->UploadArrayImageUT($onearray,$bbp_prod1_photo,'bbp_prod1_image');              
+                if ($this->request->has('bbp_prod1_photo')) {
+
+                    $onearray= $this->uploadut->UploadArrayImageUT($onearray,$bbp_prod1_photo,'bbp_prod1_image');              
+
+                }
 
                 //1=ok or 0=error
                 $updateimagespro=$this->update_BBP_Prod1_QY($onearray,$backarray['bbp_prod1_id'],$backarray['bbp_prod1_token']);

@@ -92,7 +92,7 @@ public function test_update_AAB_Bann1_CR(){
     $response->assertValid();
 
     //Assert that a table in the database contains records matching the given key / value query constraints
-    $this->actingAs($user)->assertDatabaseHas('aab_bann1', ['aab_bann1_banner' => 'updateok']);
+    $this->actingAs($user)->assertDatabaseHas('aab_bann1', ['aab_bann1_banner' => 'successful update']);
       
     $response->assertRedirect('/aab-bann1-list');
 
@@ -104,7 +104,7 @@ public function test_update_AAB_Bann1_CR(){
 public function test_delete_AAB_Bann1_CR(){
 
     $user = User::find(1);
-    $db=  aab_bann1::first();
+    $db=  aab_bann1::orderby('aab_bann1_id', 'desc')->first();
 
     $count = aab_bann1::all()->count();
 

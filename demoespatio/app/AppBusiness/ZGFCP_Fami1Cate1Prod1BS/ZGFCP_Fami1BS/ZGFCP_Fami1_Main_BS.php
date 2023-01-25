@@ -124,7 +124,11 @@ public function insertPro_ZGFCP_Fami1_BS()
     // to upload images
     //----------------------------------------------------------
 
-    $onearray= $this->uploadut->UploadArrayImageUT($onearray,$zgfcp_fami1_photo,'zgfcp_fami1_image');  
+    if($this->request->has('zgfcp_fami1_photo')) {
+
+        $onearray= $this->uploadut->UploadArrayImageUT($onearray,$zgfcp_fami1_photo,'zgfcp_fami1_image');  
+
+    }
 
     //----------------------------------------------------------
     // token
@@ -227,7 +231,11 @@ public function updatePro_ZGFCP_Fami1_BS()
                 // to upload images, if there are no images zgfcp_fami1_photo == null,  to images $onearray
                 //----------------------------------------------------------
 
-                $onearray= $this->uploadut->UploadArrayImageUT($onearray,$zgfcp_fami1_photo,'zgfcp_fami1_image');  
+                if($this->request->has('zgfcp_fami1_photo')) {
+
+                    $onearray= $this->uploadut->UploadArrayImageUT($onearray,$zgfcp_fami1_photo,'zgfcp_fami1_image');  
+
+                }
 
                 //----------------------------------------------------------
                 // update array family with text info
@@ -378,7 +386,11 @@ public function updateImagesPro_ZGFCP_Fami1_BS()
                 // to upload images, if there are no images zgfcp_fami1_photo == null,  to images $onearray
                 //----------------------------------------------------------
 
-                $onearray= $this->uploadut->UploadArrayImageUT($onearray,$zgfcp_fami1_photo,'zgfcp_fami1_image');              
+                if($this->request->has('zgfcp_fami1_photo')) {
+
+                    $onearray= $this->uploadut->UploadArrayImageUT($onearray,$zgfcp_fami1_photo,'zgfcp_fami1_image');              
+
+                }
 
                 //1=ok or 0=error
                 $updateimagespro=$this->update_ZGFCP_Fami1_QY($onearray,$backarray['zgfcp_fami1_id'],$backarray['zgfcp_fami1_token']);

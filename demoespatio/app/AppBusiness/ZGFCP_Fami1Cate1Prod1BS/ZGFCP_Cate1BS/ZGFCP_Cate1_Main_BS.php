@@ -147,7 +147,11 @@ public function insertPro_ZGFCP_Cate1_BS()
     // to upload images
     //----------------------------------------------------------
 
-    $onearray= $this->uploadut->UploadArrayImageUT($onearray,$zgfcp_cate1_photo,'zgfcp_cate1_image');  
+    if($this->request->has('zgfcp_cate1_photo')) {
+
+        $onearray= $this->uploadut->UploadArrayImageUT($onearray,$zgfcp_cate1_photo,'zgfcp_cate1_image');  
+
+    }
 
     //----------------------------------------------------------
     // token
@@ -257,7 +261,11 @@ public function updatePro_ZGFCP_Cate1_BS()
                 // to upload images, if there are no images zgfcp_cate1_photo == null,  to images $onearray
                 //----------------------------------------------------------
                 
-                $onearray= $this->uploadut->UploadArrayImageUT($onearray,$zgfcp_cate1_photo,'zgfcp_cate1_image');  
+                if($this->request->has('zgfcp_cate1_photo')) {
+
+                    $onearray= $this->uploadut->UploadArrayImageUT($onearray,$zgfcp_cate1_photo,'zgfcp_cate1_image');  
+
+                }
 
                 //----------------------------------------------------------
                 // update array banner with text info
@@ -410,7 +418,11 @@ public function updateImagesPro_ZGFCP_Cate1_BS()
                 // to upload images, if there are no images zgfcp_cate1_photo == null,  to images $onearray
                 //----------------------------------------------------------
 
-                $onearray= $this->uploadut->UploadArrayImageUT($onearray,$zgfcp_cate1_photo,'zgfcp_cate1_image');                
+                if($this->request->has('zgfcp_cate1_photo')) {
+
+                    $onearray= $this->uploadut->UploadArrayImageUT($onearray,$zgfcp_cate1_photo,'zgfcp_cate1_image');                
+
+                }
 
                 //1=ok or 0=error
                 $updateimagespro=$this->update_ZGFCP_Cate1_QY($onearray,$backarray['zgfcp_cate1_id'],$backarray['zgfcp_cate1_token']);

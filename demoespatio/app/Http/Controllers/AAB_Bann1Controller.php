@@ -153,9 +153,7 @@ public function updatePro_AAB_Bann1_CR()
 	try {
 
 		$updatepro= $this->aab_bann1_bs->updatePro_AAB_Bann1_BS();
-
-		//var_dump($updatepro); exit;
-
+		
 		if(isset($updatepro) and $updatepro=='1'){
 
 			return redirect()->route('aab-bann1-list');

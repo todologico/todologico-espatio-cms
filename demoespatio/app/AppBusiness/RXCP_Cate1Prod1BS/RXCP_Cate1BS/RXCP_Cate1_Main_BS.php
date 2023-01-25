@@ -121,7 +121,11 @@ public function insertPro_RXCP_Cate1_BS()
     // to upload images
     //----------------------------------------------------------
 
-    $onearray= $this->uploadut->UploadArrayImageUT($onearray,$rxcp_cate1_photo,'rxcp_cate1_image');     
+    if ($this->request->has('rxcp_cate1_photo')) {
+
+        $onearray= $this->uploadut->UploadArrayImageUT($onearray,$rxcp_cate1_photo,'rxcp_cate1_image');   
+    
+    }
 
     //----------------------------------------------------------
     // token
@@ -191,15 +195,15 @@ public function updatePro_RXCP_Cate1_BS()
     //----------------------------------------------------------
     // form validation
     //----------------------------------------------------------
-    $validate= $this->validatebs->validateForm_RXCP_Cate1_BS($this->request);
+    $this->validatebs->validateForm_RXCP_Cate1_BS($this->request);
 
-    $rxcp_cate1_id  = $this->request->Input("rxcp_cate1_id");
-    $rxcp_cate1_token  = $this->request->Input("rxcp_cate1_token");
+    $rxcp_cate1_id        = $this->request->Input("rxcp_cate1_id");
+    $rxcp_cate1_token     = $this->request->Input("rxcp_cate1_token");
     $rxcp_cate1_category  = $this->request->Input("rxcp_cate1_category");
-    $rxcp_cate1_title1  = $this->request->Input("rxcp_cate1_title1");
-    $rxcp_cate1_title2  = $this->request->Input("rxcp_cate1_title2");
-    $rxcp_cate1_enable  = $this->request->Input("rxcp_cate1_enable");    
-    $rxcp_cate1_photo  = $this->request->file('rxcp_cate1_photo'); //files array
+    $rxcp_cate1_title1    = $this->request->Input("rxcp_cate1_title1");
+    $rxcp_cate1_title2    = $this->request->Input("rxcp_cate1_title2");
+    $rxcp_cate1_enable    = $this->request->Input("rxcp_cate1_enable");    
+    $rxcp_cate1_photo     = $this->request->file('rxcp_cate1_photo'); //files array
 
     // all the banner info
     if(isset($rxcp_cate1_id) and is_numeric($rxcp_cate1_id)){
@@ -224,16 +228,20 @@ public function updatePro_RXCP_Cate1_BS()
                 // to upload images, if there are no images rxcp_cate1_photo == null,  to images $onearray
                 //----------------------------------------------------------
 
-                $onearray= $this->uploadut->UploadArrayImageUT($onearray,$rxcp_cate1_photo,'rxcp_cate1_image');     
+                if ($this->request->has('rxcp_cate1_photo')) {
+
+                    $onearray= $this->uploadut->UploadArrayImageUT($onearray,$rxcp_cate1_photo,'rxcp_cate1_image');     
+
+                }
 
                 //----------------------------------------------------------
                 // update array banner with text info
                 //---------------------------------------------------------- 
                
-                $onearray['rxcp_cate1_category']= $rxcp_cate1_category;
-                $onearray['rxcp_cate1_title1']= $rxcp_cate1_title1;
-                $onearray['rxcp_cate1_title2']= $rxcp_cate1_title2;
-                $onearray['rxcp_cate1_enable']= $rxcp_cate1_enable;   
+                $onearray['rxcp_cate1_category'] = $rxcp_cate1_category;
+                $onearray['rxcp_cate1_title1']   = $rxcp_cate1_title1;
+                $onearray['rxcp_cate1_title2']   = $rxcp_cate1_title2;
+                $onearray['rxcp_cate1_enable']   = $rxcp_cate1_enable;   
 
                 //1=ok or 0=error
                 $updatepro=$this->update_RXCP_Cate1_QY($onearray,$rxcp_cate1_id,$rxcp_cate1_token);              
@@ -375,7 +383,11 @@ public function updateImagesPro_RXCP_Cate1_BS()
                 // to upload images, if there are no images rxcp_cate1_photo == null,  to images $onearray
                 //----------------------------------------------------------
 
-                $onearray= $this->uploadut->UploadArrayImageUT($onearray,$rxcp_cate1_photo,'rxcp_cate1_image'); 
+                if ($this->request->has('rxcp_cate1_photo')) {
+
+                    $onearray= $this->uploadut->UploadArrayImageUT($onearray,$rxcp_cate1_photo,'rxcp_cate1_image'); 
+
+                }
 
                 //----------------------------------------------------------
 
