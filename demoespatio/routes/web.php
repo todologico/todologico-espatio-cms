@@ -15,6 +15,9 @@ use App\Http\Controllers\ZGFCP_Prod1Controller;
 use App\Http\Controllers\CCC_Cont1Controller;
 
 
+use App\Http\Controllers\ErrorMessageController;
+
+
 Route::get('/', function () { return view('welcome');});
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->group(function () {
@@ -447,6 +450,11 @@ Route::get('/ccc-cont1-list',[CCC_Cont1Controller::class,'get_CCC_Cont1_CR'])->n
 //ccc-cont1 delete pro
 Route::get('/ccc-cont1-delete/{ccc_cont1_id}/{ccc_cont1_token}', [CCC_Cont1Controller::class, 'deletePro_CCC_Cont1_CR'])->where(['ccc_cont1_id' => '[0-9]+'])->name('ccc-cont1-delete-pro');
 
+//----------------------------------------------------------
+//SHOW ERROR VIEW
+//----------------------------------------------------------
 
+//show error view
+Route::get('/show-error-message',[ErrorMessageController::class,'show_Error_View_CR'])->name('show-error-message');
 
 });

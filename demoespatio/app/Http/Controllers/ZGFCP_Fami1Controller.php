@@ -73,7 +73,7 @@ public function get_ZGFCP_Fami1_CR()
 	} catch (Exception $e) {
 
 		$flash='There are no families';			
-		return redirect()->route('zgfcp-fami1-insert')->with('mal', $flash);
+		return redirect()->route('show-error-message')->with('mal', $flash);
 	}
 
 }
@@ -109,7 +109,7 @@ public function insertPro_ZGFCP_Fami1_CR()
 	} catch (Exception $e) {
 
 		$flash='The family could not be created.';			
-		return redirect()->route('zgfcp-fami1-list')->with('mal', $flash);
+		return redirect()->route('show-error-message')->with('mal', $flash);
 
 	}
 
@@ -141,7 +141,7 @@ public function update_ZGFCP_Fami1_CR($zgfcp_fami1_id=null,$zgfcp_fami1_token=nu
 	} catch(Exception $e) {
 
 		$flash='There are no families';			
-		return redirect()->route('zgfcp-fami1-list')->with('mal', $flash);
+		return redirect()->route('show-error-message')->with('mal', $flash);
 
 	}
 }
@@ -167,7 +167,7 @@ public function updatePro_ZGFCP_Fami1_CR()
 	} catch(Exception $e) {
 
 		$flash='The family could not be updated.';			
-		return redirect()->route('zgfcp-fami1-list')->with('mal', $flash);
+		return redirect()->route('show-error-message')->with('mal', $flash);
 		
 	}
 
@@ -200,7 +200,7 @@ public function deletePro_ZGFCP_Fami1_CR($zgfcp_fami1_id=null,$zgfcp_fami1_token
 	} catch(Exception $e) {
 					
 		$flash='The family could not be deleted.';			
-		return redirect()->route('zgfcp-fami1-list')->with('mal', $flash);
+		return redirect()->route('show-error-message')->with('mal', $flash);
 	}
 
 }
@@ -233,7 +233,7 @@ public function clonePro_ZGFCP_Fami1_CR($zgfcp_fami1_id=null,$zgfcp_fami1_token=
 	} catch(Exception $e) {
 					
 		$flash='The family could not be cloned.';			
-		return redirect()->route('zgfcp-fami1-list')->with('mal', $flash);
+		return redirect()->route('show-error-message')->with('mal', $flash);
 	}
 
 }
@@ -265,7 +265,7 @@ public function updateImages_ZGFCP_Fami1_CR($zgfcp_fami1_id=null,$zgfcp_fami1_to
 	} catch(Exception $e) {
 
 		$flash='There are no families';			
-		return redirect()->route('zgfcp-fami1-list')->with('mal', $flash);
+		return redirect()->route('show-error-message')->with('mal', $flash);
 	}	
 
 }
@@ -291,7 +291,7 @@ public function updateImagesPro_ZGFCP_Fami1_CR()
 	} catch (Exception $e){
 
 		$flash='The image could not be updated.';			
-		return redirect()->route('zgfcp-fami1-list')->with('mal', $flash);		
+		return redirect()->route('show-error-message')->with('mal', $flash);	
 	}
 }
 
@@ -325,7 +325,7 @@ public function deleteImagesPro_ZGFCP_Fami1_CR($zgfcp_fami1_id=null,$zgfcp_fami1
 	} catch (Exception $e){
 
 		$flash='The image could not be deleted.';			
-		return redirect()->route('zgfcp-fami1-list')->with('mal', $flash);
+		return redirect()->route('show-error-message')->with('mal', $flash);
 	}
 }
 
@@ -350,7 +350,7 @@ public function order_ZGFCP_Fami1_CR()
 	} catch (Exception $e) {
 
 		$flash='There are no families';			
-		return redirect()->route('zgfcp-fami1-insert')->with('mal', $flash);
+		return redirect()->route('show-error-message')->with('mal', $flash);
 
 	}
 }

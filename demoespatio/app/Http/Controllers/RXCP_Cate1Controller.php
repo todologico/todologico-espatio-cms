@@ -70,7 +70,7 @@ public function get_RXCP_Cate1_CR()
 	} catch (Exception $e) {
 
 		$flash='There are no categories';			
-		return redirect()->route('rxcp-cate1-insert')->with('mal', $flash);
+		return redirect()->route('show-error-message')->with('mal', $flash);
 	}
 
 }
@@ -107,7 +107,7 @@ public function insertPro_RXCP_Cate1_CR()
 	} catch (Exception $e) {
 
 		$flash='The category could not be created.';			
-		return redirect()->route('rxcp-cate1-list')->with('mal', $flash);
+		return redirect()->route('show-error-message')->with('mal', $flash);
 
 	}
 
@@ -139,7 +139,7 @@ public function update_RXCP_Cate1_CR($rxcp_cate1_id=null,$rxcp_cate1_token=null)
 	} catch (Exception $e) {
 
 		$flash='The category could not be updated.';	
-		return redirect()->route('rxcp-cate1-list')->with('mal', $flash);
+		return redirect()->route('show-error-message')->with('mal', $flash);
 
 	}	
 
@@ -166,7 +166,7 @@ public function updatePro_RXCP_Cate1_CR()
 	} catch (Exception $e) {
 
 		$flash='The category could not be updated.';			
-		return redirect()->route('rxcp-cate1-list')->with('mal', $flash);
+		return redirect()->route('show-error-message')->with('mal', $flash);
 
 	}		
 
@@ -200,7 +200,7 @@ public function deletePro_RXCP_Cate1_CR($rxcp_cate1_id=null,$rxcp_cate1_token=nu
 	} catch (Exception $e) {
 					
 		$flash='The category could not be deleted.';			
-		return redirect()->route('rxcp-cate1-list')->with('mal', $flash);
+		return redirect()->route('show-error-message')->with('mal', $flash);
 
 	}
 
@@ -232,7 +232,7 @@ public function clonePro_RXCP_Cate1_CR($rxcp_cate1_id=null,$rxcp_cate1_token=nul
 	} catch (Exception $e) {
 					
 		$flash='The category could not be cloned.';			
-		return redirect()->route('rxcp-cate1-list')->with('mal', $flash);
+		return redirect()->route('show-error-message')->with('mal', $flash);
 	}	
 
 
@@ -271,7 +271,7 @@ public function updateImages_RXCP_Cate1_CR($rxcp_cate1_id=null,$rxcp_cate1_token
 	} catch (Exception $e) {
 
 		$flash='The category does not exist.';			
-		return redirect()->route('rxcp-cate1-list')->with('mal', $flash);
+		return redirect()->route('show-error-message')->with('mal', $flash);
 
 	}
 
@@ -297,7 +297,7 @@ public function updateImagesPro_RXCP_Cate1_CR()
 	} catch (Exception $e) {
 
 		$flash='The image could not be updated.';			
-		return redirect()->route('rxcp-cate1-list')->with('mal', $flash);
+		return redirect()->route('show-error-message')->with('mal', $flash);
 	}
 }
 
@@ -331,7 +331,7 @@ public function deleteImagesPro_RXCP_Cate1_CR($rxcp_cate1_id=null,$rxcp_cate1_to
 	} catch (Exception $e) {
 
 		$flash='The image could not be deleted.';			
-		return redirect()->route('rxcp-cate1-list')->with('mal', $flash);
+		return redirect()->route('show-error-message')->with('mal', $flash);
 	}
 }
 
@@ -355,7 +355,7 @@ public function order_RXCP_Cate1_CR()
 	} catch (Exception $e) {
 
 		$flash='The category could not be sorted';			
-		return redirect()->route('rxcp-cate1-insert')->with('mal', $flash);
+		return redirect()->route('show-error-message')->with('mal', $flash);
 	}
 
 }

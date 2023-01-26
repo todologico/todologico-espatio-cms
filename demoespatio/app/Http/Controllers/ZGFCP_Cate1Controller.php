@@ -71,7 +71,7 @@ public function get_ZGFCP_Cate1_CR()
 	} catch (Exception $e) {
 
 		$flash='There are no categories';			
-		return redirect()->route('zgfcp-cate1-insert')->with('mal', $flash);
+		return redirect()->route('show-error-message')->with('mal', $flash);
 	}
 
 }
@@ -110,7 +110,7 @@ public function insertPro_ZGFCP_Cate1_CR()
 	} catch (Exception $e) {
 
 		$flash='The category could not be created.';			
-		return redirect()->route('zgfcp-cate1-list')->with('mal', $flash);
+		return redirect()->route('show-error-message')->with('mal', $flash);
 	}
 
 }
@@ -148,7 +148,7 @@ public function update_ZGFCP_Cate1_CR($zgfcp_cate1_id=null,$zgfcp_cate1_token=nu
 	} catch (Exception $e) {
 
 		$flash='The category does not exist.';			
-		return redirect()->route('zgfcp-cate1-list')->with('mal', $flash);
+		return redirect()->route('show-error-message')->with('mal', $flash);
 	}
 
 }
@@ -174,7 +174,7 @@ public function updatePro_ZGFCP_Cate1_CR()
 	} catch (Exception $e) {
 
 		$flash='The category could not be updated.';			
-		return redirect()->route('zgfcp-cate1-list')->with('mal', $flash);
+		return redirect()->route('show-error-message')->with('mal', $flash);
 	}	
 }
 
@@ -205,7 +205,7 @@ public function deletePro_ZGFCP_Cate1_CR($zgfcp_cate1_id=null,$zgfcp_cate1_token
 	} catch (Exception $e) {
 
 		$flash='The category could not be deleted.';			
-		return redirect()->route('zgfcp-cate1-list')->with('mal', $flash);
+		return redirect()->route('show-error-message')->with('mal', $flash);
 	}	
 }
 
@@ -236,7 +236,7 @@ public function clonePro_ZGFCP_Cate1_CR($zgfcp_cate1_id=null,$zgfcp_cate1_token=
 	} catch (Exception $e) {
 					
 		$flash='The category could not be cloned.';			
-		return redirect()->route('zgfcp-cate1-list')->with('mal', $flash);
+		return redirect()->route('show-error-message')->with('mal', $flash);
 
 	}
 }
@@ -267,7 +267,7 @@ public function updateImages_ZGFCP_Cate1_CR($zgfcp_cate1_id=null,$zgfcp_cate1_to
 	} catch (Exception $e) {
 
 		$flash='The category does not exist.';			
-		return redirect()->route('zgfcp-cate1-list')->with('mal', $flash);
+		return redirect()->route('show-error-message')->with('mal', $flash);
 	}
 }
 
@@ -292,7 +292,7 @@ public function updateImagesPro_ZGFCP_Cate1_CR()
 	} catch (Exception $e) {
 
 		$flash='The image could not be updated.';			
-		return redirect()->route('zgfcp-cate1-list')->with('mal', $flash);
+		return redirect()->route('show-error-message')->with('mal', $flash);
 	}
 
 }
@@ -327,7 +327,7 @@ public function deleteImagesPro_ZGFCP_Cate1_CR($zgfcp_cate1_id=null,$zgfcp_cate1
 	} catch (Exception $e) {
 
 		$flash='The image could not be deleted.';			
-		return redirect()->route('zgfcp-cate1-list')->with('mal', $flash);
+		return redirect()->route('show-error-message')->with('mal', $flash);
 
 	}
 }
@@ -353,7 +353,7 @@ public function order_ZGFCP_Cate1_CR()
 	} catch (Exception $e) {
 
 		$flash='The category could not be sorted';			
-		return redirect()->route('zgfcp-cate1-insert')->with('mal', $flash);
+		return redirect()->route('show-error-message')->with('mal', $flash);
 
 	}
 

@@ -73,28 +73,30 @@
 
                 @foreach ($products as $key => $reg)
 
-                <? if($reg->bbp_prod1_enable=='1'){$bgcolor='background-color: #EEFBE7;';} else {$bgcolor=' background-color: #FFEAE7';}?>
+                <? 
+               
+                if($reg->bbp_prod1_enable=='1'){$bgcolor='background-color: #EEFBE7;';} else {$bgcolor=' background-color: #FFEAE7';}?>
 
                 <tr>
 
-                 <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->bbp_prod1_id}}">
+                 <td style="{{$bgcolor}}" ng-style="bcolor{{$reg->bbp_prod1_id}}">
                       <a href="{{route('bbp-prod1-delete-pro',[$reg->bbp_prod1_id,$reg->bbp_prod1_token])}}"><button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i> Del</button></a></td>
                   
-                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->bbp_prod1_id}}">{{$reg->bbp_prod1_id}}</td>
+                  <td style="{{$bgcolor}}" ng-style="bcolor{{$reg->bbp_prod1_id}}">{{$reg->bbp_prod1_id}}</td>
                  
-                  <td style=" max-width: 350px;<?=$bgcolor;?>" ng-style="bcolor{{$reg->bbp_prod1_id}}">{{$reg->bbp_prod1_product}}</td>                  
-                  <td style=" max-width: 350px;<?=$bgcolor;?>" ng-style="bcolor{{$reg->bbp_prod1_id}}">{{$reg->bbp_prod1_code}}</td>                  
-                  <td style=" max-width: 350px;<?=$bgcolor;?>" ng-style="bcolor{{$reg->bbp_prod1_id}}">€ {{$reg->bbp_prod1_price1}}</td>                  
+                  <td style=" max-width: 350px;{{$bgcolor}}" ng-style="bcolor{{$reg->bbp_prod1_id}}">{{$reg->bbp_prod1_product}}</td>                  
+                  <td style=" max-width: 350px;{{$bgcolor}}" ng-style="bcolor{{$reg->bbp_prod1_id}}">{{$reg->bbp_prod1_code}}</td>                  
+                  <td style=" max-width: 350px;{{$bgcolor}}" ng-style="bcolor{{$reg->bbp_prod1_id}}">€ {{$reg->bbp_prod1_price1}}</td>                  
                   
-                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->bbp_prod1_id}}"><?if(isset($reg->bbp_prod1_image1)){?><a href="{{url('/')}}/storage/uploaddir/{{$reg->bbp_prod1_image1}}" target="_blank"><img src="{{url('/')}}/storage/uploaddir/{{$reg->bbp_prod1_image1}}" style="height:80px;" /></a><?}?></td>                  
+                  <td style="{{$bgcolor}}" ng-style="bcolor{{$reg->bbp_prod1_id}}"><?if(isset($reg->bbp_prod1_image1)){?><a href="{{url('/')}}/storage/uploaddir/{{$reg->bbp_prod1_image1}}" target="_blank"><img src="{{url('/')}}/storage/uploaddir/{{$reg->bbp_prod1_image1}}" style="height:80px;" /></a><?}?></td>                  
                   
-                  <td  style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->bbp_prod1_id}}"><?if(isset($reg->bbp_prod1_image2)){?><a href="{{url('/')}}/storage/uploaddir/{{$reg->bbp_prod1_image2}}" target="_blank"><img src="{{url('/')}}/storage/uploaddir/{{$reg->bbp_prod1_image2}}" style="height:80px;" /></a><?}?></td>                  
+                  <td  style="{{$bgcolor}}" ng-style="bcolor{{$reg->bbp_prod1_id}}"><?if(isset($reg->bbp_prod1_image2)){?><a href="{{url('/')}}/storage/uploaddir/{{$reg->bbp_prod1_image2}}" target="_blank"><img src="{{url('/')}}/storage/uploaddir/{{$reg->bbp_prod1_image2}}" style="height:80px;" /></a><?}?></td>                  
                   
-                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->bbp_prod1_id}}"><a href="{{route('bbp-prod1-images-update',[$reg->bbp_prod1_id,$reg->bbp_prod1_token])}}"><button type="button" class="btn btn-warning btn-sm"><i class="fa fa-file-image-o" aria-hidden="true"></i> Images</button></a></td>                  
+                  <td style="{{$bgcolor}}" ng-style="bcolor{{$reg->bbp_prod1_id}}"><a href="{{route('bbp-prod1-images-update',[$reg->bbp_prod1_id,$reg->bbp_prod1_token])}}"><button type="button" class="btn btn-warning btn-sm"><i class="fa fa-file-image-o" aria-hidden="true"></i> Images</button></a></td>                  
                   
-                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->bbp_prod1_id}}"><a href="{{route('bbp-prod1-clone-pro',[$reg->bbp_prod1_id,$reg->bbp_prod1_token])}}"><button type="button" class="btn btn-primary btn-sm" style="background-color: #4B330B; border-color: #4B330B;"><i class="fa fa-files-o" aria-hidden="true"></i> Clone</button></a></td>
+                  <td style="{{$bgcolor}}" ng-style="bcolor{{$reg->bbp_prod1_id}}"><a href="{{route('bbp-prod1-clone-pro',[$reg->bbp_prod1_id,$reg->bbp_prod1_token])}}"><button type="button" class="btn btn-primary btn-sm" style="background-color: #4B330B; border-color: #4B330B;"><i class="fa fa-files-o" aria-hidden="true"></i> Clone</button></a></td>
                   
-                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->bbp_prod1_id}}">
+                  <td style="{{$bgcolor}}" ng-style="bcolor{{$reg->bbp_prod1_id}}">
 
                     <?if($reg->bbp_prod1_enable=='1'){?>
 
@@ -112,7 +114,7 @@
 
                   </td>
                   
-                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->bbp_prod1_id}}"><a href="{{route('bbp-prod1-update',[$reg->bbp_prod1_id,$reg->bbp_prod1_token])}}"><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-file-text" aria-hidden="true"></i> Edit</button></a></td>
+                  <td style="{{$bgcolor}}" ng-style="bcolor{{$reg->bbp_prod1_id}}"><a href="{{route('bbp-prod1-update',[$reg->bbp_prod1_id,$reg->bbp_prod1_token])}}"><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-file-text" aria-hidden="true"></i> Edit</button></a></td>
                  
                 </tr>
 
