@@ -56,11 +56,11 @@ public function get_BBP_Prod1_CR()
 
 	try {
 
-		$bgcolor='';
-
 		$products= $this->bbp_prod1bs->get_BBP_Prod1_BS();
 
 		if($products->isNotEmpty()){
+
+			$bgcolor='';
 		
 			return view('bbp_prod1.bbp_prod1_list',compact('products','bgcolor'));
 
@@ -83,13 +83,13 @@ public function get_BBP_Prod1_CR()
 public function getSearch_BBP_Prod1_CR()
 {	
 
-	try {
-
-		$bgcolor='';
+	try {		
 
 		$products= $this->bbp_prod1bs->getSearch_BBP_Prod1_BS();
 
 		if($products->isNotEmpty()){
+
+			$bgcolor='';
 		
 			return view('bbp_prod1.bbp_prod1_list',compact('products','bgcolor'));
 		} 

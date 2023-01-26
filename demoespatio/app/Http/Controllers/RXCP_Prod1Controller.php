@@ -59,11 +59,13 @@ public function get_RXCP_Prod1_CR()
 
 		if($backarray['products']->isNotEmpty()){
 
+			$bgcolor='';
+
 			$categories=$backarray['categories'];
 			
 			$products=$backarray['products'];
 		
-			return view('rxcp_prod1.rxcp_prod1_list',compact('categories','products'));
+			return view('rxcp_prod1.rxcp_prod1_list',compact('categories','products','bgcolor'));
 
 		} 
 
@@ -82,17 +84,19 @@ public function get_RXCP_Prod1_CR()
 //----------------------------------------------------------
 public function getSearch_RXCP_Prod1_CR()
 {	
-	try {
+	try {		
 
 		$backarray= $this->rxcp_prod1bs->getSearch_RXCP_Prod1_BS();
 
 		if($backarray['products']->isNotEmpty()){
 
+			$bgcolor='';
+
 			$categories=$backarray['categories'];
 			
 			$products=$backarray['products'];
 		
-			return view('rxcp_prod1.rxcp_prod1_list',compact('categories','products'));
+			return view('rxcp_prod1.rxcp_prod1_list',compact('categories','products','bgcolor'));
 
 		} 
 
@@ -122,11 +126,13 @@ public function getSearchLink_RXCP_Prod1_CR($rxcp_cate1_id=null,$rxcp_cate1_toke
 
 				if($backarray['products']->isNotEmpty()){
 
+					$bgcolor='';
+
 					$categories=$backarray['categories'];
 						
 					$products=$backarray['products'];
 					
-					return view('rxcp_prod1.rxcp_prod1_list',compact('categories','products'));
+					return view('rxcp_prod1.rxcp_prod1_list',compact('categories','products','bgcolor'));
 				} 
 			} 
 		} 

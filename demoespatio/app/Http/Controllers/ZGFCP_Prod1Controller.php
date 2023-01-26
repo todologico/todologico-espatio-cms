@@ -95,8 +95,10 @@ public function getSearch_ZGFCP_Prod1_CR()
 			$categories=$backarray['categories'];
 			
 			$products=$backarray['products'];
+
+			$bgcolor='';
 		
-			return view('zgfcp_prod1.zgfcp_prod1_list',compact('families','categories','products'));
+			return view('zgfcp_prod1.zgfcp_prod1_list',compact('families','categories','products','bgcolor'));
 
 		} 
 
@@ -132,8 +134,10 @@ public function getSearchLinkxFami1_ZGFCP_Prod1_CR($zgfcp_fami1_id=null,$zgfcp_f
 					$categories=$backarray['categories'];
 						
 					$products=$backarray['products'];
+
+					$bgcolor='';
 					
-					return view('zgfcp_prod1.zgfcp_prod1_list',compact('families','categories','products'));
+					return view('zgfcp_prod1.zgfcp_prod1_list',compact('families','categories','products','bgcolor'));
 				} 
 			} 
 		} 
@@ -170,8 +174,10 @@ public function getSearchLinkxCate1_ZGFCP_Prod1_CR($zgfcp_cate1_id=null,$zgfcp_c
 					$categories=$backarray['categories'];
 						
 					$products=$backarray['products'];
+
+					$bgcolor='';
 					
-					return view('zgfcp_prod1.zgfcp_prod1_list',compact('families','categories','products'));
+					return view('zgfcp_prod1.zgfcp_prod1_list',compact('families','categories','products','bgcolor'));
 				} 
 			} 
 		} 
@@ -183,7 +189,6 @@ public function getSearchLinkxCate1_ZGFCP_Prod1_CR($zgfcp_cate1_id=null,$zgfcp_c
 		$flash='There are no products.';			
 		return redirect()->route('show-error-message')->with('mal', $flash);
 	}
-
 }
 
 //----------------------------------------------------------

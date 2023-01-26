@@ -49,14 +49,14 @@ public function __construct(AAB_Bann1_Main_BS $aab_bann1_bs)
 //----------------------------------------------------------
 
 public function get_AAB_Bann1_CR()
-{	
-	$bgcolor=null;
-
+{		
 	try	{
 	
 		$banners= $this->aab_bann1_bs->get_AAB_Bann1_BS();
 
 		if($banners->isNotEmpty()){
+
+			$bgcolor='';
 		
 			return view('aab_bann1.aab_bann1_list',compact('banners','bgcolor'));
 

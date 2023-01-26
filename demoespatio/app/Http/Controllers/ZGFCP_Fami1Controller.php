@@ -64,8 +64,10 @@ public function get_ZGFCP_Fami1_CR()
 		$countprod1xfami1=$backarray['countprod1xfami1'];
 
 		if($families->isNotEmpty()){
+
+			$bgcolor='';
 		
-			return view('zgfcp_fami1.zgfcp_fami1_list',compact('families','countcate1xfami1','countprod1xfami1'));
+			return view('zgfcp_fami1.zgfcp_fami1_list',compact('families','countcate1xfami1','countprod1xfami1','bgcolor'));
 		} 
 
 		throw new Exception();

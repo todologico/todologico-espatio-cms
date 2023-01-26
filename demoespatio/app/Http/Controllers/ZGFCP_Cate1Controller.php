@@ -61,8 +61,10 @@ public function get_ZGFCP_Cate1_CR()
 		$countprod1xcate1=$backarray['countprod1xcate1'];
 
 		if($categories->isNotEmpty()){
+
+			$bgcolor='';
 		
-			return view('zgfcp_cate1.zgfcp_cate1_list',compact('categories','countprod1xcate1'));
+			return view('zgfcp_cate1.zgfcp_cate1_list',compact('categories','countprod1xcate1','bgcolor'));
 
 		} 
 

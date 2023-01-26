@@ -60,8 +60,10 @@ public function get_RXCP_Cate1_CR()
 		$countprod1xcate1=$backarray['countprod1xcate1'];
 
 		if($categories->isNotEmpty()){
+
+			$bgcolor='';
 		
-			return view('rxcp_cate1.rxcp_cate1_list',compact('categories','countprod1xcate1'));
+			return view('rxcp_cate1.rxcp_cate1_list',compact('categories','countprod1xcate1','bgcolor'));
 
 		} 
 
