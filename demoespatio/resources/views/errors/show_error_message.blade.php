@@ -25,14 +25,14 @@
 
       <div class="br-pagebody">
         <div class="br-section-wrapper">
-          <h6 class="br-section-label">WOW!!! I was not expecting this</h6>
-          <p class="br-section-text">I can surely help you.</p>
+          <h6 class="br-section-label">Ouch !!! </h6>
+          <p class="br-section-text">Something happened and you have a message.</p>
 
           @if ($errors->any())
               <div class="alert alert-danger">
                   <ul>
                       @foreach ($errors->all() as $error)
-                          <li>{{ $error }}</li>
+                          <li><h3>{{ $error }}</h3></li>
                       @endforeach
                   </ul>
               </div>
@@ -41,7 +41,7 @@
 
           @if (session('mal'))
               <div class="alert alert-danger">
-                  {{ session('mal') }}
+                  <h4>{{ session('mal') }}</h4>
               </div>
           @endif   
         

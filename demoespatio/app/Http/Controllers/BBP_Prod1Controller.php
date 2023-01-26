@@ -77,7 +77,7 @@ public function get_BBP_Prod1_CR()
 }
 
 //----------------------------------------------------------
-// GET SEARCH BANNERA
+// GET SEARCH PRODUCTS
 //----------------------------------------------------------
 
 public function getSearch_BBP_Prod1_CR()
@@ -85,11 +85,13 @@ public function getSearch_BBP_Prod1_CR()
 
 	try {
 
+		$bgcolor='';
+
 		$products= $this->bbp_prod1bs->getSearch_BBP_Prod1_BS();
 
 		if($products->isNotEmpty()){
 		
-			return view('bbp_prod1.bbp_prod1_list',compact('products'));
+			return view('bbp_prod1.bbp_prod1_list',compact('products','bgcolor'));
 		} 
 
 		throw new Exception();			
