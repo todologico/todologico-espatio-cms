@@ -21,7 +21,7 @@
 
     <div class="br-mainpanel">
 
-        @include('bbp_prod1.bbp_prod1_menu')
+        @include('errors.errors_menu')
 
       <div class="br-pagebody">
         <div class="br-section-wrapper">

@@ -27,7 +27,7 @@ public function test_get_contacts_list(){
     $user = User::find(1);
 
     //Assert that a table in the database contains records matching the given key / value query constraints
-    //$this->actingAs($user)->assertDatabaseHas('ccc_cont1',['ccc_cont1_name' => '4LkFmmXb2t']);
+    $this->actingAs($user)->assertDatabaseHas('ccc_cont1',['ccc_cont1_name' => 'dfghdfghdf']);
 
 
     $count = ccc_cont1::all()->count();
@@ -47,7 +47,6 @@ public function test_delete_CCC_Cont1_CR(){
     $user = User::find(1);
     
     $db=  ccc_cont1::orderby('ccc_cont1_id', 'desc')->first();
-
     $count = ccc_cont1::all()->count();
 
     $response = $this->actingAs($user)->get('/ccc-cont1-delete/'.$db->ccc_cont1_id.'/'.$db->ccc_cont1_token);

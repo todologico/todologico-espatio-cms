@@ -149,5 +149,31 @@ protected function delete_CCC_Cont1_QY($ccc_cont1_id=null,$ccc_cont1_token=null)
 }
 
 
+//----------------------------------------------------------
+// CHECK IF ONE RECORD EXIST BY ID AND TOKEN
+// @param : int $ccc_cont1_id
+// @param : int $ccc_cont1_token
+// @return: int $delete
+//----------------------------------------------------------
+
+protected function checkRecordExist_CCC_Cont1_QY($ccc_cont1_id=null,$ccc_cont1_token=null)
+{   
+
+    $check = false;
+
+    if(isset($ccc_cont1_id) and is_numeric($ccc_cont1_id)){
+        if(isset($ccc_cont1_token) and is_string($ccc_cont1_token)){
+
+            $check = DB::table('ccc_cont1')
+                        ->where('ccc_cont1_id',$ccc_cont1_id)
+                        ->where('ccc_cont1_token',$ccc_cont1_token)
+                        ->exists();
+        }       
+    } 
+
+    return $check;
+}
+
+
 //------------------------------------------------
 }  

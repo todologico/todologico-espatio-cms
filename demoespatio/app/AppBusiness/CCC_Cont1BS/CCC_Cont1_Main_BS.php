@@ -9,6 +9,7 @@ use Auth;
 use Illuminate\Support\Facades\Storage;
 
 use App\AppQuerys\CCC_Cont1_Data_QY;
+use Stringable;
 
 //----------------------------------------------------------
 // PRODUCTS PROD1 BUSINESS
@@ -44,6 +45,8 @@ public function get_CCC_Cont1_BS()
 
     return $contacts;     
 }
+
+
 
 //----------------------------------------------------------
 // SEARCH LIST PRODUCTS CATE1-PROD1
@@ -92,12 +95,19 @@ public function deletePro_CCC_Cont1_BS($ccc_cont1_id=null,$ccc_cont1_token=null)
 
         if(isset($ccc_cont1_token) and is_string($ccc_cont1_token)){
 
-            $deletepro=$this->delete_CCC_Cont1_QY($ccc_cont1_id,$ccc_cont1_token); 
+            $check_exist= $this->checkRecordExist_CCC_Cont1_QY($ccc_cont1_id,$ccc_cont1_token); 
+
+            if($check_exist==true) { 
+                
+                $deletepro=$this->delete_CCC_Cont1_QY($ccc_cont1_id,$ccc_cont1_token);
+            }
         }
     }
 
     return $deletepro; 
 }
+
+
 
 //----------------------------------------------------------
 }
