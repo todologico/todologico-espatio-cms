@@ -50,7 +50,7 @@ public function test_delete_CCC_Cont1_CR(){
 
     $user = User::find(1);
 
-    //adding 10 contacts
+    //adding 5 fake contacts 
     $this->seed([ContactsSeeder::class]);
     
     $db=  ccc_cont1::orderby('ccc_cont1_id', 'desc')->first();

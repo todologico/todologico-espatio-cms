@@ -11,7 +11,7 @@ class ContactsSeeder extends Seeder
     public function run()
     {
 
-        \App\Models\ccc_cont1::factory(10)->create();
+        \App\Models\ccc_cont1::factory(5)->create();
 
     }
 }

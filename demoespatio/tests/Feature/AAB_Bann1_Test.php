@@ -79,6 +79,7 @@ public function test_update_AAB_Bann1_CR(){
   $user = User::find(1);
   $db=  aab_bann1::first();
 
+  //string to update
   $checktext=Str::random(15);
 
   $response = $this->actingAs($user)->post('/aab-bann1-update-pro',[
