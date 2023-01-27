@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\ccc_cont1;
 
+use Database\Seeders\ContactsSeeder;
+
+
 class CCC_Cont1_Test extends TestCase
 {
    
@@ -27,14 +30,15 @@ public function test_get_contacts_list(){
     $user = User::find(1);
 
     //Assert that a table in the database contains records matching the given key / value query constraints
-    $this->actingAs($user)->assertDatabaseHas('ccc_cont1',['ccc_cont1_name' => 'dfghdfghdf']);
-
+    $this->actingAs($user)->assertDatabaseHas('ccc_cont1',['ccc_cont1_name' => 'corporis']);
 
     $count = ccc_cont1::all()->count();
     $this->actingAs($user)->assertDatabaseCount('ccc_cont1',$count);
     
     $response = $this->actingAs($user)->get('/ccc-cont1-list');    
     $response->assertStatus(200); 
+
+    //$response->dd();
 
 }
 
@@ -45,6 +49,9 @@ public function test_get_contacts_list(){
 public function test_delete_CCC_Cont1_CR(){
 
     $user = User::find(1);
+
+    //adding 10 contacts
+    $this->seed([ContactsSeeder::class]);
     
     $db=  ccc_cont1::orderby('ccc_cont1_id', 'desc')->first();
     $count = ccc_cont1::all()->count();
@@ -56,6 +63,8 @@ public function test_delete_CCC_Cont1_CR(){
     $this->actingAs($user)->assertDatabaseCount('ccc_cont1',$count-1);
 
     $response->assertRedirect('/ccc-cont1-list');
+
+    //$response->dd();
 
 }
 

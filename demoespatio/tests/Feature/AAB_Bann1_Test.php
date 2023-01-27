@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Str;
 use App\Models\User;
 use App\Models\aab_bann1;
 use Tests\TestCase;
@@ -79,7 +79,7 @@ public function test_update_AAB_Bann1_CR(){
   $user = User::find(1);
   $db=  aab_bann1::first();
 
-  $checktext="updated field";
+  $checktext=Str::random(15);
 
   $response = $this->actingAs($user)->post('/aab-bann1-update-pro',[
     'aab_bann1_id' => $db->aab_bann1_id,
