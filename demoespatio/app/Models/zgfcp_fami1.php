@@ -16,4 +16,6 @@ class zgfcp_fami1 extends Model
     const CREATED_AT = 'zgfcp_fami1_created_at';
     
     const UPDATED_AT = 'zgfcp_fami1_updated_at';
+
+    protected $fillable = ['*'];
 }

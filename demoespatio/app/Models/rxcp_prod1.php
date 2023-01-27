@@ -16,4 +16,6 @@ class rxcp_prod1 extends Model
     const CREATED_AT = 'rxcp_prod1_created_at';
     
     const UPDATED_AT = 'rxcp_prod1_updated_at';
+
+    protected $fillable = ['*'];
 }

@@ -16,4 +16,6 @@ class zgfcp_prod1 extends Model
     const CREATED_AT = 'zgfcp_prod1_created_at';
     
     const UPDATED_AT = 'zgfcp_prod1_updated_at';
+
+    protected $fillable = ['*'];
 }

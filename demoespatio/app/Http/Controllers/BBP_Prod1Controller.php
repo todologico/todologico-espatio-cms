@@ -123,7 +123,6 @@ public function insertPro_BBP_Prod1_CR()
 
 	try {
 
-		//insert pro
 		$bbp_prod1_id= $this->bbp_prod1bs->insertPro_BBP_Prod1_BS();	
 
 		if(isset($bbp_prod1_id) and is_numeric($bbp_prod1_id)){

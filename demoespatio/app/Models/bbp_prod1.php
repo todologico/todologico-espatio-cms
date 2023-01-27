@@ -17,4 +17,6 @@ class bbp_prod1 extends Model
     
     const UPDATED_AT = 'bbp_prod1_updated_at';
 
+    protected $fillable = ['*'];
+
 }
