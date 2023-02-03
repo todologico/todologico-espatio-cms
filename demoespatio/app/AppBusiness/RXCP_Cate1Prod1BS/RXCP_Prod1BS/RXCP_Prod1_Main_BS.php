@@ -153,7 +153,6 @@ public function getSearchLink_RXCP_Prod1_BS($rxcp_cate1_id=null,$rxcp_cate1_toke
     return $backarray;     
 }
 
-
 //----------------------------------------------------------
 // LIST ORDER PRODUCTS PROD1
 // GET METHOD
