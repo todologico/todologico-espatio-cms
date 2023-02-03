@@ -98,36 +98,36 @@ public function test_update_RXCP_Cate1_CR(){
 //-----------------------------------------------------------------
 //BBP DELETE PRO TEST
 //-----------------------------------------------------------------
-// public function test_delete_RXCP_Cate1_CR(){
+public function test_delete_RXCP_Cate1_CR(){
 
 
-//     $user = User::find(1);
-//     $db=  rxcp_cate1::first();
+    $user = User::find(1);
+    $db=  rxcp_cate1::first();
 
-//     //-------------------------insert    
-//     $response = $this->actingAs($user)->post('rxcp-cate1-insert-pro',[
-//         'rxcp_cate1_category' => 'category999',
-//         'rxcp_cate1_title1' => 'lkdjghskdlfjghskdfjg',
-//         'rxcp_cate1_title2' => 'lkdjghskdlfjghskdfjg',
-//         'rxcp_cate1_enable' => 1,
-//          ]);
+    //-------------------------insert    
+    $response = $this->actingAs($user)->post('rxcp-cate1-insert-pro',[
+        'rxcp_cate1_category' => 'category999',
+        'rxcp_cate1_title1' => 'lkdjghskdlfjghskdfjg',
+        'rxcp_cate1_title2' => 'lkdjghskdlfjghskdfjg',
+        'rxcp_cate1_enable' => 1,
+         ]);
   
-//     $response->assertValid();    
-//     //---------------------------
+    $response->assertValid();    
+    //---------------------------
 
-//     $db=  rxcp_cate1::orderby('rxcp_cate1_id', 'desc')->first();
+    $db=  rxcp_cate1::orderby('rxcp_cate1_id', 'desc')->first();
 
 
-//     $count = rxcp_cate1::all()->count();
+    $count = rxcp_cate1::all()->count();
 
-//     $response = $this->actingAs($user)->get('/rxcp-cate1-delete/'.$db->rxcp_cate1_id.'/'.$db->rxcp_cate1_token);
+    $response = $this->actingAs($user)->get('/rxcp-cate1-delete/'.$db->rxcp_cate1_id.'/'.$db->rxcp_cate1_token);
 
-//     $response->assertValid();
+    $response->assertValid();
 
-//     $this->actingAs($user)->assertDatabaseCount('rxcp_cate1',$count-1);
+    $this->actingAs($user)->assertDatabaseCount('rxcp_cate1',$count-1);
 
-//     $response->assertRedirect('/rxcp-cate1-list');
-// }
+    $response->assertRedirect('/rxcp-cate1-list');
+}
 
 
 }

@@ -17,7 +17,7 @@ class BBP_Prod1_Test extends TestCase
 
 
 //----------------------------------------------------------
-// BBP GET LIST RECORDS TESTING
+// RXCP GET LIST RECORDS TESTING
 //----------------------------------------------------------    
 
 public function test_get_List_BBP_Prod1_CR(){
@@ -38,7 +38,7 @@ public function test_get_List_BBP_Prod1_CR(){
 }
 
 //----------------------------------------------------------
-// BBP INSERT TEST
+// RXCP INSERT TEST
 //----------------------------------------------------------    
 
 public function test_insert_record_BBP_Prod1_CR(){
@@ -67,7 +67,7 @@ public function test_insert_record_BBP_Prod1_CR(){
   }
 
 //-----------------------------------------------------------------
-//BBP UPDATE PRO TEST
+//RXCP UPDATE PRO TEST
 //-----------------------------------------------------------------
 public function test_update_BBP_Prod1_CR(){
 
@@ -101,7 +101,7 @@ public function test_update_BBP_Prod1_CR(){
   }
   
 //-----------------------------------------------------------------
-//BBP DELETE PRO TEST
+//RXCP DELETE PRO TEST
 //-----------------------------------------------------------------
 public function test_delete_BBP_Prod1_CR(){
 
