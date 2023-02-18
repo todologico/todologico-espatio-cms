@@ -17,6 +17,8 @@ use App\Http\Controllers\CCC_Cont1Controller;
 
 use App\Http\Controllers\ErrorMessageController;
 
+use App\Http\Controllers\ExportController;
+
 
 Route::get('/', function () { return view('welcome');});
 
@@ -445,10 +447,10 @@ Route::get('/ccc-cont1-list',[CCC_Cont1Controller::class,'get_CCC_Cont1_CR'])->n
  //search list
  Route::get('/ccc-cont1-search-list-pro',[CCC_Cont1Controller::class,'getSearch_CCC_Cont1_CR'])->name('ccc-cont1-search-list-pro');
 
-
-
 //ccc-cont1 delete pro
 Route::get('/ccc-cont1-delete/{ccc_cont1_id}/{ccc_cont1_token}', [CCC_Cont1Controller::class, 'deletePro_CCC_Cont1_CR'])->where(['ccc_cont1_id' => '[0-9]+'])->name('ccc-cont1-delete-pro');
+
+Route::get('/ccc-cont1-export', [ExportController::class, 'exportData'])->name('exportdata');
 
 //----------------------------------------------------------
 //SHOW ERROR VIEW

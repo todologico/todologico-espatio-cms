@@ -4,23 +4,22 @@ declare(strict_types=1);
 
 namespace App\AppServices;
 
-Class ExportExcelService {
+use App\AppInterfaces\InterfaceExport;
+
+Class ExportExcelService implements InterfaceExport {
 
 
-/**
- * Export array to Excel
- * @param array
- *
- */
+    /**
+     * Export array to Excel
+     * @param array
+     *
+     */
 
-    public function exportArray(){
+    public function exportData($myservice){
 
+        $service ='array to excel '.$myservice;
 
-    $service ='array to excel';
-
-
-    return $service;
-
+        return $service;
 
     }
 

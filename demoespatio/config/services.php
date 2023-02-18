@@ -30,4 +30,12 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    //binding Export Data interface
+    'exporting' => [
+        'excel' => App\AppServices\ExportExcelService::class,
+        'pdf'   => App\AppServices\ExportPdfService::class,
+        'txt'   => App\AppServices\ExportTxtService::class,
+    ],
+
+
 ];
