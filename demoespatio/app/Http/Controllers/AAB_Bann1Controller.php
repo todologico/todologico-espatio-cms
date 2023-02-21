@@ -44,9 +44,16 @@ public function __construct(AAB_Bann1_Main_BS $aab_bann1_bs)
    $this->aab_bann1_bs=$aab_bann1_bs;
 } 
 
-//----------------------------------------------------------
-// GET BANNERS
-//----------------------------------------------------------
+
+/**
+ * Get banners list.
+ *
+ * @param string $id Identifier of the entry to look for.
+ *
+ * @throws banners  No entry was found for **this** identifier.
+ *
+ * @return banners.
+ */
 
 public function get_AAB_Bann1_CR()
 {		

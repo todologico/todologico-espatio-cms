@@ -23,6 +23,7 @@ class AppServiceProvider extends ServiceProvider
         $class = config('services.exporting.txt');
         $this->app->bind(InterfaceExport::class, $class);
     }
+    
 
     /**
      * Bootstrap any application services.
