@@ -79,10 +79,11 @@ public function get_AAB_Bann1_CR()
 	}
 }
 
-//----------------------------------------------------------
-// GET - INSERT FORM BANNERS
-//----------------------------------------------------------
-
+/**
+ * Insert form banners
+ *
+ * @return view.
+ */
 public function insert_AAB_Bann1_CR()
 {	
 		
