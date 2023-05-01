@@ -158,7 +158,7 @@ public function updatePro_RXCP_Cate1_CR()
 
 		$updatepro= $this->rxcp_cate1bs->updatePro_RXCP_Cate1_BS();
 
-		if(isset($updatepro) and $updatepro=='1'){
+		if(isset($updatepro)){
 
 			return redirect()->route('rxcp-cate1-list');
 		}	

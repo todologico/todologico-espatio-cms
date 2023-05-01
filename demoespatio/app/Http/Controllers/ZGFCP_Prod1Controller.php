@@ -274,7 +274,7 @@ public function updatePro_ZGFCP_Prod1_CR()
 
 		$updatepro= $this->zgfcp_prod1bs->updatePro_ZGFCP_Prod1_BS();
 
-		if(isset($updatepro) and $updatepro=='1'){
+		if(isset($updatepro)){
 
 			return redirect()->route('zgfcp-prod1-list');
 		}	

@@ -166,7 +166,7 @@ public function updatePro_ZGFCP_Cate1_CR()
 
 		$updatepro= $this->zgfcp_cate1bs->updatePro_ZGFCP_Cate1_BS();
 
-		if(isset($updatepro) and $updatepro=='1'){
+		if(isset($updatepro)){
 
 			return redirect()->route('zgfcp-cate1-list');
 		}	

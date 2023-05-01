@@ -159,7 +159,7 @@ public function updatePro_ZGFCP_Fami1_CR()
 
 		$updatepro= $this->zgfcp_fami1bs->updatePro_ZGFCP_Fami1_BS();
 
-		if(isset($updatepro) and $updatepro=='1'){
+		if(isset($updatepro)){
 
 			return redirect()->route('zgfcp-fami1-list');
 		}	

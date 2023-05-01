@@ -233,7 +233,7 @@ public function updatePro_RXCP_Prod1_CR()
 
 		$updatepro= $this->rxcp_prod1bs->updatePro_RXCP_Prod1_BS();
 
-		if(isset($updatepro) and $updatepro=='1'){
+		if(isset($updatepro)){
 
 			return redirect()->route('rxcp-prod1-list');
 		}

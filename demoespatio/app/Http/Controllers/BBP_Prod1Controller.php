@@ -185,7 +185,7 @@ public function updatePro_BBP_Prod1_CR()
 
 		$updatepro= $this->bbp_prod1bs->updatePro_BBP_Prod1_BS();
 
-		if(isset($updatepro) and $updatepro=='1'){
+		if(isset($updatepro)){
 
 			return redirect()->route('bbp-prod1-list');
 		}	
