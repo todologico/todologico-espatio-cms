@@ -55,7 +55,10 @@
 
               <div id="app" v-cloak>
               <h1>@{{ message }}</h1>
+              <h1></h1>
             </div>
+
+           
 
              </tr>
 
