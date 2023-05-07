@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="AAB_Bann1App">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,14 +11,14 @@
     <link rel="stylesheet" href="{{url('/')}}/panel/css/bracket.css">
     <script src="https://use.fontawesome.com/4ce3a16048.js"></script>
 
-    <style>
-    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-    ng-cloak {
-        display: none !important;
-    }
-    </style>
+
+    <script src="https://unpkg.com/vue@3.2.47/dist/vue.global.prod.js"></script>
+   
+
+ 
   </head>
 
-   <body ng-controller="AAB_Bann1Controller" ng-cloak>
+   <body>
 
     @include('includes.menuizq')
 
@@ -47,7 +47,18 @@
 
           <div class="bd bd-gray-300 rounded table-responsive">
             <table class="table mg-b-0  table-colored table-dark">
-              <thead>          
+              <thead> 
+                
+              <tr>
+
+              <div id="app">
+              <h1>@{{ message }}</h1>
+            </div>
+
+             </tr>
+
+
+                
                 <tr>
                   <th>Delete</th>
                   <th>ID</th>
@@ -86,15 +97,15 @@
 
                     <?if($reg->aab_bann1_enable=='1'){?>
 
-                        <button type="button" ng-cloak ng-hide="butt1on{{$reg->aab_bann1_id}}" ng-click="ShowHideBannersAR({{$reg->aab_bann1_id}},'{{$reg->aab_bann1_token}}','1')" class="btn btn-success btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> ON</button>
+                        <button type="button"  class="btn btn-success btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> ON</button>
 
-                        <button type="button" ng-cloak ng-show="butt2on{{$reg->aab_bann1_id}}" ng-click="ShowHideBannersAR({{$reg->aab_bann1_id}},'{{$reg->aab_bann1_token}}','2')" class="btn btn-danger btn-sm"><i class="fa fa-power-off" aria-hidden="true"></i> OFF</button>
+                        <button type="button"  class="btn btn-danger btn-sm"><i class="fa fa-power-off" aria-hidden="true"></i> OFF</button>
 
                       <?} else {?> 
 
-                        <button type="button" ng-cloak ng-hide="butt3on{{$reg->aab_bann1_id}}" ng-click="ShowHideBannersAR({{$reg->aab_bann1_id}},'{{$reg->aab_bann1_token}}','3')" class="btn btn-danger btn-sm"><i class="fa fa-power-off" aria-hidden="true"></i> OFF</button>
+                        <button type="button"  class="btn btn-danger btn-sm"><i class="fa fa-power-off" aria-hidden="true"></i> OFF</button>
 
-                        <button type="button" ng-cloak ng-show="butt4on{{$reg->aab_bann1_id}}" ng-click="ShowHideBannersAR({{$reg->aab_bann1_id}},'{{$reg->aab_bann1_token}}','4')" class="btn btn-success btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> ON</button>
+                        <button type="button"  class="btn btn-success btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> ON</button>
 
                     <?}?>
 
@@ -141,9 +152,19 @@
 
     <script src="{{url('/')}}/panel/js/bracket.js"></script>
 
-    <script src="{{url('/')}}/angular/angular.js"></script>
-    <script src="{{url('/')}}/angular/aab_bann1.js"></script>
+    <script type="module" src="{{url('/')}}/vuejs/vue_bbp_prod1.js"></script> 
 
+     <!-- <script>
+        const { createApp } = Vue
+
+        createApp({
+          data() {
+            return {
+              message: 'Hello Vue!'
+            }
+          }
+        }).mount('#app')
+      </script>  -->
 
   </body>
 </html>
