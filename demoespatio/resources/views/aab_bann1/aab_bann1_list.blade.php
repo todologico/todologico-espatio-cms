@@ -14,7 +14,9 @@
 
     <script src="https://unpkg.com/vue@3.2.47/dist/vue.global.prod.js"></script>
    
-
+    <style>
+    [v-cloak] { display: none; }
+    </style>
  
   </head>
 
@@ -51,7 +53,7 @@
                 
               <tr>
 
-              <div id="app">
+              <div id="app" v-cloak>
               <h1>@{{ message }}</h1>
             </div>
 
