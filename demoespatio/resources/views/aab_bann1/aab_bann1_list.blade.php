@@ -13,10 +13,14 @@
 
 
     <script src="https://unpkg.com/vue@3.2.47/dist/vue.global.prod.js"></script>
+
+    
    
     <style>
     [v-cloak] { display: none; }
     </style>
+
+    
  
   </head>
 
@@ -53,9 +57,9 @@
                 
               <tr>
 
-              <div id="app" v-cloak>
-              <h1>@{{ message }}</h1>
-              <h1></h1>
+
+            <div id="app"  v-cloak>
+                <button @click="count++">@{{ count }}</button>
             </div>
 
            
