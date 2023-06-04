@@ -56,7 +56,7 @@
 
 
             <div id="app"  v-cloak>
-                <button @click="getPosts">@{{ count }}</button>
+                <button @click="getPosts">@{{ count }} @{{ loading }}</button>
             </div>
 
            
