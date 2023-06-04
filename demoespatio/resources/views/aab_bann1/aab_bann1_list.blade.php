@@ -11,16 +11,13 @@
     <link rel="stylesheet" href="{{url('/')}}/panel/css/bracket.css">
     <script src="https://use.fontawesome.com/4ce3a16048.js"></script>
 
-
-    <script src="https://unpkg.com/vue@3.2.47/dist/vue.global.prod.js"></script>
-
+    <script src="https://unpkg.com/vue@3.2.47/dist/vue.global.prod.js"></script>  
     
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
    
     <style>
     [v-cloak] { display: none; }
-    </style>
-
-    
+    </style>    
  
   </head>
 
@@ -59,7 +56,7 @@
 
 
             <div id="app"  v-cloak>
-                <button @click="count++">@{{ count }}</button>
+                <button @click="getPosts">@{{ count }}</button>
             </div>
 
            
