@@ -54,17 +54,11 @@
                 
               <tr>
 
+            <div id="app"   v-show="awesome" v-cloak>
+                <button @click="getPosts">@{{ count }} @{{ loading }}@{{ awesome }}</button>
+            </div>           
 
-            <div id="app"  v-cloak>
-                <button @click="getPosts">@{{ count }} @{{ loading }}</button>
-            </div>
-
-           
-
-             </tr>
-
-
-                
+             </tr>                
                 <tr>
                   <th>Delete</th>
                   <th>ID</th>

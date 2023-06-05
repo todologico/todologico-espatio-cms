@@ -13,7 +13,8 @@ createApp({
     return { 
       
       count: 0,
-      loading: false 
+      loading: false,
+      awesome: true
     
     }
   },
@@ -21,15 +22,19 @@ createApp({
   methods: {
     async getPosts() {
 
-      this.loading = 'http with axios ok'
+      this.loading = 'http with axios ok 2023'
 
-      this.count++;
+      this.count++
 
-      console.log(this.loading);
+      console.log(this.loading)
 
       this.posts = await axios.get('https://jsonplaceholder.typicode.com/posts')
+
+      this.awesome= false
      
-      console.log(this.posts);
+      console.log(this.posts)
+
+      
 
     }
   }
