@@ -1,4 +1,4 @@
-// GLOBAL API
+// OPTIONS API
 
 const { createApp } = Vue
 

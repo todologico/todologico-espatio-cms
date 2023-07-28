@@ -87,7 +87,7 @@
                   
                   <td style="<?=$bgcolor;?>">
 
-                    <?if($reg->aab_bann1_enable=='1'){?>
+                    <?if($reg->aab_bann1_enable=='1'){?>dfdfd
 
                         <button type="button" v-cloak v-if="butt1on{{$reg->aab_bann1_id}}"  @click="ShowHideBannersAR({{$reg->aab_bann1_id}},'{{$reg->aab_bann1_token}}','2')"  class="btn btn-danger btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> OFF111</button>
 
@@ -135,7 +135,7 @@
     <script src="{{url('/')}}/panel/lib/highlightjs/highlight.pack.min.js"></script>
     <script src="{{url('/')}}/panel/js/bracket.js"></script>
 
-    <script type="module" src="{{url('/')}}/vuejs/vue_bbp_prod1test.js"></script> 
+    <script type="module" src="{{url('/')}}/vuejs/vue_bbp_prod1.js"></script> 
 
   </body>
 </html>
