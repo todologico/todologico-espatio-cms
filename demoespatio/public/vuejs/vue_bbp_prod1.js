@@ -11,8 +11,13 @@ createApp({
     console.log(`the component is now mounted.`)
       return { 
 
-        nested: { count: 0 },
-        arr: ['foo', 'bar'] 
+        someObject: {},
+        status: false,
+        backarray: false,
+        obj: {
+          nested: { count: 0 },
+          arr: ['foo', 'bar']
+        }    
       }
   },
   methods: {
@@ -22,6 +27,7 @@ createApp({
       this.obj.nested.count++
       this.obj.arr.push('baz')
     }
+    
 
     //--------------------------------
     async ShowHideBannersAR(aab_bann1_id,aab_bann1_token,button)     
