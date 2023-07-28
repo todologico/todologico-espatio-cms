@@ -8,19 +8,14 @@ createApp({
           
   data() 
   {
-
     console.log(`the component is now mounted.`)
+      return { 
 
-    return { 
-      
-
-      status: false,
-      backarray: false
-    
-    }
-
+        someObject: {},
+        status: false,
+        backarray: false    
+      }
   },
-
   methods: {
 
     //--------------------------------
