@@ -135,7 +135,7 @@
     <script src="{{url('/')}}/panel/lib/highlightjs/highlight.pack.min.js"></script>
     <script src="{{url('/')}}/panel/js/bracket.js"></script>
 
-    <script type="module" src="{{url('/')}}/vuejs/vue_bbp_prod1.js"></script> 
+    <script type="module" src="{{url('/')}}/vuejs/vue_bbp_prod1test.js"></script> 
 
   </body>
 </html>
