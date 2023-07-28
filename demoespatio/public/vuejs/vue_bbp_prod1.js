@@ -11,12 +11,17 @@ createApp({
     console.log(`the component is now mounted.`)
       return { 
 
-        someObject: {},
-        status: false,
-        backarray: false    
+        nested: { count: 0 },
+        arr: ['foo', 'bar'] 
       }
   },
   methods: {
+
+    mutateDeeply() {
+      // these will work as expected.
+      this.obj.nested.count++
+      this.obj.arr.push('baz')
+    }
 
     //--------------------------------
     async ShowHideBannersAR(aab_bann1_id,aab_bann1_token,button)     
