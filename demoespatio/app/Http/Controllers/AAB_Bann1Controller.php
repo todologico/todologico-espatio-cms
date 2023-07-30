@@ -396,6 +396,11 @@ public function publishPro_AAB_Bann1_CR()
 
 	//publish pro
 	$backarray= $this->aab_bann1_bs->publishPro_AAB_Bann1_BS();	
+
+	//$backarray['aab_bann1_id']    = $aab_bann1_id;
+    //$backarray['aab_bann1_token'] = $aab_bann1_token;
+
+	$backarray=json_encode($backarray);
 		
    return $backarray;
 

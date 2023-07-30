@@ -85,13 +85,19 @@
                   
                   <td style="<?=$bgcolor;?>"><a href="{{route('aab-bann1-clone-pro',[$reg->aab_bann1_id,$reg->aab_bann1_token])}}"><button type="button" class="btn btn-primary btn-sm" style="background-color: #4B330B; border-color: #4B330B;"><i class="fa fa-files-o" aria-hidden="true"></i> Clone</button></a></td>
                   
-                  <td style="<?=$bgcolor;?>">
+                  <td style="<?=$bgcolor;?>" v-bind:style="">
 
                     <?if($reg->aab_bann1_enable=='1'){?>dfdfd
 
-                        <button type="button" v-cloak v-if="butt1on{{$reg->aab_bann1_id}}"  @click="ShowHideBannersAR({{$reg->aab_bann1_id}},'{{$reg->aab_bann1_token}}','2')"  class="btn btn-danger btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> OFF111</button>
+                      <button type="button" v-cloak  v-if="{{$reg->aab_bann1_id}}" @click="ShowHideBannersAR({{$reg->aab_bann1_id}},'{{$reg->aab_bann1_token}}','1')" class="btn btn-success btn-sm"><i class="fa fa-power-off" aria-hidden="true"></i> ON222</button>
 
-                        <button type="button" v-cloak  v-else="butt2on{{$reg->aab_bann1_id}}" @click="ShowHideBannersAR({{$reg->aab_bann1_id}},'{{$reg->aab_bann1_token}}','1')" class="btn btn-success btn-sm"><i class="fa fa-power-off" aria-hidden="true"></i> ON222</button>
+                      <button type="button" v-cloak v-else="{{$reg->aab_bann1_id}}"  @click="ShowHideBannersAR({{$reg->aab_bann1_id}},'{{$reg->aab_bann1_token}}','2')"  class="btn btn-danger btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> OFF111</button>
+
+                     
+
+                       
+
+                        
 
                       <?} else {?> 
 

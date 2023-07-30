@@ -8,26 +8,12 @@ createApp({
           
   data() 
   {
-    console.log(`the component is now mounted.`)
-      return { 
-
-        someObject: {},
-        status: false,
-        backarray: false,
-        obj: {
-          nested: { count: 0 },
-          arr: ['foo', 'bar']
-        }    
+    console.log(`the component is now mounted ahora.`)
+      return {     
+        status: false
       }
   },
   methods: {
-
-    mutateDeeply() {
-      // these will work as expected.
-      this.obj.nested.count++
-      this.obj.arr.push('baz')
-    }
-    
 
     //--------------------------------
     async ShowHideBannersAR(aab_bann1_id,aab_bann1_token,button)     
@@ -50,33 +36,45 @@ createApp({
 
           .then(function (response) {
 
-            if(response.data='200'){             
+            if(response.status='200'){             
 
                   switch (button) {    
                   
-                    case '1': //publicado1 to suspendido 2
+                    case '1': //de prendido hacia apagado
 
-                    console.log(response.data);
-                    console.log(response.status);
-                    console.log('elid'+response.data.aab_bann1_id);
-                    console.log('eltoken'+response.data.aab_bann1_token);
-                    console.log('elbutton'+button); 
+                    console.log('de prendido hacia apagado');
+
+                    console.log('data es:'+JSON.stringify(response.data));
+                    console.log(response.statusText);
+                    console.log('el_id es:'+response.data.aab_bann1_id);
+                    console.log('el_token es:'+response.data.aab_bann1_token);
+                    console.log('el_button es: '+button); 
+
+                    this.aab_bann1_id = false;
                     
-                    "butt2on".response.data.aab_bann1_id = false;
-                    "butt1on".response.data.aab_bann1_id = true;
+                   // "'butt2on'.response.data.aab_bann1_id" = false;
+                   // "'butt1on'.response.data.aab_bann1_id" = true;
+                   //$scope['bcolor'+$scope.backarray.aab_bann1_id] = { "background-color": "#FFEAE7" };
 
                     break;
 
-                    case '2': //publicado1 to suspendido 2
+                    case '2': //de apagado a prendido
+
+                    console.log('de apagado a prendido');
+
+                    /*
 
                     console.log(response.data);
                     console.log(response.status);
-                    console.log('elid'+response.data.aab_bann1_id);
-                    console.log('eltoken'+response.data.aab_bann1_token);
-                    console.log('elbutton'+button); 
+                    console.log('el_id ggg'+response.data.aab_bann1_id);
+                    console.log('el_token'+response.data.aab_bann1_token);
+                    console.log('el_button'+button); 
 
                     "butt2on".response.data.aab_bann1_id = true;
                     "butt1on".response.data.aab_bann1_id = false;
+                    //$scope['bcolor'+$scope.backarray.aab_bann1_id] = { "background-color": "#EBF9E4" };
+
+                    */
 
       
                     break;
