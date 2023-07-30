@@ -22,7 +22,7 @@ createApp({
       this.aab_bann1_id = aab_bann1_id;
       this.aab_bann1_token = aab_bann1_token;
       this.button = button;
-    
+
       if(this.aab_bann1_id) { 
         if(this.aab_bann1_token) { 
 
@@ -50,7 +50,11 @@ createApp({
                     console.log('el_token es:'+response.data.aab_bann1_token);
                     console.log('el_button es: '+button); 
 
-                    this.aab_bann1_id = false;
+                    this['butt2on'+response.data.aab_bann1_id] = false;
+                    this['butt1on'+response.data.aab_bann1_id] = true;
+
+                   // this.['butt2on'+response.data.aab_bann1_id] = false;
+                    //this.['butt1on'+response.data.aab_bann1_id] = true;
                     
                    // "'butt2on'.response.data.aab_bann1_id" = false;
                    // "'butt1on'.response.data.aab_bann1_id" = true;
