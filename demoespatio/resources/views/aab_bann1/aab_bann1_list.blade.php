@@ -90,12 +90,9 @@
                     <?if($reg->aab_bann1_enable=='1'){?>dfdfd
 
 
-                      <button type="button" v-cloak :['butt1on'+{{$reg->aab_bann1_id}}]=true  v-if="['butt1on'+{{$reg->aab_bann1_id}}]" @click="ShowHideBannersAR({{$reg->aab_bann1_id}},'{{$reg->aab_bann1_token}}','1')" class="btn btn-success btn-sm"><i class="fa fa-power-off" aria-hidden="true"></i> ON222</button>
+                      <button type="button" id="butt1on{{$reg->aab_bann1_id}}" v-cloak :id="butt1on{{$reg->aab_bann1_id}}" v-show="true"   @click="ShowHideBannersAR({{$reg->aab_bann1_id}},'{{$reg->aab_bann1_token}}','1')" class="btn btn-success btn-sm"><i class="fa fa-power-off" aria-hidden="true"></i> ON222</button>
                       
-                      <button type="button" v-cloak  :['butt2on'+{{$reg->aab_bann1_id}}]=false  v-else="['butt2on'+{{$reg->aab_bann1_id}}]"  @click="ShowHideBannersAR({{$reg->aab_bann1_id}},'{{$reg->aab_bann1_token}}','2')"  class="btn btn-danger btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> OFF111</button>         
-                      
-                     
-
+                      <button type="button" id="butt2on{{$reg->aab_bann1_id}}" v-cloak :id="butt2on{{$reg->aab_bann1_id}}" v-show="false"  @click="ShowHideBannersAR({{$reg->aab_bann1_id}},'{{$reg->aab_bann1_token}}','2')"  class="btn btn-danger btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> OFF111</button>
 
                       <?} else {?> 
 
