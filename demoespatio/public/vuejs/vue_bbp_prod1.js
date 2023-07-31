@@ -45,7 +45,6 @@ createApp({
                     case '1': //de prendido hacia apagado
 
                     console.log('de prendido hacia apagado');
-
                     console.log('data es:'+JSON.stringify(response.data));
                     console.log(response.statusText);
                     console.log('el_id es:'+response.data.aab_bann1_id);
