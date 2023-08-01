@@ -94,7 +94,7 @@
                       
                       <button type="button" v-cloak :id="butt2on{{$reg->aab_bann1_id}}" v-if="butt2on{{$reg->aab_bann1_id}}" @click="ShowHideBannersAR({{$reg->aab_bann1_id}},'{{$reg->aab_bann1_token}}','2')"  class="btn btn-danger btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> OFF111</button>
 
-                      <button type="button" v-cloak :id="butt1on{{$reg->aab_bann1_id}}" v-else="butt1on{{$reg->aab_bann1_id}}" @click="ShowHideBannersAR({{$reg->aab_bann1_id}},'{{$reg->aab_bann1_token}}','1')" class="btn btn-success btn-sm"><i class="fa fa-power-off" aria-hidden="true"></i> ON222</button>
+                      <button type="button" v-cloak :id="butt1on{{$reg->aab_bann1_id}}" v-else @click="ShowHideBannersAR({{$reg->aab_bann1_id}},'{{$reg->aab_bann1_token}}','1')" class="btn btn-success btn-sm"><i class="fa fa-power-off" aria-hidden="true"></i> ON222</button>
 
                       <?} else {?> 
 
