@@ -51,8 +51,6 @@ createApp({
                     console.log('el_token es:'+response.data.aab_bann1_token);
                     console.log('el_button es: '+button); 
                     
-                    
-                    
                     //$scope['butt1on'+$scope.backarray.bbp_prod1_id] = true; //ng-hide
 
                     //hidde the on button
