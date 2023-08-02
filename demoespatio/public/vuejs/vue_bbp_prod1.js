@@ -56,7 +56,7 @@ createApp({
                     Object.assign('butt2on'+response.data.aab_bann1_id, true)
                     Object.assign('butt1on'+response.data.aab_bann1_id, false)
 
-                    console.log('butt2on'+response.data.aab_bann1_id);
+                    console.log(this.butt2on176);
 
                   //  this.id['butt2on'+response.data.aab_bann1_id] = true;
                   //  this.id['butt1on'+response.data.aab_bann1_id] = false;
