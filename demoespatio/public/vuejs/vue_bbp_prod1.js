@@ -48,16 +48,24 @@ createApp({
                     console.log('data es:'+JSON.stringify(response.data));
                     console.log(response.statusText);
                     console.log('el_id es:'+response.data.aab_bann1_id);
-                    console.log('el_token es:'+response.data.aab_bann1_token);
                     console.log('el_button es: '+button); 
                     
                     //$scope['butt1on'+$scope.backarray.bbp_prod1_id] = true; //ng-hide
 
+
+                    Object.assign('butt2on'+response.data.aab_bann1_id, true)
+                    Object.assign('butt1on'+response.data.aab_bann1_id, false)
+
+                    console.log('butt2on'+response.data.aab_bann1_id);
+
+                  //  this.id['butt2on'+response.data.aab_bann1_id] = true;
+                  //  this.id['butt1on'+response.data.aab_bann1_id] = false;
+
                     //hidde the on button
-                    this['butt1on'+response.data.aab_bann1_id] = false;
+                    //this['butt1on'+response.data.aab_bann1_id] = false;
 
                     //show the off button
-                    this['butt2on'+response.data.aab_bann1_id] = true;
+                    //this['butt2on'+response.data.aab_bann1_id] = true;
 
                    // this.['butt2on'+response.data.aab_bann1_id] = false;
                     //this.['butt1on'+response.data.aab_bann1_id] = true;
