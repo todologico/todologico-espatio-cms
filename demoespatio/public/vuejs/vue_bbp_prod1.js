@@ -10,7 +10,7 @@ createApp({
           
   data() 
   {
-    console.log(`the component is mounted.`)
+    console.log(`the component is mounted now.`)
       return {     
         status: false,
       }
@@ -21,11 +21,10 @@ createApp({
     async ShowHideBannersAR(aab_bann1_id,aab_bann1_token,button)     
     {
 
-      this.aab_bann1_id = aab_bann1_id;
-      this.aab_bann1_token = aab_bann1_token;
-
       if(this.aab_bann1_id) { 
         if(this.aab_bann1_token) { 
+
+          console.log('pepe');
 
             axios.post('/aab-bann1-publish-pro', {
 
@@ -49,8 +48,7 @@ createApp({
                       console.log('el_id es:'+response.data.aab_bann1_id);
                       console.log('el_button es: '+button); 
                    
-                   //   this.id.['b1'$response.data.aab_bann1_id]=false;                     
-              
+             
                     
                    //$scope['butt1on'+$scope.backarray.bbp_prod1_id] = true; //ng-hide   
                    //$scope['bcolor'+$scope.backarray.aab_bann1_id] = { "background-color": "#FFEAE7" };
