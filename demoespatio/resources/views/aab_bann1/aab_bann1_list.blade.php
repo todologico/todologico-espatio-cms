@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{url('/')}}/panel/css/bracket.css">
     <script src="https://use.fontawesome.com/4ce3a16048.js"></script>
 
-    <script src="https://unpkg.com/vue@3.2.47/dist/vue.global.prod.js"></script>  
+    <script src="https://unpkg.com/vue@next"></script>  
     
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
    
@@ -49,7 +49,7 @@
           @endif          
 
           <div class="bd bd-gray-300 rounded table-responsive" id="app" v-cloak>
-            <table class="table mg-b-0  table-colored table-dark">fffffffffffffffff 
+            <table class="table mg-b-0  table-colored table-dark">fffffffffffffffff <span :id="mytest"></span>
               <thead>   
 
              </tr>                
@@ -88,11 +88,14 @@
                   <td style="<?=$bgcolor;?>" v-bind:style="">
 
                     <?if($reg->aab_bann1_enable=='1'){?>test
-                    
-                      
-                      <button type="button" v-cloak :id="b2{{$reg->aab_bann1_id}}" v-if="b2{{$reg->aab_bann1_id}}" @click="ShowHideBannersAR({{$reg->aab_bann1_id}},'{{$reg->aab_bann1_token}}','2')"  class="btn btn-danger btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> OFF111</button>
 
-                      <button type="button" v-cloak :id="b1{{$reg->aab_bann1_id}}"   v-else @click="ShowHideBannersAR({{$reg->aab_bann1_id}},'{{$reg->aab_bann1_token}}','1')" class="btn btn-success btn-sm"><i class="fa fa-power-off" aria-hidden="true"></i> ON222</button>
+                      
+                      <button type="button" v-cloak  :id="b2{{$reg->aab_bann1_id}}" v-show="false"  @click="ShowHideBannersAR({{$reg->aab_bann1_id}},'{{$reg->aab_bann1_token}}','2')"  class="btn btn-danger btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> OFF222 </button>
+
+
+                      <button type="button" v-cloak :id="b1{{$reg->aab_bann1_id}}" v-show="true"   @click="ShowHideBannersAR({{$reg->aab_bann1_id}},'{{$reg->aab_bann1_token}}','1')" class="btn btn-success btn-sm"><i class="fa fa-power-off" aria-hidden="true"></i> ON11</button>    
+
+                     
 
                       <?} else {?> 
 
