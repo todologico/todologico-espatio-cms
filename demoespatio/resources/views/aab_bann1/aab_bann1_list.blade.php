@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="AAB_Bann1App">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,17 +11,14 @@
     <link rel="stylesheet" href="{{url('/')}}/panel/css/bracket.css">
     <script src="https://use.fontawesome.com/4ce3a16048.js"></script>
 
-    <script src="https://unpkg.com/vue@3.2.47/dist/vue.global.prod.js"></script>  
-    
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-   
     <style>
-    [v-cloak] { display: none; }
-    </style>    
- 
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-    ng-cloak {
+        display: none !important;
+    }
+    </style>
   </head>
 
-   <body>
+   <body ng-controller="AAB_Bann1Controller" ng-cloak>
 
     @include('includes.menuizq')
 
@@ -48,11 +45,9 @@
               </div>
           @endif          
 
-          <div class="bd bd-gray-300 rounded table-responsive" id="app" v-cloak>
-            <table class="table mg-b-0  table-colored table-dark">tttttttttttt 
-              <thead>   
-
-             </tr>                
+          <div class="bd bd-gray-300 rounded table-responsive">
+            <table class="table mg-b-0  table-colored table-dark">
+              <thead>          
                 <tr>
                   <th>Delete</th>
                   <th>ID</th>
@@ -70,41 +65,42 @@
 
                 <? if($reg->aab_bann1_enable=='1'){$bgcolor='background-color: #EEFBE7;';} else {$bgcolor=' background-color: #FFEAE7';}?>
 
-                <tr :id="{{$reg->aab_bann1_id}}">
+                <tr>
 
-                 <td style="<?=$bgcolor;?>">
+                 <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->aab_bann1_id}}">
                       <a href="{{route('aab-bann1-delete-pro',[$reg->aab_bann1_id,$reg->aab_bann1_token])}}"><button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i> Del</button></a></td>
                   
-                  <td style="<?=$bgcolor;?>">{{$reg->aab_bann1_id}}</td>
+                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->aab_bann1_id}}">{{$reg->aab_bann1_id}}</td>
                  
-                  <td style=" max-width: 350px;<?=$bgcolor;?>">{{$reg->aab_bann1_banner}}</td>                  
+                  <td style=" max-width: 350px;<?=$bgcolor;?>" ng-style="bcolor{{$reg->aab_bann1_id}}">{{$reg->aab_bann1_banner}}</td>                  
                   
-                  <td style="<?=$bgcolor;?>"><?if(isset($reg->aab_bann1_image1)){?><a href="{{url('/')}}/storage/uploaddir/{{$reg->aab_bann1_image1}}" target="_blank"><img src="{{url('/')}}/storage/uploaddir/{{$reg->aab_bann1_image1}}" style="height:80px;" /></a><?}?></td> 
+                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->aab_bann1_id}}"><?if(isset($reg->aab_bann1_image1)){?><a href="{{url('/')}}/storage/uploaddir/{{$reg->aab_bann1_image1}}" target="_blank"><img src="{{url('/')}}/storage/uploaddir/{{$reg->aab_bann1_image1}}" style="height:80px;" /></a><?}?></td>                  
                   
-                  <td style="<?=$bgcolor;?>"><a href="{{route('aab-bann1-images-update',[$reg->aab_bann1_id,$reg->aab_bann1_token])}}"><button type="button" class="btn btn-warning btn-sm"><i class="fa fa-file-image-o" aria-hidden="true"></i> Image</button></a></td>                  
+                  <!-- <td  style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->aab_bann1_id}}"><?if(isset($reg->aab_bann1_image2)){?><a href="{{url('/')}}/storage/uploaddir/{{$reg->aab_bann1_image2}}" target="_blank"><img src="{{url('/')}}/storage/uploaddir/{{$reg->aab_bann1_image2}}" style="height:80px;" /></a><?}?></td>   -->                
                   
-                  <td style="<?=$bgcolor;?>"><a href="{{route('aab-bann1-clone-pro',[$reg->aab_bann1_id,$reg->aab_bann1_token])}}"><button type="button" class="btn btn-primary btn-sm" style="background-color: #4B330B; border-color: #4B330B;"><i class="fa fa-files-o" aria-hidden="true"></i> Clone</button></a></td>
+                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->aab_bann1_id}}"><a href="{{route('aab-bann1-images-update',[$reg->aab_bann1_id,$reg->aab_bann1_token])}}"><button type="button" class="btn btn-warning btn-sm"><i class="fa fa-file-image-o" aria-hidden="true"></i> Image</button></a></td>                  
                   
-                  <td style="<?=$bgcolor;?>" v-bind:style="">
+                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->aab_bann1_id}}"><a href="{{route('aab-bann1-clone-pro',[$reg->aab_bann1_id,$reg->aab_bann1_token])}}"><button type="button" class="btn btn-primary btn-sm" style="background-color: #4B330B; border-color: #4B330B;"><i class="fa fa-files-o" aria-hidden="true"></i> Clone</button></a></td>
+                  
+                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->aab_bann1_id}}">
 
-                    <?if($reg->aab_bann1_enable=='1'){?>test
-                    
-                      
-                      <button type="button" v-cloak  v-show="false"  @click="ShowHideBannersAR({{$reg->aab_bann1_id}},'{{$reg->aab_bann1_token}}','2')"  class="btn btn-danger btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> OFF111</button>
+                    <?if($reg->aab_bann1_enable=='1'){?>
 
-                      <button type="button" v-cloak v-show="true"   @click="ShowHideBannersAR({{$reg->aab_bann1_id}},'{{$reg->aab_bann1_token}}','1')" class="btn btn-success btn-sm"><i class="fa fa-power-off" aria-hidden="true"></i> ON222</button>
+                        <button type="button" ng-cloak ng-hide="butt1on{{$reg->aab_bann1_id}}" ng-click="ShowHideBannersAR({{$reg->aab_bann1_id}},'{{$reg->aab_bann1_token}}','1')" class="btn btn-success btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> ON</button>
+
+                        <button type="button" ng-cloak ng-show="butt2on{{$reg->aab_bann1_id}}" ng-click="ShowHideBannersAR({{$reg->aab_bann1_id}},'{{$reg->aab_bann1_token}}','2')" class="btn btn-danger btn-sm"><i class="fa fa-power-off" aria-hidden="true"></i> OFF</button>
 
                       <?} else {?> 
 
-                        <button type="button" v-cloak class="btn btn-danger btn-sm"><i class="fa fa-power-off" aria-hidden="true"></i> OFF</button>
+                        <button type="button" ng-cloak ng-hide="butt3on{{$reg->aab_bann1_id}}" ng-click="ShowHideBannersAR({{$reg->aab_bann1_id}},'{{$reg->aab_bann1_token}}','3')" class="btn btn-danger btn-sm"><i class="fa fa-power-off" aria-hidden="true"></i> OFF</button>
 
-                        <button type="button" v-cloak class="btn btn-success btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> ON</button>
+                        <button type="button" ng-cloak ng-show="butt4on{{$reg->aab_bann1_id}}" ng-click="ShowHideBannersAR({{$reg->aab_bann1_id}},'{{$reg->aab_bann1_token}}','4')" class="btn btn-success btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> ON</button>
 
                     <?}?>
 
                   </td>
                   
-                  <td style="<?=$bgcolor;?>"><a href="{{route('aab-bann1-update',[$reg->aab_bann1_id,$reg->aab_bann1_token])}}"><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-file-text" aria-hidden="true"></i> Edit</button></a></td>
+                  <td style="<?=$bgcolor;?>" ng-style="bcolor{{$reg->aab_bann1_id}}"><a href="{{route('aab-bann1-update',[$reg->aab_bann1_id,$reg->aab_bann1_token])}}"><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-file-text" aria-hidden="true"></i> Edit</button></a></td>
                  
                 </tr>
 
@@ -121,7 +117,15 @@
           </div>
 
 
-      
+          <!-- <div class="ht-80 bd d-flex align-items-center justify-content-center">
+            <nav aria-label="Page navigation">
+              <ul class="pagination pagination-basic mg-b-0">
+
+              
+               
+              </ul>
+            </nav>
+          </div>   -->        
 
         </div><!-- br-section-wrapper -->
       </div><!-- br-pagebody -->
@@ -134,9 +138,12 @@
     <script src="{{url('/')}}/panel/lib/moment/min/moment.min.js"></script>
     <script src="{{url('/')}}/panel/lib/peity/jquery.peity.min.js"></script>
     <script src="{{url('/')}}/panel/lib/highlightjs/highlight.pack.min.js"></script>
+
     <script src="{{url('/')}}/panel/js/bracket.js"></script>
 
-    <script type="module" src="{{url('/')}}/vuejs/vue_bbp_prod1.js"></script> 
+    <script src="{{url('/')}}/angular/angular.js"></script>
+    <script src="{{url('/')}}/angular/aab_bann1.js"></script>
+
 
   </body>
 </html>
