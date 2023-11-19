@@ -25,7 +25,7 @@ public function test_get_AAB_Bann1_CR(){
 
     $this->withoutExceptionHandling();
 
-    $user = User::find(1);
+    $user = User::find(50);
 
     $response = $this->actingAs($user)->get('/aab-bann1-list'); 
 
@@ -49,7 +49,7 @@ public function test_insert_AAB_Bann1_CR(){
 
   $this->withoutExceptionHandling();
 
-  $user = User::find(1);
+  $user = User::find(50);
 
   $response = $this->actingAs($user)->post('aab-bann1-insert-pro',[
     'aab_bann1_banner' => 'european cup1',
@@ -76,7 +76,7 @@ public function test_update_AAB_Bann1_CR(){
 
   $this->withoutExceptionHandling();
 
-  $user = User::find(1);
+  $user = User::find(50);
   $db=  aab_bann1::first();
 
   //string to update
@@ -106,7 +106,7 @@ public function test_update_AAB_Bann1_CR(){
 //-----------------------------------------------------------------
 public function test_delete_AAB_Bann1_CR(){
 
-    $user = User::find(1);
+    $user = User::find(50);
     $db=  aab_bann1::orderby('aab_bann1_id', 'desc')->first();
 
     $count = aab_bann1::all()->count();

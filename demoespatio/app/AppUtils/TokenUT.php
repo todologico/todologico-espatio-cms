@@ -28,7 +28,7 @@ public function __construct(){}
 // TOKEN GENERATOR - MIN 20 - MAX 500 characters.
 //----------------------------------------------------------
 
-public function generatorTokenUT($width=null)
+public function generatorTokenUT(int $width = null): string
 {
 
     $mytoken= null;
