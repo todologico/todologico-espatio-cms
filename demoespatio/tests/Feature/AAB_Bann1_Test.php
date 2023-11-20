@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Tests\Feature;
 
@@ -17,11 +18,13 @@ class AAB_Bann1_Test extends TestCase
 {
 
 
+
 //----------------------------------------------------------
 // GET LIST RECORDS TESTING
 //----------------------------------------------------------    
 
-public function test_get_AAB_Bann1_CR(){
+public function test_get_AAB_Bann1_CR(): void
+{
 
     $this->withoutExceptionHandling();
 
@@ -45,7 +48,8 @@ public function test_get_AAB_Bann1_CR(){
 // INSERT TEST
 //----------------------------------------------------------    
 
-public function test_insert_AAB_Bann1_CR(){
+public function test_insert_AAB_Bann1_CR(): void
+{
 
   $this->withoutExceptionHandling();
 
@@ -72,7 +76,8 @@ public function test_insert_AAB_Bann1_CR(){
 //-----------------------------------------------------------------
 //UPDATE PRO TEST
 //-----------------------------------------------------------------
-public function test_update_AAB_Bann1_CR(){
+public function test_update_AAB_Bann1_CR(): void
+{
 
   $this->withoutExceptionHandling();
 
@@ -104,7 +109,8 @@ public function test_update_AAB_Bann1_CR(){
 //-----------------------------------------------------------------
 //DELETE PRO TEST
 //-----------------------------------------------------------------
-public function test_delete_AAB_Bann1_CR(){
+public function test_delete_AAB_Bann1_CR(): void
+{
 
     $user = User::find(50);
     $db=  aab_bann1::orderby('aab_bann1_id', 'desc')->first();
